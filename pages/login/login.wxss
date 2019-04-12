@@ -1,0 +1,6 @@
+/* pages/login.wxss */
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
