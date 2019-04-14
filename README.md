@@ -1,7 +1,7 @@
 # miniProgram
 miniProgram for project
 
-dist文件夹下是[ivew UI组件库]https://weapp.iviewui.com/ 
+dist文件夹下是[ivew UI组件库](https://weapp.iviewui.com/)
 
 style文件夹下是 [weui官方样式库](https://github.com/Tencent/weui)
 
