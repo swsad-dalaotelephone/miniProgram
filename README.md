@@ -1,5 +1,5 @@
-# miniProgram
-miniProgram for project
+# 包包赚微信小程序
+
 
 dist文件夹下是[ivew UI组件库](https://weapp.iviewui.com/)
 
