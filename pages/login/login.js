@@ -16,9 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    // utils.login((res) => {
-
-    // })
+    
   },
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
@@ -45,7 +43,7 @@ Page({
       // });
       app.globalData.userInfo = e.detail.userInfo
       //授权成功后，跳转进入小程序首页
-      wx.navigateTo({ url: '/pages/index/index' })
+      wx.navigateBack({ url: '/pages/index/index' })
     } else {
       //用户按了拒绝按钮
       wx.showModal({

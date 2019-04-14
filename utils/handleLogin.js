@@ -1,12 +1,9 @@
-//获取应用实例
-const app = getApp()
 // 开始login
 function login(callback) {
   wx.showLoading()
   wx.login({
     success(res) {
       if (res.code) {
-        console.log(res)
         // 登录成功，获取用户信息
         getUserInfo(res.code, callback)
       } else {
@@ -26,10 +23,10 @@ function getUserInfo(code, callback) {
     // 获取成功，全局存储用户信息，开发者服务器登录
     success(res) {
       // 全局存储用户信息
-      app.globalData.userInfo = res.userInfo
+      callback && callback(res.userInfo)
       // postLogin(code, res.iv, res.encryptedData, callback)
       wx.hideLoading()
-      wx.navigateTo({
+      wx.navigateBack({
         url: '/pages/index/index',
       })
     },
@@ -42,7 +39,6 @@ function getUserInfo(code, callback) {
       // store.commit('storeUpdateToken', '')
       // app.getUserInfo.userInfo=null
       // 获取不到用户信息，说明用户没有授权或者取消授权。弹窗提示一键登录，后续会讲
-      showLoginModal()
     }
   })
 }
@@ -72,13 +68,15 @@ function postLogin(code, iv, encryptedData, callback) {
 
 // 判断是否登录
 function isLogin(callback) {
-  let userInfo = app.globalData.userInfo
+  let userInfo = getApp().globalData.userInfo
   if (userInfo) {
     // 如果有全局存储的登录态，暂时认为他是登录状态
     callback && callback()
   } else {
     // 如果没有登录态，弹窗提示一键登录
-    showLoginModal()
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
   }
 }
 
@@ -87,23 +85,6 @@ function showToast(content = '登录失败，请稍后再试') {
   wx.showToast({
     title: content,
     icon: 'none'
-  })
-}
-
-// 显示一键登录的弹窗
-function showLoginModal() {
-  wx.showModal({
-    title: '提示',
-    content: '你还未登录，登录后可获得完整体验 ',
-    confirmText: '一键登录',
-    success(res) {
-      // 点击一键登录，去授权页面
-      if (res.confirm) {
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-      }
-    }
   })
 }
 
