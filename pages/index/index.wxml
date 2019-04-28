@@ -1,5 +1,9 @@
 <!--index.wxml-->
 <view class='page'>
+
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
           <block wx:for="{{background}}" wx:key="*this">
             <swiper-item>
@@ -7,29 +11,22 @@
             </swiper-item>
           </block>
         </swiper>
-  <view class="page__bd page__bd_spacing">
-    <view class="weui-flex">
-      <view class="weui-flex__item">
       </view>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <view class="placeholder">问卷</view>
+
+    <i-grid>
+      <view class="icon-item" wx:for="{{ iconList }}" wx:key="{{ item }}">
+        <i-icon type="{{ item.icon }}" size="28" color="#80848f"></i-icon>
+        <view class="icon-item-name">{{ item.name }}</view>
       </view>
-      <view class="weui-flex__item">
-        <view class="placeholder">信息收集</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder">招募</view>
-      </view>
-      <view class="weui-flex__item">
-        <view class="placeholder">物流</view>
-      </view>
+    </i-grid>
+    <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
+    <i-card full title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo ">
+      <view slot="content">{{item.time}}</view>
+      <view slot="footer">{{item.location}}</view>
+    </i-card>
     </view>
-    <view class="weui-flex">
-      <view class="weui-flex__item">
-        <view class="placeholder">这是列表</view>
-      </view>
-    </view>
+
+    <i-load-more tip="哎呀，没有更多了~" loading="{{ false }}" />
   </view>
 </view>

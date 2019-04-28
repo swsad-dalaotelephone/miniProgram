@@ -8,3 +8,27 @@
     line-height: 2.3em;
     color: #cfcfcf;
 }
+
+swiper {
+  height: 310px
+}
+
+.imgw {
+  width: 100%;
+  height: 300px;
+}
+
+.icon-item{
+    display: block;
+    padding: 16px 0;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+.icon-item-name{
+    font-size: 10px;
+}
+
+.card-demo image {
+  border-radius: 50%;
+}
