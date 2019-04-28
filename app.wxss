@@ -33,3 +33,12 @@ page{
     text-align: left;
     font-size: 14px;
 }
+
+swiper {
+  height: 310px
+}
+
+.imgw {
+  width: 100%;
+  height: 300px;
+}
