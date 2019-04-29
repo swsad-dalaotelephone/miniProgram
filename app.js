@@ -13,6 +13,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    currentTask: '问卷'
   }
 })

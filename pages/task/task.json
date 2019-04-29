@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-card": "../../components/my-card/index",
+    "i-load-more": "../../dist/load-more/index",
+    "i-icon": "../../dist/icon/index"
+  },
+  "enablePullDownRefresh": true
 }

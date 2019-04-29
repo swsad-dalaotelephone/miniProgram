@@ -1,5 +1,20 @@
 <!--pages/task/task.wxml-->
 <view class='page'>
-  <text>任务列表</text>
-</view>
+  <view class='head'>
+    <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
+    <text>{{typeName}}</text>
+    <i-icon type="add" size="28" color="white"></i-icon>
+  </view>
 
+  <view class="page__bd page__bd_spacing">
+    <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
+      <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo">
+        <view slot="content">{{item.time}}</view>
+        <view slot="footer">{{item.location}}</view>
+      </my-card>
+
+    </view>
+
+    <i-load-more tip="哎呀，没有更多了~" loading="{{ false }}" />
+  </view>
+</view>

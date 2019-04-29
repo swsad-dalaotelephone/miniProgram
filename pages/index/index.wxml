@@ -16,15 +16,18 @@
 
     <i-grid>
       <view class="icon-item" wx:for="{{ iconList }}" wx:key="{{ item }}">
-        <i-icon type="{{ item.icon }}" size="28" color="#80848f"></i-icon>
-        <view class="icon-item-name">{{ item.name }}</view>
+        <view bindtap='handletap' data-name='{{item.name}}'>
+          <i-icon type="{{ item.icon }}" size="28" color="#80848f"></i-icon>
+          <view class="icon-item-name">{{ item.name }}</view>
+        </view>
+
       </view>
     </i-grid>
     <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-    <i-card full title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo ">
-      <view slot="content">{{item.time}}</view>
-      <view slot="footer">{{item.location}}</view>
-    </i-card>
+      <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo ">
+        <view slot="content">{{item.time}}</view>
+        <view slot="footer">{{item.location}}</view>
+      </my-card>
     </view>
 
     <i-load-more tip="哎呀，没有更多了~" loading="{{ false }}" />

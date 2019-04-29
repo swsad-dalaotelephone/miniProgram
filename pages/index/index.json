@@ -3,7 +3,8 @@
     "i-icon": "../../dist/icon/index",
     "i-grid": "../../dist/grid/index",
     "i-grid-item": "../../dist/grid-item/index",
-    "i-card": "../../dist/card/index",
+    "my-card": "../../components/my-card/index",
     "i-load-more": "../../dist/load-more/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

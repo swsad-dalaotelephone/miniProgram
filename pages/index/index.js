@@ -22,5 +22,21 @@ Page({
   //事件处理函数
   onLoad: function() {
 
-  }
+  },
+  handletap: function(e) {
+    app.globalData.currentTask = e.currentTarget.dataset.name
+    wx.switchTab({
+      url: '/pages/task/task'
+    })
+  },
+  /**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: 'loading...',
+      icon: 'loading'
+    })
+  },
+
 })

@@ -1,1 +1,31 @@
 /* pages/task/task.wxss */
+
+
+.card-demo image {
+  border-radius: 50%;
+}
+
+.page1 {
+  display: flex;
+  flex-direction: column
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;     /* 垂直居中 */
+  height: 90px;
+  color: white;
+  background-color: #77a9fd
+}
+
+.taskList {
+  position: relative;
+  top: -15px;
+}
+
+.icon {
+  height: 28px;
+  width: 28px;
+}
