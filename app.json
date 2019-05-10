@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/login/login",
     "pages/mine/mine",
-    "pages/task/task"
+    "pages/task/task",
+    "pages/newtask/newtask"
   ],
   "window": {
     "backgroundTextStyle": "light",
