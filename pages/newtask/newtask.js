@@ -11,7 +11,8 @@ Page({
       type: 'choice',
       content: 'Test',
       options: [{
-        content: ''
+        content: '',
+        index: 'A'
       }
       ]
     },
