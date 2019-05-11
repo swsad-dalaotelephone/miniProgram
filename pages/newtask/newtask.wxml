@@ -57,7 +57,7 @@
               <i-row>
                   <i-col span="3" i-class="col-class">
                     <view class="addOptionButton">
-                      <i-icon type="add" bindtap='handleReturn' size="20" color="#1e98ea" opacity="{{index == 0}}"> </i-icon>  
+                      <i-icon type="add" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index == 0}}"> </i-icon>  
                     </view>
                   </i-col>
                   <i-col span="2" i-class="col-class">
@@ -65,7 +65,7 @@
                       {{item.index+':'}}
                     </view>
                   </i-col>
-                  <i-col span="8" i-class="col-class">
+                  <i-col span="8"  i-class="col-class">
                     <input placeholder="请输入选项" class="optionInput"/>
                   </i-col>
                   <i-col span="6" i-class="col-class">
@@ -78,16 +78,12 @@
           </view>
 
           <view class="TextPanel" wx:if="{{item.type == 'text'}}">
-            <view> text</view>
+             <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
           </view>  
-
-          
-
 
       </view>
 
-
-    </i-panel>
+      </i-panel>
   
     <view class="footer"> 
       <i-icon type="right" size="36" color="black"></i-icon>
