@@ -27,6 +27,12 @@ Page({
     })
   },
 
+  handleAddButton: function() {
+    wx.navigateTo({
+      url: '/pages/newtask/newtask',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
