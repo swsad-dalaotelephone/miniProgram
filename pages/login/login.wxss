@@ -1,6 +1,25 @@
 /* pages/login.wxss */
-.bottom {
-    border-radius: 80rpx;
-    margin: 70rpx 50rpx;
-    font-size: 35rpx;
+
+.toRegister{
+    text-decoration: underline;
+    margin-top: 40rpx;
+    text-align: center;
+    color: #77A9FD;
+}
+
+.toWechat{
+    margin-top: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toWechat image{
+    width: 100rpx;
+    height: 100rpx;
+    
+    /* temp */
+    background: #77A9FD;
+    
 }

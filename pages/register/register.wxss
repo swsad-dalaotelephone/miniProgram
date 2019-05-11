@@ -1,0 +1,18 @@
+/* pages/register/register.wxss */
+
+.toLogin{
+    text-decoration: underline;
+    margin-top: 40rpx;
+    text-align: center;
+    color: #77A9FD;
+}
+
+.obtainVeriCode{
+    color: #77A9FD;
+    text-decoration: underline;
+    float: right;
+    margin-right: 26rpx;
+    font-size: 28rpx;
+    margin-top:26rpx;
+
+}

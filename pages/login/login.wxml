@@ -1,6 +1,6 @@
 <!--pages/login.wxml-->
 
-<view class="weui-cells__title">登录注册更精彩</view>
+<!-- <view class="weui-cells__title">登录注册更精彩</view>
 <view class="weui-cells weui-cells_after-title">
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
@@ -17,9 +17,9 @@
     <view class="weui-cell__bd">
       <input class="weui-input" placeholder="请输入手机号" />
     </view>
-    <!-- <view class="weui-cell__ft">
+    <view class="weui-cell__ft">
       <view class="weui-vcode-btn">获取验证码</view>
-    </view> -->
+    </view>
   </view>
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
@@ -35,4 +35,27 @@
 <view class="weui-btn-area">
   <button class="weui-btn" type="primary"> 账号登录</button>
   <button class="weui-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">微信登录</button>
+</view> -->
+
+<view class="titleBox">
+  <view>SIGN IN</view>
 </view>
+
+<view class="inputPhone inputBox">
+  <image class="headImg"/>
+  <view class="text">Enter phone number</view>
+</view>
+
+<view class="inputPass inputBox">
+  <image class="headImg"/>
+  <view class="text">Enter password</view>
+</view>
+
+<button class="confirmButton">CONFIRM</button>
+
+<view class="toRegister"><text id="toRegister">注册/Sign up</text></view>
+
+<view class="toWechat">
+  <image id="toWechat"/>
+</view>
+
