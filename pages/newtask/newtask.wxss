@@ -46,3 +46,22 @@
 .input {
   height: 10px;
 }
+
+.questionContentInput {
+  font-size: 15px;
+}
+
+.optionInput {
+  font-size: 14px;
+}
+
+.choiceIndex {
+  color: #8e9094;
+}
+
+.questionIndex {
+  text-align: center;
+}
+.addOptionButton {
+  text-align: center
+}

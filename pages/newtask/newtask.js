@@ -9,10 +9,14 @@ Page({
   data: {
     questionList: [{
       type: 'choice',
-      content: 'Test',
+      content: '',
       options: [{
         content: '',
         index: 'A'
+      }, 
+      {
+        content: '',
+        index: 'B'
       }
       ]
     },
