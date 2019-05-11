@@ -43,6 +43,52 @@ Page({
     })
   },
 
+  handleDeleteQuestion: function (e) {
+    var index = e.currentTarget.dataset.index;
+    var newQuestionList = this.data.questionList;
+    console.log(newQuestionList);
+    newQuestionList.splice(index, 1);
+    console.log(newQuestionList);
+    this.setData({
+      questionList: newQuestionList
+    });
+  },
+
+  handleAddText: function (){
+    var newQuestionList = this.data.questionList;
+    console.log(newQuestionList);
+    newQuestionList.push({
+      type: 'text',
+      content: ''
+    });
+    console.log(newQuestionList);
+    this.setData({
+      questionList: newQuestionList
+    });    
+  },
+
+  handleAddChoice: function () {
+    var newQuestionList = this.data.questionList;
+    console.log(newQuestionList);
+    newQuestionList.push({
+      type: 'choice',
+      content: '',
+      options: [{
+        content: '',
+        index: 'A'
+      },
+      {
+        content: '',
+        index: 'B'
+      },
+      ]
+    });
+    console.log(newQuestionList);
+    this.setData({
+      questionList: newQuestionList
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

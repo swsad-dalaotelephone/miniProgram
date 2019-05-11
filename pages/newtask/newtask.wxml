@@ -49,7 +49,7 @@
                 </i-col>
 
                 <i-col span="3" i-class="col-class">
-                  <i-icon type="delete" bindtap='handleReturn' size="28" color="#1e98ea"> </i-icon>          
+                  <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#1e98ea"> </i-icon>          
                 </i-col>
             </i-row>
             
@@ -88,13 +88,13 @@
       <view class="addQuestionPanel">
         <i-row>
             <i-col span="9" offset="5" i-class="col-class">
-              <view class="addQuesion">
+              <view class="addQuesion" bindtap='handleAddText'>
                 <i-icon type="brush" size="30" i-class="addQuestionButton"/>
                 <view>填空题</view>
               </view>           
             </i-col>
             <i-col span="8" i-class="col-class">
-              <view class="addQuesion">
+              <view class="addQuesion" bindtap='handleAddChoice'>
                 <i-icon type="label" size="30" i-class="addQuestionButton"/>
                 <view>选择题</view>
               </view>  
