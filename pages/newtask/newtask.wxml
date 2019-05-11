@@ -36,56 +36,72 @@
       </i-row>
   
       <i-divider height="10"> </i-divider>
+      
+      <scroll-view scroll-y="true" style="height: 600rpx;">
+        <view class="question" wx:for="{{questionList}}">
+            <i-row i-class="questionTitle">
+                <i-col span="3" i-class="col-class">
+                  <view class="questionIndex">{{index + 1}}.</view>
+                </i-col>
 
-      <view class="question" wx:for="{{questionList}}">
-          <i-row i-class="questionTitle">
-              <i-col span="3" i-class="col-class">
-                <view class="questionIndex">{{index + 1}}.</view>
-              </i-col>
+                <i-col span="18" i-class="col-class">
+                  <input placeholder="请输入题目" class="questionContentInput" />
+                </i-col>
 
-              <i-col span="18" i-class="col-class">
-                <input placeholder="请输入题目" class="questionContentInput" />
-              </i-col>
-
-              <i-col span="3" i-class="col-class">
-                <i-icon type="delete" bindtap='handleReturn' size="28" color="#1e98ea"> </i-icon>          
-              </i-col>
-          </i-row>
-          
-          <view class="optionsPanel" wx:if="{{item.type == 'choice'}}">
-            <view class="option" wx:for="{{item.options}}"> 
-              <i-row>
-                  <i-col span="3" i-class="col-class">
-                    <view class="addOptionButton">
-                      <i-icon type="add" bindtap='handleReturn' size="20" color="#1e98ea" opacity="{{index == 0}}"> </i-icon>  
-                    </view>
-                  </i-col>
-                  <i-col span="2" i-class="col-class">
-                    <view class="choiceIndex">
-                      {{item.index+':'}}
-                    </view>
-                  </i-col>
-                  <i-col span="8" i-class="col-class">
-                    <input placeholder="请输入选项" class="optionInput"/>
-                  </i-col>
-                  <i-col span="6" i-class="col-class">
-                    <i-icon type="delete" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index==questionList.length-1 && index > 0}}"></i-icon>
-                  
-                  </i-col>
-              </i-row>
-              
+                <i-col span="3" i-class="col-class">
+                  <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#1e98ea"> </i-icon>          
+                </i-col>
+            </i-row>
+            
+            <view class="optionsPanel" wx:if="{{item.type == 'choice'}} ">
+              <view class="option" wx:for="{{item.options}}" wx:for-index="idx" wx:for-item="option"> 
+                <i-row>
+                    <i-col span="3" i-class="col-class">
+                      <view class="addOptionButton">
+                        <i-icon type="add" bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"> </i-icon>  
+                      </view>
+                    </i-col>
+                    <i-col span="2" i-class="col-class">
+                      <view class="choiceIndex">
+                        {{option.index+':'}}
+                      </view>
+                    </i-col>
+                    <i-col span="8"  i-class="col-class">
+                      <input placeholder="请输入选项" class="optionInput"/>
+                    </i-col>
+                    <i-col span="6" i-class="col-class">
+                      <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.options.length-1 && idx >= 2}}"></i-icon>
+                    
+                    </i-col>
+                </i-row>
+                
+              </view>
             </view>
-          </view>
 
-          <view class="TextPanel" wx:if="{{item.type == 'text'}}">
-            <view> text</view>
-          </view>  
+            <view class="TextPanel" wx:if="{{item.type == 'text'}}">
+              <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
+            </view>  
+        </view>
 
-          
+      </scroll-view>
 
+      <view class="addQuestionPanel">
+        <i-row>
+            <i-col span="9" offset="5" i-class="col-class">
+              <view class="addQuesion" bindtap='handleAddText'>
+                <i-icon type="brush" size="30" i-class="addQuestionButton"/>
+                <view>填空题</view>
+              </view>           
+            </i-col>
+            <i-col span="8" i-class="col-class">
+              <view class="addQuesion" bindtap='handleAddChoice'>
+                <i-icon type="label" size="30" i-class="addQuestionButton"/>
+                <view>选择题</view>
+              </view>  
+            </i-col>
+        </i-row>
 
       </view>
-
 
     </i-panel>
   
