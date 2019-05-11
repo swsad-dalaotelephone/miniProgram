@@ -23,7 +23,27 @@ Page({
     {
       type: 'text',
       content: '',
-    }
+    },
+      {
+        type: 'text',
+        content: '',
+      },
+      {
+        type: 'text',
+        content: '',
+      },
+      {
+        type: 'text',
+        content: '',
+      },
+      {
+        type: 'text',
+        content: '',
+      },
+      {
+        type: 'text',
+        content: '',
+      }
     ], 
     array: ['问卷', '信息收集', '招募', '物流'],
     index: 0,

@@ -36,54 +36,56 @@
       </i-row>
   
       <i-divider height="10"> </i-divider>
+      
+      <scroll-view scroll-y="true" style="height: 500rpx;">
+        <view class="question" wx:for="{{questionList}}">
+            <i-row i-class="questionTitle">
+                <i-col span="3" i-class="col-class">
+                  <view class="questionIndex">{{index + 1}}.</view>
+                </i-col>
 
-      <view class="question" wx:for="{{questionList}}">
-          <i-row i-class="questionTitle">
-              <i-col span="3" i-class="col-class">
-                <view class="questionIndex">{{index + 1}}.</view>
-              </i-col>
+                <i-col span="18" i-class="col-class">
+                  <input placeholder="请输入题目" class="questionContentInput" />
+                </i-col>
 
-              <i-col span="18" i-class="col-class">
-                <input placeholder="请输入题目" class="questionContentInput" />
-              </i-col>
-
-              <i-col span="3" i-class="col-class">
-                <i-icon type="delete" bindtap='handleReturn' size="28" color="#1e98ea"> </i-icon>          
-              </i-col>
-          </i-row>
-          
-          <view class="optionsPanel" wx:if="{{item.type == 'choice'}}">
-            <view class="option" wx:for="{{item.options}}"> 
-              <i-row>
-                  <i-col span="3" i-class="col-class">
-                    <view class="addOptionButton">
-                      <i-icon type="add" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index == 0}}"> </i-icon>  
-                    </view>
-                  </i-col>
-                  <i-col span="2" i-class="col-class">
-                    <view class="choiceIndex">
-                      {{item.index+':'}}
-                    </view>
-                  </i-col>
-                  <i-col span="8"  i-class="col-class">
-                    <input placeholder="请输入选项" class="optionInput"/>
-                  </i-col>
-                  <i-col span="6" i-class="col-class">
-                    <i-icon type="delete" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index==questionList.length-1 && index > 0}}"></i-icon>
-                  
-                  </i-col>
-              </i-row>
-              
+                <i-col span="3" i-class="col-class">
+                  <i-icon type="delete" bindtap='handleReturn' size="28" color="#1e98ea"> </i-icon>          
+                </i-col>
+            </i-row>
+            
+            <view class="optionsPanel" wx:if="{{item.type == 'choice'}}">
+              <view class="option" wx:for="{{item.options}}"> 
+                <i-row>
+                    <i-col span="3" i-class="col-class">
+                      <view class="addOptionButton">
+                        <i-icon type="add" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index == 0}}"> </i-icon>  
+                      </view>
+                    </i-col>
+                    <i-col span="2" i-class="col-class">
+                      <view class="choiceIndex">
+                        {{item.index+':'}}
+                      </view>
+                    </i-col>
+                    <i-col span="8"  i-class="col-class">
+                      <input placeholder="请输入选项" class="optionInput"/>
+                    </i-col>
+                    <i-col span="6" i-class="col-class">
+                      <i-icon type="delete" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index==questionList.length-1 && index > 0}}"></i-icon>
+                    
+                    </i-col>
+                </i-row>
+                
+              </view>
             </view>
-          </view>
 
-          <view class="TextPanel" wx:if="{{item.type == 'text'}}">
-             <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
-          </view>  
+            <view class="TextPanel" wx:if="{{item.type == 'text'}}">
+              <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
+            </view>  
+        </view>
 
-      </view>
+      </scroll-view>
 
-      </i-panel>
+    </i-panel>
   
     <view class="footer"> 
       <i-icon type="right" size="36" color="black"></i-icon>
