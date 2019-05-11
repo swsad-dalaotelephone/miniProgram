@@ -53,24 +53,24 @@
                 </i-col>
             </i-row>
             
-            <view class="optionsPanel" wx:if="{{item.type == 'choice'}}">
-              <view class="option" wx:for="{{item.options}}"> 
+            <view class="optionsPanel" wx:if="{{item.type == 'choice'}} ">
+              <view class="option" wx:for="{{item.options}}" wx:for-index="idx" wx:for-item="option"> 
                 <i-row>
                     <i-col span="3" i-class="col-class">
                       <view class="addOptionButton">
-                        <i-icon type="add" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index == 0}}"> </i-icon>  
+                        <i-icon type="add" bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"> </i-icon>  
                       </view>
                     </i-col>
                     <i-col span="2" i-class="col-class">
                       <view class="choiceIndex">
-                        {{item.index+':'}}
+                        {{option.index+':'}}
                       </view>
                     </i-col>
                     <i-col span="8"  i-class="col-class">
                       <input placeholder="请输入选项" class="optionInput"/>
                     </i-col>
                     <i-col span="6" i-class="col-class">
-                      <i-icon type="delete" bindtap='handleReturn' size="20" color="#1e98ea" wx:if="{{index==questionList.length-1 && index > 0}}"></i-icon>
+                      <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.options.length-1 && idx >= 2}}"></i-icon>
                     
                     </i-col>
                 </i-row>
