@@ -28,7 +28,6 @@
   top: -15px;
   border-radius: 5px;
   background-color: white;
-  height: 80%;
 }
 
 .icon {
@@ -76,4 +75,10 @@
   left: 5%;
   border-radius: 5px;
   font-size: 14px;
+}
+
+.addQuestionButton {
+  height: 30px;
+  text-align: center;
+  margin-left: 12px;
 }

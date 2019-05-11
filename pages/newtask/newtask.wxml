@@ -37,7 +37,7 @@
   
       <i-divider height="10"> </i-divider>
       
-      <scroll-view scroll-y="true" style="height: 500rpx;">
+      <scroll-view scroll-y="true" style="height: 600rpx;">
         <view class="question" wx:for="{{questionList}}">
             <i-row i-class="questionTitle">
                 <i-col span="3" i-class="col-class">
@@ -84,6 +84,24 @@
         </view>
 
       </scroll-view>
+
+      <view class="addQuestionPanel">
+        <i-row>
+            <i-col span="9" offset="5" i-class="col-class">
+              <view class="addQuesion">
+                <i-icon type="brush" size="30" i-class="addQuestionButton"/>
+                <view>填空题</view>
+              </view>           
+            </i-col>
+            <i-col span="8" i-class="col-class">
+              <view class="addQuesion">
+                <i-icon type="label" size="30" i-class="addQuestionButton"/>
+                <view>选择题</view>
+              </view>  
+            </i-col>
+        </i-row>
+
+      </view>
 
     </i-panel>
   
