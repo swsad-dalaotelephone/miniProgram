@@ -17,12 +17,12 @@ Page({
     });
   },
   //事件处理函数
-  onShow: function () {
-    utils.isLogin(() => {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    })
-  }
+  // onShow: function () {
+  //   utils.isLogin(() => {
+  //     this.setData({
+  //       userInfo: app.globalData.userInfo,
+  //       hasUserInfo: true
+  //     })
+  //   })
+  // }
 })

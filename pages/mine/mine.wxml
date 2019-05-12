@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
     <block wx:if="{hasUserInfo">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -15,4 +15,43 @@
       </view>
     </view>
   </view>
+</view> -->
+
+<view class="titleBox" />
+
+<image class="setting"/>
+
+<view class="selfBox Box">
+  <view class="selfieContainer">
+    <image class="selfie" />
+    <view class="level Box">Lv.1</view>
+  </view>
+  <view class="usernameBox">
+    <view class="username">Sherry</view>
+    <image class="changename"/>
+  </view>
+  <view class="introduction">这个同学很懒~还没有自我介绍呢</view>
 </view>
+
+<view class="switchBox Box">
+  <view class="switchTab selectedSwitch" id="fromMe">我发布的</view>
+  <view class="switchTab" id="fromOthers">我接受的</view>
+</view>
+
+<view class="selectBox Box">
+  <view class="selectTab" id="myUnfinished">
+    <image />
+    <view> 待完成 </view>
+  </view>
+
+  <view class="selectTab" id="myFinished">
+    <image />
+    <view> 已结束 </view>
+  </view>
+
+  <view class="selectTab" id="myOthers">
+    <image />
+    <view> 什么鬼 </view>
+  </view>
+</view>
+

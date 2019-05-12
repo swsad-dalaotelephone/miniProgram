@@ -1,5 +1,8 @@
 /* pages/register/register.wxss */
 
+
+
+
 .toLogin{
     text-decoration: underline;
     margin-top: 40rpx;
@@ -14,5 +17,5 @@
     margin-right: 26rpx;
     font-size: 28rpx;
     margin-top:26rpx;
-
 }
+

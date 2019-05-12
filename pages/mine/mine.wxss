@@ -1,5 +1,6 @@
 /* pages/mine/mine.wxss */
-.userinfo {
+
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,4 +19,146 @@
 
 .usermotto {
   margin-top: 200px;
+} */
+
+.setting{
+  position: absolute;
+  height: 48rpx;
+  width: 48rpx;
+  top: 40rpx;
+  right: 40rpx;
+
+  /* temp */
+  background-color: white;    
+}
+
+.selfBox{
+  height: 260rpx;
+  margin-top: -60rpx;
+
+  text-align: center;
+}
+
+.selfBox .selfieContainer{
+  width: 166rpx;
+  height: 166rpx;
+  margin: auto;
+  margin-top:-86rpx;
+  text-align: center;
+  position: relative;
+}
+
+.selfBox .selfieContainer .selfie{
+  width: 166rpx;
+  height: 166rpx;
+
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 1);
+
+  /* temp */
+  background-color: lightgray;
+}
+
+.selfBox .selfieContainer .level{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  font-size: 16rpx;
+  color: #77A9FD;
+  text-align: center;
+  line-height: 40rpx;
+  vertical-align: center;
+  position:absolute;
+  top:110rpx;
+  right:-10rpx;
+
+}
+
+.selfBox .usernameBox{
+  text-align:center;
+  margin-top: 14rpx;
+  padding-left:60rpx;
+
+}
+
+.selfBox .usernameBox .username{
+  display: inline;
+  overflow: hidden;
+
+
+  color: rgba(119, 169, 253, 1);
+  font-size: 16px;
+  font-family: PingFangSC-regular;
+}
+
+.selfBox .usernameBox .changename{
+  width: 40rpx;
+  height: 40rpx;
+  /* temp */
+  background-color: #77A9FD;
+  margin-left:10rpx;
+
+}
+
+.selfBox .introduction{
+  margin-top: 20rpx;
+  color: rgba(182, 192, 204, 1);
+  font-size: 14px;
+  font-family: PingFangSC-regular;
+}
+
+.switchBox{
+  height: 160rpx;
+  margin-top: 26rpx;
+}
+
+.switchBox .switchTab{
+  width: 50%;
+  height: 100%;
+  display: block;
+  float: left;
+
+  /* 块内居中 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #B6C0CC;
+}
+/* 这里有一个优先级的trick? */
+.switchBox .selectedSwitch{ 
+  color: #77A9FD;
+}
+
+.selectBox{
+  height: 420rpx;
+  margin-top: 26rpx;
+
+}
+
+.selectBox .selectTab{
+  width: 33.3%;
+  height: 40%;
+  margin-top: 5%;
+  text-align: center;
+  float: left;
+}
+
+.selectBox .selectTab image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+#myUnfinished image{
+  background-color: #BED3FE;
+}
+
+#myFinished image{
+  background-color: #FE9E9F;
+}
+
+#myOthers image{
+  background-color: gray;
 }

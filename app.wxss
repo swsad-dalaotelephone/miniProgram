@@ -54,16 +54,26 @@ page{
     margin-bottom: 20rpx;
 }
 
-.inputBox{
-    /* 框、边框、边距 */
+.Box{
+    margin-left: 40rpx;
     width: 670rpx;
-    height: 100rpx;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
-    margin-top: 40rpx;
+}
+
+.inputBox{
+    /* TODO 公共属性移到Box里去 */
+    width: 670rpx;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
+    border: 1px solid rgba(255, 255, 255, 0);
     margin-left: 40rpx;
+    
+    height: 100rpx;
+    margin-top: 40rpx;
 
     /* 文字 */
     color: #ACACAC;
