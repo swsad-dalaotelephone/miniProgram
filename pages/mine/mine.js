@@ -25,4 +25,26 @@ Page({
   //     })
   //   })
   // }
+
+  onLoad: function (options) {
+    
+    // TODO: 回调地狱
+    wx.login({
+      success: res => {
+        console.log('code is:' + res.code)
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: app.globalData.host + '/weAppLogin?code='+res.code,
+          method: 'GET',
+          success: function (res) {
+            console.log("login succeed.",res.data);
+          }
+        })
+        
+      },
+      fail: res => {
+        console.log(res.errMsg)
+      }
+    })
+  }
 })

@@ -14,6 +14,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    currentTask: '问卷'
+    currentTask: '问卷',
+    host: 'https://api.baobaozhuan.cn'
   }
 })
