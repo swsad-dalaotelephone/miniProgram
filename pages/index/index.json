@@ -4,7 +4,9 @@
     "i-grid": "../../dist/grid/index",
     "i-grid-item": "../../dist/grid-item/index",
     "my-card": "../../components/my-card/index",
-    "i-load-more": "../../dist/load-more/index"
+    "i-load-more": "../../dist/load-more/index",
+    "van-tab": "../../miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "../../miniprogram_npm/vant-weapp/tabs/index"
   },
   "enablePullDownRefresh": true
 }

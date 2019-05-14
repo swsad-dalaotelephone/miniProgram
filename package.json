@@ -1,0 +1,23 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "dist文件夹下是[ivew UI组件库](https://weapp.iviewui.com/)",
+  "main": "app.js",
+  "dependencies": {
+    "vant-weapp": "^0.5.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swsad-dalaotelephone/miniProgram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swsad-dalaotelephone/miniProgram/issues"
+  },
+  "homepage": "https://github.com/swsad-dalaotelephone/miniProgram#readme"
+}

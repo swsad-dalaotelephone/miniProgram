@@ -32,3 +32,8 @@ swiper {
 .card-demo image {
   border-radius: 50%;
 }
+
+.tab {
+  border: 1rpx solid #bed3fe;
+  border-radius: 10px;
+}
