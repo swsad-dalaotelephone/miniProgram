@@ -2,7 +2,7 @@ import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
 VantComponent({
     mixins: [touch],
-    classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
+    classes: ['nav-class', 'custom-nav-class','tab-class', 'tab-active-class', 'line-class'],
     relation: {
         name: 'tab',
         type: 'descendant',

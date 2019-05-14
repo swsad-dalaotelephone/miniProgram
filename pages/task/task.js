@@ -7,7 +7,8 @@ Page({
    */
   data: {
     typeName: '问卷',
-    taskList: [{
+    taskList: [],
+    taskList1: [{
         title: 'task1',
         time: 'time1',
         location: 'location1',
@@ -19,7 +20,20 @@ Page({
         location: 'location1',
         price: '1'
       }
-    ]
+    ],
+    taskList2: [{
+      title: 'task1',
+      time: 'time1',
+      location: 'location1',
+      price: '1'
+    },
+    {
+      title: 'task1',
+      time: 'time1',
+      location: 'location1',
+      price: '1'
+    }
+    ],
   },
   handleReturn: function() {
     wx.switchTab({
@@ -33,27 +47,39 @@ Page({
     })
   },
 
+  handleTap1: function(e) {
+    this.setData({
+      taskList: this.data.taskList1
+    })
+  },
+
+  handleTap2: function (e) {
+    this.setData({
+      taskList: this.data.taskList2
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.setData({
+      taskList: this.data.taskList1
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      typeName: app.globalData.currentTask
-    })
+    
   },
 
   /**

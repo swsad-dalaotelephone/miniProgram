@@ -9,8 +9,18 @@
     color: #cfcfcf;
 }
 
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;     /* 垂直居中 */
+  height: 90px;
+  color: white;
+  background-color: #77a9fd
+}
+
 swiper {
-  height: 310px
+  height: 310px;
 }
 
 .imgw {
