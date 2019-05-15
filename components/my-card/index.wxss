@@ -1,4 +1,5 @@
 .i-card {
+  display: flex;
   margin: 0;
   font-size: 14px;
   overflow: hidden;
@@ -6,6 +7,13 @@
   background: #fff;
   border: 1rpx solid #bed3fe;
   border-radius: 10px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
 }
 
 .i-card-full {
@@ -17,12 +25,17 @@
 
 .i-card-header {
   display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: 6px 16px;
   align-items: center;
 }
 
 .i-card-header-content {
-  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
   text-align: left;
   color: #77a9fd;
 }

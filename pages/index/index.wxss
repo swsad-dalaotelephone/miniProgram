@@ -14,7 +14,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;     /* 垂直居中 */
-  height: 90px;
+  height: 100px;
   color: white;
   background-color: #77a9fd
 }
@@ -46,4 +46,9 @@ swiper {
 .tab {
   border: 1rpx solid #bed3fe;
   border-radius: 10px;
+}
+
+.top {
+  position: relative;
+  top: -35px;
 }

@@ -8,11 +8,14 @@ Page({
   data: {
     typeName: '问卷',
     taskList: [],
+    text1: '',
+    text2: '',
     taskList1: [{
         title: 'task1',
         time: 'time1',
         location: 'location1',
-        price: '1'
+        price: '1',
+        status: '未完成'
       },
       {
         title: 'task1',
@@ -25,7 +28,8 @@ Page({
       title: 'task1',
       time: 'time1',
       location: 'location1',
-      price: '1'
+      price: '1',
+      status: '已完成'
     },
     {
       title: 'task1',
@@ -48,14 +52,19 @@ Page({
   },
 
   handleTap1: function(e) {
+
     this.setData({
-      taskList: this.data.taskList1
+      taskList: this.data.taskList1,
+      text1: 'active',
+      text2: 'no-active'
     })
   },
 
   handleTap2: function (e) {
     this.setData({
-      taskList: this.data.taskList2
+      taskList: this.data.taskList2,
+      text1: 'no-active',
+      text2: 'active'
     })
   },
 
@@ -71,7 +80,9 @@ Page({
    */
   onReady: function() {
     this.setData({
-      taskList: this.data.taskList1
+      taskList: this.data.taskList1,
+      text1: 'active',
+      text2: 'no-active'
     })
   },
 
