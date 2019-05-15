@@ -14,3 +14,24 @@ components文件夹下是自定义组件
 miniprogram_npm文件夹下是npm install的第三方包
 
 vant-weapp文件夹是[vant UI组件库](https://youzan.github.io/vant-weapp/#/intro)
+
+```
+.
+├─components
+│  └─my-card
+├─dist
+├─images
+├─libs
+├─miniprogram_npm
+│  └─vant-weapp
+├─pages
+│  ├─index
+│  ├─login
+│  ├─logs
+│  ├─mine
+│  ├─newtask
+│  ├─register
+│  └─task
+├─style
+└─utils
+```
