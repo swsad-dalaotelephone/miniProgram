@@ -8,3 +8,9 @@ style文件夹下是 [weui官方样式库](https://github.com/Tencent/weui)
 utils文件夹下是工具函数
 
 pages文件夹下是页面文件
+
+components文件夹下是自定义组件
+
+miniprogram_npm文件夹下是npm install的第三方包
+
+vant-weapp文件夹是[vant UI组件库](https://youzan.github.io/vant-weapp/#/intro)
