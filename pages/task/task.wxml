@@ -12,11 +12,7 @@
 
   <view class="page__bd page__bd_spacing">
     <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-      <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo" status="{{item.status}}">
-        <view slot="content">{{item.time}}</view>
-        <view slot="footer">{{item.location}}</view>
-      </my-card>
-
+      <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
     </view>
 
     <i-load-more tip="哎呀，没有更多了~" loading="{{ false }}" />

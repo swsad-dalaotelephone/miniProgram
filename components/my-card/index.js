@@ -6,6 +6,10 @@ Component({
   },
 
   properties: {
+    show: {
+      type: Boolean,
+      value: false
+    },
     full: {
       type: Boolean,
       value: false
@@ -14,17 +18,9 @@ Component({
       type: String,
       value: ''
     },
-    title: {
-      type: String,
-      value: ''
-    },
-    extra: {
-      type: String,
-      value: ''
-    },
-    status: {
-      type: String,
-      value: ''
+    item: {
+      type: Object,
+      value: {}
     }
   }
 });

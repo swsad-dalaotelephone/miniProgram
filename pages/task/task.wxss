@@ -36,7 +36,7 @@
 
 .taskList {
   position: relative;
-  top: -15px;
+  top: -25px;
 }
 
 .icon {

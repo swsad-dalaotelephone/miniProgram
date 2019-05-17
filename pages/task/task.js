@@ -11,17 +11,21 @@ Page({
     text1: '',
     text2: '',
     taskList1: [{
-        title: 'task1',
+      title: 'task1',
+      time: 'time1',
+      location: 'location1',
+      price: '1',
+      type: '1',
+      intro: '介绍',
+      status: '已完成'
+    },
+      {
+        title: 'task2',
         time: 'time1',
         location: 'location1',
         price: '1',
-        status: '未完成'
-      },
-      {
-        title: 'task1',
-        time: 'time1',
-        location: 'location1',
-        price: '1'
+        type: '0',
+        status: '已完成'
       }
     ],
     taskList2: [{

@@ -14,42 +14,29 @@
         </swiper-item>
       </block>
     </swiper>
-</view>
 
-    <van-tabs swipeable animated sticky duration="0.5" custom-nav-class="tab">
+    <van-tabs swipeable animated sticky duration="0.5" custom-nav-class="tab" color="#77a9fd">
       <van-tab title="全部">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo " status="{{item.status}}">
-            <view slot="content">{{item.time}}</view>
-            <view slot="footer">{{item.location}}</view>
-          </my-card>
+          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="{{false}}"></my-card>
         </view>
       </van-tab>
       <van-tab title="问卷">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo " status="{{item.status}}">
-            <view slot="content">{{item.time}}</view>
-            <view slot="footer">{{item.location}}</view>
-          </my-card>
+          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
         </view>
       </van-tab>
       <van-tab title="信息收集">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo" status="{{item.status}}">
-            <view slot="content">{{item.time}}</view>
-            <view slot="footer">{{item.location}}</view>
-          </my-card>
+          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
         </view>
       </van-tab>
       <van-tab title="招募">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card title="{{item.title}}" extra="￥{{item.price}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " i-class="card-demo " status="{{item.status}}">
-            <view slot="content">{{item.time}}</view>
-            <view slot="footer">{{item.location}}</view>
-          </my-card>
+          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
         </view>
       </van-tab>
     </van-tabs>
 
-  
+  </view>
 </view>

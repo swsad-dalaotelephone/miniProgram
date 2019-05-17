@@ -1,18 +1,28 @@
 <view class="i-class i-card {{ full ? 'i-card-full' : '' }}">
   <view class="left">
     <image class="i-card-header-thumb" src="{{ thumb }}" mode="aspectFit" wx:if="{{ thumb }}" />
-    <text wx::if="{{status}}">{{status}}</text>
+    <text wx::if="{{item.status}}">{{item.status}}</text>
   </view>
   <view class="i-card-header">
     <view class="i-card-header-content">
-      <text class='i-card-header-title'>{{title}}</text>
-      <view class="i-card-header-extra" wx:if="{{ extra }}">{{ extra }}</view>
+      <text class='i-card-header-title'>{{item.title}}</text>
+      <view class="i-card-header-extra" wx:if="{{ item.price }}">￥{{ item.price }}</view>
     </view>
-    <view class="i-class i-card-body">
-      <slot name="content"></slot>
+
+    <view wx:if="{{item.type==0}}">
+      <view class="i-card-body">
+        <text>{{item.location}}</text>
+      </view>
+      <view class="i-card-footer">
+        <text>{{item.time}}</text>
+      </view>
     </view>
-    <view class="i-class i-card-footer">
-      <slot name="footer"></slot>
+    <view wx::else>
+      <view class="i-card-body">
+        <text>{{item.intro}}</text>
+      </view>
     </view>
+
+
   </view>
 </view>

@@ -14,12 +14,65 @@ Page({
     duration: 500,
     previousMargin: 0,
     nextMargin: 0,
-    iconList: [{icon:'brush_fill',name:'问卷'},{icon:'document_fill',name:'信息收集'},{icon:'group_fill',name:'招募'},{icon:'service_fill',name:'物流'}],
-    taskList: [{title:'task1',time:'time1',location:'location1',price:'1'},
-              {title:'task1',time:'time1',location:'location1',price:'1'},
-      { title: 'task1', time: 'time1', location: 'location1', price: '1' },
-      { title: 'task1', time: 'time1', location: 'location1', price: '1' },
-      { title: 'task1', time: 'time1', location: 'location1', price: '1' }]
+    iconList: [{
+      icon: 'brush_fill',
+      name: '问卷'
+    }, {
+      icon: 'document_fill',
+      name: '信息收集'
+    }, {
+      icon: 'group_fill',
+      name: '招募'
+    }, {
+      icon: 'service_fill',
+      name: '物流'
+    }],
+    taskList: [{
+        title: 'task1',
+        time: 'time1',
+        location: 'location1',
+        price: '1',
+        type: '1',
+        intro: '介绍'
+      },
+      {
+        title: 'task2',
+        time: 'time1',
+        location: 'location1',
+        price: '1',
+        type: '0'
+      },
+      {
+        title: 'task1',
+        time: 'time1',
+        location: 'location1',
+        price: '1'
+      },
+      {
+        title: 'task1',
+        time: 'time1',
+        location: 'location1',
+        price: '1'
+      },
+      {
+        title: 'task1',
+        time: 'time1',
+        location: 'location1',
+        price: '1'
+      },
+      {
+        title: 'task1',
+        time: 'time1',
+        location: 'location1',
+        price: '1'
+      },
+      {
+        title: 'task1',
+        time: 'time1',
+        location: 'location1',
+        price: '1'
+      }
+    ]
   },
 
   //事件处理函数
@@ -32,15 +85,15 @@ Page({
       url: '/pages/task/task'
     })
   },
-  handleAddButton: function () {
+  handleAddButton: function() {
     wx.navigateTo({
       url: '/pages/newtask/newtask',
     })
   },
   /**
- * 页面相关事件处理函数--监听用户下拉动作
- */
-  onPullDownRefresh: function () {
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
     wx.showToast({
       title: 'loading...',
       icon: 'loading'
