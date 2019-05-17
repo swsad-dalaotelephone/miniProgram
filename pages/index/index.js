@@ -90,6 +90,12 @@ Page({
       url: '/pages/newtask/newtask',
     })
   },
+  openReceive: function(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/receive/receive',
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

@@ -6,7 +6,8 @@
     "pages/register/register",
     "pages/logs/logs",
     "pages/task/task",
-    "pages/newtask/newtask"
+    "pages/newtask/newtask",
+    "pages/receive/receive"
   ],
   "window": {
     "backgroundTextStyle": "light",
