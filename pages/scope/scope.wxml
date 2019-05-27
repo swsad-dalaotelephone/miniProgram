@@ -1,0 +1,80 @@
+                      <!--pages/scope/scope.wxml-->
+<view class='page'>
+  <view class='head'>
+    <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
+    <text>{{newTaskText}}</text>
+    <i-icon type="more" size="28" color="white"></i-icon>
+  </view>
+
+  <view class="page__bd page__bd_spacing">
+    <i-panel i-class="newTaskPanel" hide-top="true">
+      <i-row>
+          <i-col span="8" i-class="col-class">        
+            <view class="attrname">
+              性别：
+            </view>
+          </i-col>
+          <i-col span="16" i-class="col-class">
+              <view style="width: 50%;">
+                <my-picker array="{{genders}}" index="{{gender_index}}">
+                </my-picker>   
+              </view>          
+          </i-col>
+      </i-row>
+      <i-row>
+          <i-col span="8" i-class="col-class">        
+            <view class="attrname">
+              年级：
+            </view>
+          </i-col>
+          <i-col span="16" i-class="col-class">
+              <view style="width: 50%;">
+                <my-picker array="{{grade_restricts}}" index="{{grade_restrict_index}}">
+                </my-picker>   
+              </view>                  
+          </i-col>
+      </i-row>
+      <i-row>
+          <i-col span="8" i-class="col-class">        
+            <view class="attrname">
+              专业：
+            </view>
+          </i-col>
+          <i-col span="16" i-class="col-class">
+              <view style="width: 50%;">
+                <my-picker array="{{major_restricts}}" index="{{major_restrict_index}}">
+                </my-picker>   
+              </view>                  
+          </i-col>
+      </i-row>
+
+  
+     
+      
+
+
+      <view class="addQuestionPanel">
+        <i-row>
+            <i-col span="9" offset="5" i-class="col-class">
+              <view class="addQuesion" bindtap='handleAddText'>
+                <i-icon type="brush" size="30" i-class="addQuestionButton"/>
+                <view>填空题</view>
+              </view>           
+            </i-col>
+            <i-col span="8" i-class="col-class">
+              <view class="addQuesion" bindtap='handleAddChoice'>
+                <i-icon type="label" size="30" i-class="addQuestionButton"/>
+                <view>选择题</view>
+              </view>  
+            </i-col>
+        </i-row>
+
+      </view>
+
+    </i-panel>
+  
+    <view class="footer"> 
+      <i-icon type="right" size="36" color="black"></i-icon>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+/* pages/scope/scope.wxss */
+
+.page1 {
+  display: flex;
+  flex-direction: column
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;     /* 垂直居中 */
+  height: 90px;
+  color: white;
+  background-color: #77a9fd
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+
+.newTaskPanel {
+  position: relative;
+  top: -15px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.icon {
+  height: 28px;
+  width: 28px;
+}
+
+.attrname {
+  text-align: center;
+}
+
+.picker {
+  padding-left: 20%;
+}
+
+.input {
+  height: 10px;
+}
+
+.questionContentInput {
+  font-size: 15px;
+}
+
+.optionInput {
+  font-size: 14px;
+}
+
+.choiceIndex {
+  color: #8e9094;
+}
+
+.questionIndex {
+  text-align: center;
+}
+.addOptionButton {
+  text-align: center;
+  height: 20px;
+}
+
+.textInputArea {
+  border: 1px solid #8e9094;
+  height: 30px;
+  width: 80%;
+  position: relative;
+  left: 5%;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.addQuestionButton {
+  height: 30px;
+  text-align: center;
+  margin-left: 12px;
+}
