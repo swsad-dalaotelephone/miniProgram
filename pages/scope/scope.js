@@ -7,24 +7,23 @@ Page({
    */
 
   data: {
-    questionList: [{
-      type: 'choice',
-      content: '',
-      options: [{
-        content: '',
-        index: 'A'
-      },
-      {
-        content: '',
-        index: 'B'
-      }
-      ]
-    },
-    {
-      type: 'text',
-      content: '',
-    }
-    ],
+    fruit: [{
+      id: 1,
+      name: '文科',
+    }, {
+      id: 2,
+      name: '理科'
+    }, {
+      id: 3,
+      name: '工科'
+    }],
+    current: [],
+    position: 'left',
+    animal: '熊猫',
+    checked: false,
+    disabled: false,
+
+
     genders: ['不限', '男', '女'],
     gender_index: 0,
     grade_restricts: ['不限', '限制'],
@@ -35,7 +34,18 @@ Page({
     taskname: '',
   },
 
-
+  handleFruitChange({ detail = {} }) {
+    const index = this.data.current.indexOf(detail.value);
+    index === -1 ? this.data.current.push(detail.value) : this.data.current.splice(index, 1);
+    this.setData({
+      current: this.data.current
+    });
+  },
+  handleClick() {
+    this.setData({
+      position: this.data.position.indexOf('left') !== -1 ? 'right' : 'left',
+    });
+  },
   handleReturn: function () {
     wx.switchTab({
       url: '/pages/index/index',

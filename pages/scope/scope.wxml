@@ -47,29 +47,12 @@
               </view>                  
           </i-col>
       </i-row>
-
-  
-     
-      
-
-
-      <view class="addQuestionPanel">
-        <i-row>
-            <i-col span="9" offset="5" i-class="col-class">
-              <view class="addQuesion" bindtap='handleAddText'>
-                <i-icon type="brush" size="30" i-class="addQuestionButton"/>
-                <view>填空题</view>
-              </view>           
-            </i-col>
-            <i-col span="8" i-class="col-class">
-              <view class="addQuesion" bindtap='handleAddChoice'>
-                <i-icon type="label" size="30" i-class="addQuestionButton"/>
-                <view>选择题</view>
-              </view>  
-            </i-col>
-        </i-row>
-
-      </view>
+      <i-row>
+        <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
+            <i-checkbox wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+            </i-checkbox>
+        </i-checkbox-group>
+      </i-row>
 
     </i-panel>
   

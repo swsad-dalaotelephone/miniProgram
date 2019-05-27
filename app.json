@@ -8,7 +8,6 @@
     "pages/task/task",
     "pages/newtask/newtask",
     "pages/receive/receive",
-    "pages/scope",
     "pages/scope/scope"
   ],
   "window": {
