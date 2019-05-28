@@ -38,15 +38,14 @@ Page({
     }, {
       id: 3,
       name: '工科'
-    }],
+    }
+    ],
     
     
     current_grade: [],
     current_major: [],
     position: 'left',
-    animal: '熊猫',
-    checked: false,
-    disabled: false,
+
 
 
     genders: ['不限', '男', '女'],
@@ -56,37 +55,47 @@ Page({
     major_restricts: ['不限', '限制'],
     major_restrict_index: 0,
     newTaskText: '发布任务',
-    taskname: '',
   },
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+
+  handleGenderChange: function (e) {
+    console.log('picker选择改变，携带值为', e.detail.detail.value)
     this.setData({
-      major_restrict_index: e.detail.value
+      gender_index: e.detail.detail.value
     })
   },
-  majorRestrictChange: function (e) {
+
+  handleMajorRestrictChange: function (e) {
     console.log('picker选择改变，携带值为', e.detail.detail.value)
     this.setData({
       major_restrict_index: e.detail.detail.value
     })
   },
 
-  gradeRestrictChange: function (e) {
+  handleGradeRestrictChange: function (e) {
     console.log('picker选择改变，携带值为', e.detail.detail.value)
     this.setData({
       grade_restrict_index: e.detail.detail.value
     })
   },
-  checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-  },
-  handleFruitChange({ detail = {} }) {
-    const index = this.data.current.indexOf(detail.value);
-    index === -1 ? this.data.current.push(detail.value) : this.data.current.splice(index, 1);
+
+  handleGradeChange({ detail = {} }) {
+    const index = this.data.current_grade.indexOf(detail.value);
+    index === -1 ? this.data.current_grade.push(detail.value) : this.data.current_grade.splice(index, 1);
     this.setData({
-      current: this.data.current
+      current_grade: this.data.current_grade
     });
+    console.log('grade选择改变为', this.data.current_grade)
   },
+
+  handleMajorChange({ detail = {} }) {
+    const index = this.data.current_major.indexOf(detail.value);
+    index === -1 ? this.data.current_major.push(detail.value) : this.data.current_major.splice(index, 1);
+    this.setData({
+      current_major: this.data.current_major
+    });
+    console.log('major选择改变为', this.data.current_major)
+  },
+
   handleClick() {
     this.setData({
       position: this.data.position.indexOf('left') !== -1 ? 'right' : 'left',
@@ -98,85 +107,9 @@ Page({
     })
   },
 
-  handleDeleteQuestion: function (e) {
-    var index = e.currentTarget.dataset.index;
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.splice(index, 1);
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
-
-  handleAddText: function () {
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.push({
-      type: 'text',
-      content: ''
-    });
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
-
-  handleAddChoice: function () {
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.push({
-      type: 'choice',
-      content: '',
-      options: [{
-        content: '',
-        index: 'A'
-      },
-      {
-        content: '',
-        index: 'B'
-      },
-      ]
-    });
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
-
-  handleAddOption: function (e) {
-    var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    var cur_options = newQuestionList[index].options.length;
-    console.log(cur_options);
-    newQuestionList[index].options.push({
-      content: '',
-      index: String.fromCharCode(cur_options + 65)
-    });
-    console.log(newQuestionList);
-
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
-
-  handleDeleteOption: function (e) {
-    var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    var cur_options = newQuestionList[index].options.length;
-    console.log(cur_options);
-    newQuestionList[index].options.splice(cur_options - 1, 1);
-    console.log(newQuestionList);
+  
 
 
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "my-card": "../../components/my-card/index",
+    "i-load-more": "../../dist/load-more/index",
+    "i-divider": "../../dist/divider/index",
+    "i-panel": "../../dist/panel/index",
+    "i-input": "../../dist/input/index",
+    "i-row": "../../dist/row/index",
+    "i-col": "../../dist/col/index",
+    "i-checkbox-group": "../../dist/checkbox-group/index",
+    "i-checkbox": "../../dist/checkbox/index",
+    "i-input-number": "../../dist/input-number/index",
+    "my-picker": "../../components/my-picker/my-picker"
+  },
+  "enablePullDownRefresh": true
+}

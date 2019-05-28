@@ -6,76 +6,83 @@
     <i-icon type="more" size="28" color="white"></i-icon>
   </view>
 
-  <view class="page__bd page__bd_spacing">
-    <i-panel i-class="newTaskPanel" hide-top="true">
-      <i-row>
-          <i-col span="8" i-class="col-class">        
-            <view class="attrname">
-              性别：
+  <view class="page__bd page__bd_spacing pagebd" >
+    <view class="newTaskPanel">
+      <view class="main-content">
+        <i-row i-class="picker-row">
+            <i-col span="8" i-class="col-class">        
+              <view class="attrname">
+                性别：
+              </view>
+            </i-col>
+            <i-col span="16" i-class="col-class">
+                <view class="picker">
+                  <my-picker bindchange="handleGenderChange" array="{{genders}}" index="{{gender_index}}">
+                  </my-picker>   
+                </view>          
+            </i-col>
+        </i-row>
+        <i-row i-class="picker-row">
+            <i-col span="8" i-class="col-class">        
+              <view class="attrname">
+                年级：
+              </view>
+            </i-col>
+            <i-col span="16" i-class="col-class">
+                <view class="picker">
+                  <my-picker bindchange="handleGradeRestrictChange" array="{{grade_restricts}}" index="{{grade_restrict_index}}">
+                  </my-picker>   
+                </view>                  
+            </i-col>
+        </i-row>
+
+        <i-row wx-if="{{grade_restrict_index == 1}}">
+            <view class="checkboxs">
+              <i-checkbox-group  current="{{current_grade}}"  bindchange="handleGradeChange">
+                  <view class="parent">
+                  <i-checkbox class="child" wx:for="{{grades}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+                  </i-checkbox>
+                  </view>
+              </i-checkbox-group>
             </view>
-          </i-col>
-          <i-col span="16" i-class="col-class">
-              <view style="width: 50%;">
-                <my-picker array="{{genders}}" index="{{gender_index}}">
-                </my-picker>   
-              </view>          
-          </i-col>
-      </i-row>
-      <i-row>
-          <i-col span="8" i-class="col-class">        
-            <view class="attrname">
-              年级：
+        </i-row>
+
+        <i-row i-class="picker-row">
+            <i-col span="8" i-class="col-class">        
+              <view class="attrname">
+                专业：
+              </view>
+            </i-col>
+            <i-col span="16" i-class="col-class">
+                <view class="picker">
+                  <my-picker bindchange="handleMajorRestrictChange" array="{{major_restricts}}" index="{{major_restrict_index}}">
+                  </my-picker>   
+                </view>                  
+            </i-col>
+        </i-row>
+
+        <i-row>
+            <view class="checkboxs" wx-if="{{major_restrict_index == 1}}">
+              <i-checkbox-group  current="{{current_major}}"  bindchange="handleMajorChange">
+                  <view class="parent">
+                  <i-checkbox class="child" wx:for="{{majors}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+                  </i-checkbox>
+                  </view>
+              </i-checkbox-group>
             </view>
-          </i-col>
-          <i-col span="16" i-class="col-class">
-              <view style="width: 50%;">
-                <my-picker bindchange="gradeRestrictChange" array="{{grade_restricts}}" index="{{grade_restrict_index}}">
-                </my-picker>   
-              </view>                  
-          </i-col>
-      </i-row>
-
-      <i-row>
-          <view class="checkboxs" wx-if="{{grade_restrict_index == 1}}">
-            <i-checkbox-group  current="{{current_grade}}"  bindchange="handleFruitChange">
-                <view class="parent">
-                <i-checkbox class="child" wx:for="{{grades}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
-                </i-checkbox>
-                </view>
-            </i-checkbox-group>
-          </view>
-      </i-row>
-
-      <i-row>
-          <i-col span="8" i-class="col-class">        
-            <view class="attrname">
-              专业：
-            </view>
-          </i-col>
-          <i-col span="16" i-class="col-class">
-              <view style="width: 50%;">
-                <my-picker bindchange="majorRestrictChange" array="{{major_restricts}}" index="{{major_restrict_index}}">
-                </my-picker>   
-              </view>                  
-          </i-col>
-      </i-row>
-
-      <i-row>
-          <view class="checkboxs" wx-if="{{major_restrict_index == 1}}">
-            <i-checkbox-group  current="{{current_major}}"  bindchange="handleFruitChange">
-                <view class="parent">
-                <i-checkbox class="child" wx:for="{{majors}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
-                </i-checkbox>
-                </view>
-            </i-checkbox-group>
-          </view>
-      </i-row>
+        </i-row>
+      </view>
 
 
-    </i-panel>
-  
-    <view class="footer"> 
-      <i-icon type="right" size="36" color="black"></i-icon>
+    
+    <view class='bottom'>
+      <button>不做限制</button>
+      <button>发布</button>
     </view>
+    
+    </view>
+
+
+
   </view>
 </view>

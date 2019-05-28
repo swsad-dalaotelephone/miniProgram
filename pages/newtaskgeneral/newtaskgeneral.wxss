@@ -1,4 +1,4 @@
-/* pages/scope/scope.wxss */
+/* pages/newtaskgeneral/newtaskgeneral.wxss */
 
 page{
   min-height: 100%;
@@ -56,15 +56,15 @@ page{
 
 
 
-.checkboxs {
-  width: 80%;
+/* .checkboxs {
+  width: 100%;
   float: right;
   padding-right: 15px;
-}
+} */
 
 
 
-.picker-row {
+.attr-row {
   margin: 10px 5px;
 }
 
@@ -102,31 +102,38 @@ page{
   background-color: #77a9fd
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 45%;
-}
-
-
-
-.icon {
-  height: 28px;
-  width: 28px;
-}
 
 .attrname {
   text-align: center;
   color: rgb(119, 169, 253);
 }
 
-.picker {
+.picker{
   width: 80%;
 }
 
+.single-line-input {
+  width: 78%;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  height: 100%;
+  padding: 1px 1px;
+}
+
 textarea {
-  height: 150rpx;
+  height: 250rpx;
+  width: 78%;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 1px 1px;
+}
+
+.number-wrap {
+  display: flex;
+  flex-direction: row;
 }
 
 
-
+.quantifier {
+  padding: 5px;
+}
