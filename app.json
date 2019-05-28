@@ -9,7 +9,8 @@
     "pages/newtask/newtask",
     "pages/receive/receive",
     "pages/scope/scope",
-    "pages/newtaskgeneral/newtaskgeneral"
+    "pages/newtaskgeneral/newtaskgeneral",
+    "pages/newcollect/newcollect"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,7 +36,7 @@
         "text": "我的"
       },
       {
-        "pagePath": "pages/newtaskgeneral/newtaskgeneral",
+        "pagePath": "pages/newcollect/newcollect",
         "text": "test"
       }
     ]
