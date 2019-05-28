@@ -7,6 +7,7 @@ Page({
    */
 
   data: {
+
     fruit: [{
       id: 1,
       name: '文科',
@@ -33,7 +34,9 @@ Page({
     newTaskText: '发布任务',
     taskname: '',
   },
-
+  checkboxChange: function (e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  },
   handleFruitChange({ detail = {} }) {
     const index = this.data.current.indexOf(detail.value);
     index === -1 ? this.data.current.push(detail.value) : this.data.current.splice(index, 1);

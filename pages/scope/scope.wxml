@@ -48,11 +48,18 @@
           </i-col>
       </i-row>
       <i-row>
-        <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
-            <i-checkbox wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
-            </i-checkbox>
-        </i-checkbox-group>
+
+          <i-checkbox-group  current="{{current}}"  bindchange="handleFruitChange">
+              <view class="parent">
+              <i-checkbox class="child" wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+              </i-checkbox>
+              </view>
+
+          </i-checkbox-group>
+
+
       </i-row>
+
 
     </i-panel>
   
