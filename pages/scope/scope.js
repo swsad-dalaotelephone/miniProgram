@@ -8,7 +8,28 @@ Page({
 
   data: {
 
-    fruit: [{
+    grades: [{
+      id: 1,
+      name: '大一',
+    }, {
+      id: 2,
+      name: '大二'
+    }, {
+      id: 3,
+      name: '大三'
+    }, {
+      id: 4,
+      name: '大四'
+    }, {
+      id: 5,
+      name: '研究生'
+    }, {
+      id: 6,
+      name: '博士生'
+    }
+    ],
+
+    majors: [{
       id: 1,
       name: '文科',
     }, {
@@ -18,7 +39,10 @@ Page({
       id: 3,
       name: '工科'
     }],
-    current: [],
+    
+    
+    current_grade: [],
+    current_major: [],
     position: 'left',
     animal: '熊猫',
     checked: false,
@@ -33,6 +57,25 @@ Page({
     major_restrict_index: 0,
     newTaskText: '发布任务',
     taskname: '',
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      major_restrict_index: e.detail.value
+    })
+  },
+  majorRestrictChange: function (e) {
+    console.log('picker选择改变，携带值为', e.detail.detail.value)
+    this.setData({
+      major_restrict_index: e.detail.detail.value
+    })
+  },
+
+  gradeRestrictChange: function (e) {
+    console.log('picker选择改变，携带值为', e.detail.detail.value)
+    this.setData({
+      grade_restrict_index: e.detail.detail.value
+    })
   },
   checkboxChange: function (e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)

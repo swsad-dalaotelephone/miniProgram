@@ -1,22 +1,31 @@
 /* pages/scope/scope.wxss */
 
 
-  .parent {
-     width: 100%;
-     height: 150px;
-     display: flex;
-     flex-flow: row wrap;
-     align-content: flex-start;
-   }
+.checkboxs {
+  width: 70%;
+  float: right;
+  padding-right: 20px;
+}
 
-   .child {
-     box-sizing: border-box;
-     background-color: white;
-     flex: 0 0 50%;
-     height: 50px;
-     border: 1px solid red;
-     display: flex;
-   }
+
+
+
+.parent {
+  width: 100%;
+  /* height: 150px; */
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.child {
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 50%;
+  height: 50px; 
+  border: 1px solid red;
+  display: flex;
+}
 
 
 .page1 {
