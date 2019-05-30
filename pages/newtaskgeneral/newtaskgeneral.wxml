@@ -57,7 +57,7 @@
               <i-col span="16" i-class="col-class">
                 <view class="number-wrap">
                   <view class="number-input">
-                    <i-input-number value="{{ required_count }}" min="0" max="1000" bindchange="handleRequiredCountChange" />
+                    <i-input-number value="{{ required_count }}" min="1" max="1000" bindchange="handleRequiredCountChange" />
                   </view>
                   <view class="quantifier">个</view>
                 </view>
