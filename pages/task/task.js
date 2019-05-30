@@ -51,7 +51,7 @@ Page({
 
   handleAddButton: function() {
     wx.navigateTo({
-      url: '/pages/newtask/newtask',
+      url: '/pages/newtaskgeneral/newtaskgeneral',
     })
   },
 

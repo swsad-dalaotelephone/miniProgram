@@ -1,0 +1,96 @@
+/* pages/newrecruit/newrecruit.wxss */
+page{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page{
+  flex-grow: 1; /* Grow to fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.pagebd {
+  padding-bottom: 0px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.newTaskPanel {
+  position: relative;
+  top: -15px;
+  border-radius: 5px;
+  background-color: white;
+  height: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.attr-row {
+  margin: 10px 5px;
+}
+
+.main-content {
+  flex: 1 0 auto;
+}
+
+.bottom {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red;  */
+  flex-flow: row;
+  align-content: flex-start;
+}
+
+.bottom button {
+  border-radius: 10px;
+  margin: 10px 8%;
+  color: white;
+  background-color: #77a9fd;
+  box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+  flex: 0 0 40%;
+}
+
+.page1 {
+  display: flex;
+  flex-direction: column
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;     /* 垂直居中 */
+  height: 90px;
+  color: white;
+  background-color: #77a9fd
+}
+
+.icon {
+  height: 28px;
+  width: 28px;
+}
+
+
+.input {
+  height: 10px;
+}
+
+textarea {
+  height: 250rpx;
+  width: 78%;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 1px 1px;
+}
+
+.attrname {
+  text-align: center;
+  color: rgb(119, 169, 253);
+}

@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "my-card": "../../components/my-card/index",
+    "i-load-more": "../../dist/load-more/index",
+    "i-icon": "../../dist/icon/index",
+    "i-divider": "../../dist/divider/index",
+    "i-panel": "../../dist/panel/index",
+    "i-input": "../../dist/input/index",
+    "i-row": "../../dist/row/index",
+    "i-col": "../../dist/col/index"
+  },
+  "enablePullDownRefresh": true
+}
