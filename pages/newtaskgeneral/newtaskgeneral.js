@@ -30,13 +30,14 @@ Page({
     ],
 
     task_name: '',
+    brief_info: '',
     position: 'left',
     current_tag: [], 
     task_types: ['问卷', '信息收集', '招募'],
     type_index: 0,
     newTaskText: '发布任务',
-    amount: 1,
-    pay: 1
+    required_count: 1,
+    reward: 1
   },
 
   bindTaskNameInput: function (e) {
@@ -44,16 +45,21 @@ Page({
       task_name: e.detail.value
     })
   },
-
-  handleAmountChange({ detail }) {
+  bindBriefInfoInput: function (e) {
     this.setData({
-      amount: detail.value
+      brief_info: e.detail.value
     })
   },
 
-  handlePayChange({ detail }) {
+  handleRequiredCountChange({ detail }) {
     this.setData({
-      pay: detail.value
+      required_count: detail.value
+    })
+  },
+
+  handleRewardChange({ detail }) {
+    this.setData({
+      reward: detail.value
     })
   },
 
@@ -65,12 +71,9 @@ Page({
   },
 
   handleTagChange({ detail = {} }) {
-    const index = this.data.current_tag.indexOf(detail.value);
-    index === -1 ? this.data.current_tag.push(detail.value) : this.data.current_tag.splice(index, 1);
     this.setData({
-      current_tag: this.data.current_tag
+      current_tag: detail.value
     });
-    console.log('grade选择改变为', this.data.current_tag)
   },
 
 
