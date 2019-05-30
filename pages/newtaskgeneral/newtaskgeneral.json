@@ -11,7 +11,9 @@
     "i-checkbox-group": "../../dist/checkbox-group/index",
     "i-checkbox": "../../dist/checkbox/index",
     "i-input-number": "../../dist/input-number/index",
-    "my-picker": "../../components/my-picker/my-picker"
+    "my-picker": "../../components/my-picker/my-picker",
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index"
   },
   "enablePullDownRefresh": true
 }

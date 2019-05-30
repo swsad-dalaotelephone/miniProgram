@@ -84,7 +84,14 @@ page{
 
 textarea {
   height: 250rpx;
-  width: 78%;
+  width: 80%;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 1px 1px;
+}
+
+.date-picker, .single-line-input {
+  width: 80%;
   border: 1px solid #bdbdbd;
   border-radius: 7px;
   padding: 1px 1px;
@@ -94,3 +101,14 @@ textarea {
   text-align: center;
   color: rgb(119, 169, 253);
 }
+
+.time-range {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-picker, .indicate {
+  height: 25px;
+}
+
+

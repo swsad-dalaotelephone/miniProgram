@@ -13,12 +13,12 @@
               <i-row i-class="attr-row">
                   <i-col span="8" i-class="col-class">        
                     <view class="attrname">
-                      要求：
+                      描述：
                     </view>
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="textarea-input">
-                      <textarea placeholder="请输入任务要求" bindinput="bindRequirementInput"/>
+                      <textarea placeholder="活动描述" value="{{description}}" bindinput="bindDescriptionInput"/>
                     </view>                
                   </i-col>
               </i-row>
@@ -26,12 +26,36 @@
               <i-row i-class="attr-row">
                   <i-col span="8" i-class="col-class">        
                     <view class="attrname">
-                      提交方式：
+                      活动时间：
                     </view>
                   </i-col>
                   <i-col span="16" i-class="col-class">
-                    <view class="textarea-input">
-                      <textarea placeholder="请输入提交方式（默认邮箱）" name="contact"/>
+                    <view class="time-range">
+                      <view class="indicate">从</view>
+                      <picker mode="date" value="{{start_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindStartDateChange">
+                        <view class="date-picker">
+                          {{start_date}}
+                        </view>
+                      </picker>
+                      <view class="indicate">至</view>
+                      
+                      <picker mode="date" value="{{end_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindEndDateChange">
+                        <view class="date-picker">
+                           {{end_date}}
+                        </view>
+                      </picker>                                        
+                    </view>                
+                  </i-col>
+              </i-row>
+              <i-row i-class="attr-row">
+                  <i-col span="8" i-class="col-class">        
+                    <view class="attrname">
+                      活动地点：
+                    </view>
+                  </i-col>
+                  <i-col span="16" i-class="col-class">
+                    <view class="single-line-input">
+                      <input placeholder="地点" value="{{location}}" bindinput="bindLocationInput"/>
                     </view>                
                   </i-col>
               </i-row>

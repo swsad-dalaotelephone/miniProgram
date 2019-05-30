@@ -8,7 +8,6 @@
 
   <view class="page__bd page__bd_spacing pagebd" >
     <view class="newTaskPanel">
-      <form bindsubmit="bindFormSubmit">
         <view class="main-content">
           <i-row i-class="attr-row">
               <i-col span="8" i-class="col-class">        
@@ -31,7 +30,7 @@
               </i-col>
               <i-col span="16" i-class="col-class">
                 <view class="single-line-input">
-                  <input bindinput="bindTaskNameInput" placeholder="请输入任务名" name="taskname"/>
+                  <input bindinput="bindTaskNameInput" placeholder="请输入任务名" value="{{task_name}}"/>
                 </view>
               </i-col>
           </i-row>
@@ -44,7 +43,7 @@
               </i-col>
               <i-col span="16" i-class="col-class">
                 <view class="textarea-input">
-                  <textarea placeholder="任务简介（100字以内）" name="textarea"/>
+                  <textarea bindinput="bindBriefInfoInput" placeholder="任务简介（100字以内）" value="{{brief_info}}"/>
                 </view>                
               </i-col>
           </i-row>
@@ -58,7 +57,7 @@
               <i-col span="16" i-class="col-class">
                 <view class="number-wrap">
                   <view class="number-input">
-                    <i-input-number value="{{ amount }}" min="0" max="1000" bindchange="handleAmountChange" />
+                    <i-input-number value="{{ required_count }}" min="0" max="1000" bindchange="handleRequiredCountChange" />
                   </view>
                   <view class="quantifier">个</view>
                 </view>
@@ -74,7 +73,7 @@
               <i-col span="16" i-class="col-class">
                 <view class="number-wrap">
                   <view class="number-input">
-                    <i-input-number value="{{ pay }}" min="0" max="1000" bindchange="handlePayChange" />
+                    <i-input-number value="{{ reward }}" min="0" max="1000" bindchange="handleRewardChange" />
                   </view>
                   <view class="quantifier">元</view>
                 </view>
@@ -89,21 +88,20 @@
               </i-col>
               <i-col span="16" i-class="col-class">
                 <view class="checkboxs">
-                  <i-checkbox-group  current="{{current_tag}}"  bindchange="handleTagChange">
+                  <i-radio-group  current="{{current_tag}}"  bindchange="handleTagChange">
                       <view class="parent">
-                        <i-checkbox class="child" wx:for="{{tags}}" wx:key="{{item.id}}" value="{{item.name}}">
-                        </i-checkbox>
+                        <i-radio class="child" wx:for="{{tags}}" wx:key="{{item.id}}" value="{{item.name}}">
+                        </i-radio>
                       </view>
-                  </i-checkbox-group>
+                  </i-radio-group>
                 </view>
               </i-col>
           </i-row>
         </view>
         
         <view class='bottom'>
-          <button form-type="submit">下一步</button>
+          <button >下一步</button>
         </view>
-      </form>
     </view>
   </view>
 </view>

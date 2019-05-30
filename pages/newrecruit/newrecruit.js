@@ -7,18 +7,21 @@ Page({
    */
 
   data: {
-    task_type: '信息收集',
-    requirement: '',
-    contact: ''
+    task_type: '招募',
+    description: '',
+    location: '',
+    contact: '',
+    start_date: '2019-05-01',
+    end_date: '2019-09-30'
   },
-  bindRequirementInput: function (e) {
+  bindDescriptionInput: function (e) {
     this.setData({
-      requirement: e.detail.value
+      description: e.detail.value
     })
   },
-  bindContactInput: function (e) {
+  bindLocationInput: function (e) {
     this.setData({
-      contact: e.detail.value
+      location: e.detail.value
     })
   },
   handleReturn: function () {
@@ -27,6 +30,18 @@ Page({
     })
   },
 
+  bindStartDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      start_date: e.detail.value
+    })
+  },
+  bindEndDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      end_date: e.detail.value
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
