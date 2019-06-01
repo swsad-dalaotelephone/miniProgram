@@ -7,7 +7,14 @@ Page({
    */
 
   data: {
-
+    task : {
+      type: 'questionnaire',
+      name: '',
+      brief_info: '',
+      current_tag: [], 
+      required_count: 1,
+      reward: 0,
+    },
     tags: [{
       id: 1,
       name: '运动',
@@ -29,50 +36,49 @@ Page({
     }
     ],
 
-    task_name: '',
-    brief_info: '',
+
     position: 'left',
-    current_tag: [], 
+    
     task_types: ['问卷', '信息收集', '招募'],
+    task_types_english: ['questionnaire', 'data collection', 'recruit'],
     type_index: 0,
     newTaskText: '发布任务',
-    required_count: 1,
-    reward: 1
   },
 
   bindTaskNameInput: function (e) {
     this.setData({
-      task_name: e.detail.value
+      'task.name': e.detail.value
     })
   },
   bindBriefInfoInput: function (e) {
     this.setData({
-      brief_info: e.detail.value
+      'task.brief_info': e.detail.value
     })
   },
 
   handleRequiredCountChange({ detail }) {
     this.setData({
-      required_count: detail.value
+      'task.required_count': detail.value
     })
   },
 
   handleRewardChange({ detail }) {
     this.setData({
-      reward: detail.value
+      'task.reward': detail.value
     })
   },
 
   handleTypeChange: function (e) {
     console.log('picker选择改变，携带值为', e.detail.detail.value)
     this.setData({
-      type_index: e.detail.detail.value
+      type_index: e.detail.detail.value,
+      'task.type': this.data.task_types_english[e.detail.detail.value]
     })
   },
 
   handleTagChange({ detail = {} }) {
     this.setData({
-      current_tag: detail.value
+      'task.current_tag': detail.value
     });
   },
 
@@ -81,6 +87,39 @@ Page({
   handleReturn: function () {
     wx.switchTab({
       url: '/pages/index/index',
+    })
+  },
+
+  handleNextStep: function () {
+    var task = this.data.task;
+    if (task.name.length == 0) {
+      wx.showToast({
+        title: '任务名不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
+    if (task.brief_info.length == 0) {
+      wx.showToast({
+        title: '描述不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
+    if (task.current_tag.length == 0) {
+      wx.showToast({
+        title: '标签不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;      
+    }
+    console.log('task: ', this.data.task);
+    if (task.type == "questionnaire")
+    wx.navigateTo({
+      url: '/pages/newtask/newtask?task=' + JSON.stringify(task),
     })
   },
 
