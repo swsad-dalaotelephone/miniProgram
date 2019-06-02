@@ -117,10 +117,21 @@ Page({
       return;      
     }
     console.log('task: ', this.data.task);
-    if (task.type == "questionnaire")
-    wx.navigateTo({
-      url: '/pages/newtask/newtask?task=' + JSON.stringify(task),
-    })
+    if (task.type == "questionnaire") {
+      wx.navigateTo({
+        url: '/pages/newtask/newtask?task=' + JSON.stringify(task),
+      })
+    }
+    else if (task.type == "data collection") {
+      wx.navigateTo({
+        url: '/pages/newcollect/newcollect?task=' + JSON.stringify(task),
+      })      
+    }
+    else if (task.type == "recruit") {
+      wx.navigateTo({
+        url: '/pages/newrecruit/newrecruit?task=' + JSON.stringify(task),
+      })            
+    }
   },
 
 

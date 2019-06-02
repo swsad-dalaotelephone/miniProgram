@@ -21,6 +21,11 @@ Page({
       contact: e.detail.value
     })
   },
+  handleNextStep: function () {
+    wx.navigateTo({
+      url: '/pages/scope/scope'
+    })
+  }, 
   handleReturn: function () {
     wx.switchTab({
       url: '/pages/index/index',
