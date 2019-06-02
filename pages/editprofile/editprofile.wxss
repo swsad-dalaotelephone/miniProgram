@@ -1,0 +1,49 @@
+/* pages/editprofile/editprofile.wxss */
+
+.safe{
+    position: absolute;
+    height: 48rpx;
+    width: 48rpx;
+    top: 75rpx;
+    right: 40rpx;
+  
+    /* temp */
+    background-color: white;    
+}
+
+.inputLine{
+    height: 100rpx;
+    margin-top: 40rpx;
+}
+
+.inputLine .itemTitle{
+    float: left;
+    margin-left: 40rpx;
+    vertical-align: center;
+    line-height: 100rpx;
+    text-align: left;
+    color: #77A9FD;
+    width: 180rpx;
+}
+
+/* #tags{
+    height: auto;
+} */
+
+#tags .itemTitle{
+    line-height: 50rpx;
+}
+
+.inputLine .inputBox{
+    float: right;
+    height: 80rpx;
+    width: 480rpx;
+    margin: 0;
+    margin-right: 36rpx;
+    font-size: 36rpx;
+    line-height: 80rpx;
+    vertical-align: center;
+    padding-left: 10rpx;
+    
+}
+
