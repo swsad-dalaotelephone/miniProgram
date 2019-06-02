@@ -1,14 +1,11 @@
-/* pages/newtask/newtask.wxss */
-
-
-
+/* pages/newrecruit/newrecruit.wxss */
 page{
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.page {
+.page{
   flex-grow: 1; /* Grow to fill available space */
   display: flex;
   flex-direction: column;
@@ -31,6 +28,10 @@ page{
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+
+.attr-row {
+  margin: 10px 5px;
 }
 
 .main-content {
@@ -56,8 +57,6 @@ page{
   flex: 0 0 40%;
 }
 
-
-
 .page1 {
   display: flex;
   flex-direction: column
@@ -78,60 +77,38 @@ page{
   width: 28px;
 }
 
-.attrname {
-  text-align: center;
-}
-
-.picker {
-  padding-left: 20%;
-}
 
 .input {
   height: 10px;
 }
 
-.questionContentInput {
-  font-size: 15px;
-}
-
-.optionInput {
-  font-size: 14px;
-}
-
-.choiceIndex {
-  color: #8e9094;
-}
-
-.questionIndex {
-  text-align: center;
-}
-.addOptionButton {
-  text-align: center;
-  height: 20px;
-}
-
-.textInputArea {
-  border: 1px solid #8e9094;
-  height: 30px;
+textarea {
+  height: 250rpx;
   width: 80%;
-  position: relative;
-  left: 5%;
-  border-radius: 5px;
-  font-size: 14px;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 1px 1px;
 }
 
-.addQuestionPanel {
+.date-picker, .single-line-input {
+  width: 80%;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 1px 1px;
+}
+
+.attrname {
+  text-align: center;
+  color: rgb(119, 169, 253);
+}
+
+.time-range {
   display: flex;
-  justify-content: space-around;
-  border: 3px dashed rgb(172, 172, 172); 
-  border-radius: 10px;
-  flex-flow: row;
-  align-content: flex-start;
-  margin: 20px 10px;
-  padding: 8px 10px 2px 10px;
+  flex-direction: column;
 }
 
-.image-button {
-  width: 60px;
-  height: 60px;
+.date-picker, .indicate {
+  height: 25px;
 }
+
+

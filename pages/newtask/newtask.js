@@ -25,10 +25,8 @@ Page({
       content: '',
     }
     ], 
-    array: ['问卷', '信息收集', '招募', '物流'],
-    index: 0,
-    newTaskText: '新建任务',
-    taskname: '',
+
+    task_type: '问卷',
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
