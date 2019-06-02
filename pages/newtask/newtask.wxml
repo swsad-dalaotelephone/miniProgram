@@ -67,7 +67,7 @@
         </view>
 
         <view class='bottom'>
-          <button form-type="submit">下一步</button>
+          <button bindtap="handleNextStep">下一步</button>
         </view>
       
       </view>

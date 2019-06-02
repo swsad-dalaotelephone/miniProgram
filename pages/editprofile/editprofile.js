@@ -1,37 +1,22 @@
-// pages/newcollect/newcollect.js
-var app = getApp()
+// pages/editprofile/editprofile.js
 Page({
 
   /**
    * 页面的初始数据
    */
-
   data: {
-    task_type: '信息收集',
-    requirement: '',
-    contact: ''
+    nickname: "",
+    date: '2000-01-01',
+    gradeIndex: 0,
+    grades: ['大一', '大二', '大三', '大四'],
+    campusIndex: 0,
+    campus: [
+      '广州校区南校园',
+      '广州校区东校园',
+      '广州校区北校园',
+      '珠海校区',
+      '深圳校区']
   },
-  bindRequirementInput: function (e) {
-    this.setData({
-      requirement: e.detail.value
-    })
-  },
-  bindContactInput: function (e) {
-    this.setData({
-      contact: e.detail.value
-    })
-  },
-  handleNextStep: function () {
-    wx.navigateTo({
-      url: '/pages/scope/scope'
-    })
-  }, 
-  handleReturn: function () {
-    wx.switchTab({
-      url: '/pages/index/index',
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -51,9 +36,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      typeName: app.globalData.currentTask
-    })
+
   },
 
   /**
@@ -74,10 +57,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showToast({
-      title: 'loading...',
-      icon: 'loading'
-    })
+
   },
 
   /**
@@ -92,5 +72,23 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
+
+  bindGradeChange: function (e) {
+    this.setData({
+      gradeIndex: e.detail.value
+    })
+  },
+
+  bindCampusChange: function (e) {
+    this.setData({
+      campusIndex: e.detail.value
+    })
+  },
 })

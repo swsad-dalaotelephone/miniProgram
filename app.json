@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/editprofile/editprofile",
     "pages/mine/mine",
     "pages/login/login",
     "pages/register/register",
@@ -10,8 +11,8 @@
     "pages/receive/receive",
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
-    "pages/newcollect/newcollect",
-    "pages/newrecruit/newrecruit"
+    "pages/newrecruit/newrecruit",
+    "pages/newcollect/newcollect"
   ],
   "window": {
     "backgroundTextStyle": "light",

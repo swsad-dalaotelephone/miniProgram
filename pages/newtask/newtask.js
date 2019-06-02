@@ -120,6 +120,12 @@ Page({
       questionList: newQuestionList
     });
   },
+
+  handleNextStep: function () {
+      wx.navigateTo({
+        url: '/pages/scope/scope'
+      })
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */

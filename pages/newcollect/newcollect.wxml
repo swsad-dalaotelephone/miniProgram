@@ -39,7 +39,7 @@
             </view>
 
             <view class='bottom'>
-              <button>下一步</button>
+              <button bindtap="handleNextStep">下一步</button>
             </view>
         </view>
     </view>
