@@ -90,7 +90,7 @@ page{
   height: 10px;
 }
 
-.questionContentInput {
+.questionTitleInput {
   font-size: 15px;
 }
 
