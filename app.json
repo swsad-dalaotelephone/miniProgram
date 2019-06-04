@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/receive/receive",
     "pages/newtask/newtask",
     "pages/index/index",
     "pages/editprofile/editprofile",
@@ -8,12 +9,12 @@
     "pages/register/register",
     "pages/logs/logs",
     "pages/task/task",
-    
-    "pages/receive/receive",
+
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
     "pages/newrecruit/newrecruit",
-    "pages/newcollect/newcollect"
+    "pages/newcollect/newcollect",
+    "view/view"
   ],
   "window": {
     "backgroundTextStyle": "light",
