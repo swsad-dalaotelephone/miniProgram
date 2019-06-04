@@ -8,17 +8,21 @@ Page({
 
   data: {
     task_type: '信息收集',
-    requirement: '',
-    contact: ''
+    task: {
+      content: {
+        data_des: '',
+        submit_way: ''
+      }
+    }
   },
   bindRequirementInput: function (e) {
     this.setData({
-      requirement: e.detail.value
+      'task.content.data_des': e.detail.value
     })
   },
   bindContactInput: function (e) {
     this.setData({
-      contact: e.detail.value
+      'task.content.submit_way': e.detail.value
     })
   },
   handleNextStep: function () {

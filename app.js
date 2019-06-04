@@ -16,5 +16,6 @@ App({
     userInfo: null,
     currentTask: '问卷',
     host: 'https://api.baobaozhuan.cn'
-  }
+  },
+
 })
