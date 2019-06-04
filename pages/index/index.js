@@ -2,6 +2,7 @@
 
 //获取应用实例
 const app = getApp()
+const http = require('../../utils/http.js')
 
 Page({
   data: {
@@ -77,7 +78,11 @@ Page({
 
   //事件处理函数
   onLoad: function() {
-
+    http._get('/task/getRecommendTasks').then(res => {
+      console.log(res)
+    }).catch(e => {
+      console.log(e)
+    })
   },
   handletap: function(e) {
     app.globalData.currentTask = e.currentTarget.dataset.name

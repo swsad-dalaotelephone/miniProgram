@@ -23,17 +23,17 @@
       </van-tab>
       <van-tab title="问卷">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+          <my-card bindtap="openReceive" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
         </view>
       </van-tab>
       <van-tab title="信息收集">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+          <my-card bindtap="openReceive" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
         </view>
       </van-tab>
       <van-tab title="招募">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+          <my-card bindtap="openReceive" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
         </view>
       </van-tab>
     </van-tabs>

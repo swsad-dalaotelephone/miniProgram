@@ -7,6 +7,7 @@ Page({
    */
   data: {
     typeName: '问卷',
+    isPublish: true,
     taskList: [],
     text1: '',
     text2: '',
@@ -56,7 +57,6 @@ Page({
   },
 
   handleTap1: function(e) {
-
     this.setData({
       taskList: this.data.taskList1,
       text1: 'active',
