@@ -31,7 +31,7 @@
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="textarea-input">
-                      <textarea placeholder="请输入提交方式（默认邮箱）" value="{{task.content.submit_way}}" name="contact"/>
+                      <textarea placeholder="请输入提交方式（默认邮箱）" value="{{task.content.submit_way}}" bindinput="bindContactInput"/>
                     </view>                
                   </i-col>
               </i-row>

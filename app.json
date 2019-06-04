@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/newtask/newtask",
+    
     "pages/index/index",
     "pages/editprofile/editprofile",
     "pages/mine/mine",
@@ -8,7 +8,7 @@
     "pages/register/register",
     "pages/logs/logs",
     "pages/task/task",
-    
+    "pages/newtask/newtask",
     "pages/receive/receive",
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
