@@ -7,7 +7,9 @@ Page({
    */
 
   data: {
+    task: {
 
+    },
     grades: [{
       id: 1,
       name: '大一',
@@ -102,8 +104,8 @@ Page({
     });
   },
   handleReturn: function () {
-    wx.switchTab({
-      url: '/pages/index/index',
+    wx.navigateBack({
+      delta: 1
     })
   },
 
@@ -114,7 +116,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var new_task = JSON.parse(options.task);
+    console.log("new_task: ", new_task);
+    var comm = require('../../utils/common.js');
+    var task = this.data.task;
+    comm.mergeTaskInfo(task, new_task);
+    console.log("task: ", task);
+    this.setData({
+      task: task
+    })
   },
 
   /**

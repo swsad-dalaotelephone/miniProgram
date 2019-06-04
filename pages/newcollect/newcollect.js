@@ -8,27 +8,48 @@ Page({
 
   data: {
     task_type: '信息收集',
-    requirement: '',
-    contact: ''
+    task: {
+      content: {
+        data_des: '',
+        submit_way: ''
+      }
+    }
   },
   bindRequirementInput: function (e) {
     this.setData({
-      requirement: e.detail.value
+      'task.content.data_des': e.detail.value
     })
   },
   bindContactInput: function (e) {
     this.setData({
-      contact: e.detail.value
+      'task.content.submit_way': e.detail.value
     })
   },
   handleNextStep: function () {
+    var task = this.data.task;
+    if (task.content.data_des == 0) {
+      wx.showToast({
+        title: '要求不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
+    if (task.content.submit_way.length == 0) {
+      wx.showToast({
+        title: '提交方式不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }    
     wx.navigateTo({
-      url: '/pages/scope/scope'
+      url: '/pages/scope/scope?task=' + JSON.stringify(task),
     })
   }, 
   handleReturn: function () {
-    wx.switchTab({
-      url: '/pages/index/index',
+    wx.navigateBack({
+      delta: 1
     })
   },
 
@@ -37,7 +58,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var new_task = JSON.parse(options.task);
+    console.log("new_task: ", new_task);
+    var comm = require('../../utils/common.js');
+    var task = this.data.task;
+    comm.mergeTaskInfo(task, new_task);
+    console.log("task: ", task);
+    this.setData({
+      task: task
+    })
   },
 
   /**
@@ -51,9 +80,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      typeName: app.globalData.currentTask
-    })
+
   },
 
   /**
