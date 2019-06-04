@@ -16,5 +16,8 @@ App({
     userInfo: null,
     currentTask: '问卷',
     host: 'https://api.baobaozhuan.cn'
+  },
+  mergeTaskInfo: function(obj, ref){
+    
   }
 })
