@@ -13,6 +13,7 @@
     "pages/newtaskgeneral/newtaskgeneral",
     "pages/newrecruit/newrecruit",
     "pages/newcollect/newcollect",
+    "pages/fulfiltask/fulfiltask",
     "view/view"
   ],
   "window": {

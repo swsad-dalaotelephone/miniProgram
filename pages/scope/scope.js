@@ -8,7 +8,9 @@ Page({
 
   data: {
     task: {
-
+      requirements: {
+        
+      }
     },
     grades: [{
       id: 1,
