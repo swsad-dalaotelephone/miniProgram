@@ -48,18 +48,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    http._get('/task/getPublishedTasks').then(res => {
-      console.log(JSON.parse(res.tasks))
+    // http._get('/task/getPublishedTasks').then(res => {
+    //   console.log(JSON.parse(res.tasks))
+    //   this.setData({
+    //     publishedTasks: JSON.parse(res.tasks)
+    //   })
+    // }).catch(e => {
+    //   console.log(e)
+    // })
+    http._get('/task/getAcceptedTasks?accepter_id=e8600b83-a23b-42c2-8940-70f63c16854a').then(res => {
+      console.log(JSON.parse(res.accepted))
       this.setData({
-        publishedTasks: JSON.parse(res.tasks)
-      })
-    }).catch(e => {
-      console.log(e)
-    })
-    http._get('/task/getAcceptedTasks').then(res => {
-      console.log(JSON.parse(res.tasks))
-      this.setData({
-        acceptedTasks: JSON.parse(res.tasks)
+        acceptedTasks: JSON.parse(res.accepted)
       })
     }).catch(e => {
       console.log(e)
