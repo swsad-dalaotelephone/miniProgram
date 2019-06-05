@@ -12,8 +12,8 @@
       <view class="block"> {{item.detail}} </view>
     </block>
     <view class='bottom'>
-      <button>马上完成</button>
-      <button class='gray'>暂时接收</button>
+      <button bindtap='handleTap1'>马上完成</button>
+      <button class='gray' bindtap='handleTap2'>暂时接收</button>
     </view>
   </view>
 </view>

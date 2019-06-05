@@ -20,6 +20,14 @@ Page({
 
     })
   },
+  handleTap1: function() {
+
+  },
+  handleTap2: function() {
+    wx.navigateTo({
+      url: '/pages/task/task',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

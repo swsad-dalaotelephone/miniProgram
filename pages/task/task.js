@@ -1,5 +1,7 @@
 // pages/task/task.js
 var app = getApp()
+const http = require('../../utils/http.js')
+
 Page({
 
   /**
@@ -11,38 +13,8 @@ Page({
     taskList: [],
     text1: '',
     text2: '',
-    taskList1: [{
-      title: 'task1',
-      time: 'time1',
-      location: 'location1',
-      price: '1',
-      type: '1',
-      intro: '介绍',
-      status: '已完成'
-    },
-      {
-        title: 'task2',
-        time: 'time1',
-        location: 'location1',
-        price: '1',
-        type: '0',
-        status: '已完成'
-      }
-    ],
-    taskList2: [{
-      title: 'task1',
-      time: 'time1',
-      location: 'location1',
-      price: '1',
-      status: '已完成'
-    },
-    {
-      title: 'task1',
-      time: 'time1',
-      location: 'location1',
-      price: '1'
-    }
-    ],
+    publishedTasks: [],
+    acceptedTasks: [],
   },
   handleReturn: function() {
     wx.switchTab({
@@ -58,7 +30,7 @@ Page({
 
   handleTap1: function(e) {
     this.setData({
-      taskList: this.data.taskList1,
+      taskList: this.data.acceptedTasks,
       text1: 'active',
       text2: 'no-active'
     })
@@ -66,7 +38,7 @@ Page({
 
   handleTap2: function (e) {
     this.setData({
-      taskList: this.data.taskList2,
+      taskList: this.data.publishedTasks,
       text1: 'no-active',
       text2: 'active'
     })
@@ -76,7 +48,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    http._get('/task/getPublishedTasks').then(res => {
+      console.log(JSON.parse(res.tasks))
+      this.setData({
+        publishedTasks: JSON.parse(res.tasks)
+      })
+    }).catch(e => {
+      console.log(e)
+    })
+    http._get('/task/getAcceptedTasks').then(res => {
+      console.log(JSON.parse(res.tasks))
+      this.setData({
+        acceptedTasks: JSON.parse(res.tasks)
+      })
+    }).catch(e => {
+      console.log(e)
+    })
   },
 
   /**

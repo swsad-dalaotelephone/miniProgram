@@ -7,13 +7,13 @@
 
 <view class=" page__bd page__bd_spacing">
   <view class="top">
-    <block wx:for="{{detailList}}">
+    <block wx:for="{{detailList}}" wx:key="{{item}}">
       <view class='title'> {{item.title}}:</view>
       <view class="block"> {{item.detail}} </view>
     </block>
     <view class='bottom'>
-      <button>马上完成</button>
-      <button class='gray'>暂时接收</button>
+      <button bindtap='handleTap1'>马上完成</button>
+      <button class='gray' bindtap='handleTap2'>暂时接收</button>
     </view>
   </view>
 </view>

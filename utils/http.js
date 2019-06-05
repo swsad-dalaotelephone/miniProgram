@@ -16,7 +16,7 @@ const http = ({ url = '', param = {}, ...other } = {}) => {
       complete: (res) => {
         wx.hideLoading();
         console.log(timeStart)
-        console.log(`耗时${Date.now() - timeStart}`);
+        console.log(`耗时${Date.now() - timeStart}ms`);
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data)
         } else {
