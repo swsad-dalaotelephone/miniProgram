@@ -1,7 +1,6 @@
-// pages/receive.js
-const http = require('../../utils/http.js')
-
+// pages/review/review.js
 Page({
+
   /**
    * 页面的初始数据
    */
@@ -9,7 +8,7 @@ Page({
     detailList: [],
     task: {}
   },
-  handleReturn: function() {
+  handleReturn: function () {
     wx.navigateBack({
 
     })
@@ -18,25 +17,14 @@ Page({
 
   },
   handleTap2: function () {
-    let data = { task_id :this.data.task.id}
-    http._post('/task/'+ data.task_id +'/acceptance',data).then(res => {
-      if(res.msg=='success'){
-        console.log('success')
-        wx.switchTab({
-          url: '/pages/task/task',
-        })
-      }else{
-        console.log(res.msg)
-      }
+    wx.navigateBack({
       
-    }).catch(e => {
-      console.log(e)
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var item = JSON.parse(options.item);
     var detailList = []
     switch (item.type) {
@@ -91,49 +79,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

@@ -17,23 +17,23 @@
 
     <van-tabs swipeable animated sticky duration="0.5" custom-nav-class="tab" color="#77a9fd">
       <van-tab title="全部">
-        <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card bindtap="openReceive" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="{{false}}"></my-card>
+        <view class="taskList" wx:for="{{taskList}}" wx:key="{{item.id}}">
+          <my-card bindtap="openReceive" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="0"></my-card>
         </view>
       </van-tab>
       <van-tab title="问卷">
-        <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card bindtap="openReceive" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+        <view class="taskList" wx:for="{{taskList1}}" wx:key="{{item.id}}">
+          <my-card bindtap="openReceive" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="0"></my-card>
         </view>
       </van-tab>
       <van-tab title="信息收集">
-        <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card bindtap="openReceive" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+        <view class="taskList" wx:for="{{taskList2}}" wx:key="{{item.id}}">
+          <my-card bindtap="openReceive" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="0"></my-card>
         </view>
       </van-tab>
       <van-tab title="招募">
-        <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-          <my-card bindtap="openReceive" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+        <view class="taskList" wx:for="{{taskList3}}" wx:key="{{item.id}}">
+          <my-card bindtap="openReceive" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="0"></my-card>
         </view>
       </van-tab>
     </van-tabs>

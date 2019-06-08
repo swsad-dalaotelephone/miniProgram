@@ -1,7 +1,7 @@
 <view class="i-class i-card {{ full ? 'i-card-full' : '' }}">
   <view class="left">
     <image class="i-card-header-thumb" src="{{ thumb }}" mode="aspectFit" wx:if="{{ thumb }}" />
-    <text wx:if="{{item.status!='0'}}">{{item.status}}</text>
+    <text wx:if="{{show!='0'}}">{{show=='1'?statusList[item.status]:statusList1[item.status]}}</text>
   </view>
   <view class="i-card-header">
     <view class="i-card-header-content">

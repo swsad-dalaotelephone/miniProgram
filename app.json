@@ -13,7 +13,7 @@
     "pages/newtaskgeneral/newtaskgeneral",
     "pages/newrecruit/newrecruit",
     "pages/newcollect/newcollect",
-    "pages/view/view"
+    "pages/review/review"
   ],
   "window": {
     "backgroundTextStyle": "light",

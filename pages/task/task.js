@@ -9,10 +9,7 @@ Page({
    */
   data: {
     typeName: '问卷',
-    isPublish: true,
-    taskList: [],
-    text1: '',
-    text2: '',
+    isPublish: false,
     publishedTasks: [],
     acceptedTasks: [],
   },
@@ -28,38 +25,47 @@ Page({
     })
   },
 
+  openReview: function(e) {
+    wx.navigateTo({
+      url: '/pages/review/review?item='+JSON.stringify(e.currentTarget.dataset.item),
+    })
+  },
+
   handleTap1: function(e) {
     this.setData({
-      taskList: this.data.acceptedTasks,
-      text1: 'active',
-      text2: 'no-active'
+      isPublish: false
     })
   },
 
   handleTap2: function (e) {
     this.setData({
-      taskList: this.data.publishedTasks,
-      text1: 'no-active',
-      text2: 'active'
+      isPublish: true
     })
+    console.log(this.data.publishedTasks)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // http._get('/task/getPublishedTasks').then(res => {
-    //   console.log(JSON.parse(res.tasks))
-    //   this.setData({
-    //     publishedTasks: JSON.parse(res.tasks)
-    //   })
-    // }).catch(e => {
-    //   console.log(e)
-    // })
-    http._get('/task/getAcceptedTasks?accepter_id=e8600b83-a23b-42c2-8940-70f63c16854a').then(res => {
-      console.log(JSON.parse(res.accepted))
+    http._get('/user/publishedTasks').then(res => {
+      console.log(res)
       this.setData({
-        acceptedTasks: JSON.parse(res.accepted)
+        publishedTasks: JSON.parse(res.tasks)
+      })
+    }).catch(e => {
+      console.log(e)
+    })
+    http._get('/user/acceptedTasks').then(res => {
+      let data = JSON.parse(res.accepted)
+      console.log(res)
+      let tempList=[]
+        data.forEach(item=>{
+        item.task.status=item.acceptance.status
+        tempList.push(item.task)
+      })
+      this.setData({
+        acceptedTasks: tempList
       })
     }).catch(e => {
       console.log(e)
@@ -70,11 +76,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    this.setData({
-      taskList: this.data.taskList1,
-      text1: 'active',
-      text2: 'no-active'
-    })
+
   },
 
   /**

@@ -1,7 +1,7 @@
 <!--pages/receive.wxml-->
 <view class="head">
   <i-icon type="return" size="28" color="white" bindtap='handleReturn'></i-icon>
-  <text class='name'>{{taskName}}</text>
+  <text class='name'>{{task.name}}</text>
   <i-icon type="add" size="28" color="#77a9fd"></i-icon>
 </view>
 
@@ -13,7 +13,7 @@
     </block>
     <view class='bottom'>
       <button bindtap='handleTap1'>马上完成</button>
-      <button class='gray' bindtap='handleTap2'>暂时接收</button>
+      <button id='gray' bindtap='handleTap2'>暂时接收</button>
     </view>
   </view>
 </view>
