@@ -14,7 +14,7 @@
     "pages/newrecruit/newrecruit",
     "pages/newcollect/newcollect",
     "pages/fulfiltask/fulfiltask",
-    "view/view"
+    "pages/review/review"
   ],
   "window": {
     "backgroundTextStyle": "light",

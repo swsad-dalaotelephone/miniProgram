@@ -1,5 +1,7 @@
 // pages/task/task.js
 var app = getApp()
+const http = require('../../utils/http.js')
+
 Page({
 
   /**
@@ -7,41 +9,9 @@ Page({
    */
   data: {
     typeName: '问卷',
-    taskList: [],
-    text1: '',
-    text2: '',
-    taskList1: [{
-      title: 'task1',
-      time: 'time1',
-      location: 'location1',
-      price: '1',
-      type: '1',
-      intro: '介绍',
-      status: '已完成'
-    },
-      {
-        title: 'task2',
-        time: 'time1',
-        location: 'location1',
-        price: '1',
-        type: '0',
-        status: '已完成'
-      }
-    ],
-    taskList2: [{
-      title: 'task1',
-      time: 'time1',
-      location: 'location1',
-      price: '1',
-      status: '已完成'
-    },
-    {
-      title: 'task1',
-      time: 'time1',
-      location: 'location1',
-      price: '1'
-    }
-    ],
+    isPublish: false,
+    publishedTasks: [],
+    acceptedTasks: [],
   },
   handleReturn: function() {
     wx.switchTab({
@@ -55,39 +25,58 @@ Page({
     })
   },
 
-  handleTap1: function(e) {
+  openReview: function(e) {
+    wx.navigateTo({
+      url: '/pages/review/review?item='+JSON.stringify(e.currentTarget.dataset.item),
+    })
+  },
 
+  handleTap1: function(e) {
     this.setData({
-      taskList: this.data.taskList1,
-      text1: 'active',
-      text2: 'no-active'
+      isPublish: false
     })
   },
 
   handleTap2: function (e) {
     this.setData({
-      taskList: this.data.taskList2,
-      text1: 'no-active',
-      text2: 'active'
+      isPublish: true
     })
+    console.log(this.data.publishedTasks)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    http._get('/user/publishedTasks').then(res => {
+      console.log(res)
+      this.setData({
+        publishedTasks: JSON.parse(res.tasks)
+      })
+    }).catch(e => {
+      console.log(e)
+    })
+    http._get('/user/acceptedTasks').then(res => {
+      let data = JSON.parse(res.accepted)
+      console.log(res)
+      let tempList=[]
+        data.forEach(item=>{
+        item.task.status=item.acceptance.status
+        tempList.push(item.task)
+      })
+      this.setData({
+        acceptedTasks: tempList
+      })
+    }).catch(e => {
+      console.log(e)
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    this.setData({
-      taskList: this.data.taskList1,
-      text1: 'active',
-      text2: 'no-active'
-    })
+
   },
 
   /**

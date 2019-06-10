@@ -6,13 +6,13 @@
     <i-icon type="add" size="28" color="white" bindtap='handleAddButton'></i-icon>
   </view>
   <view class="head1">
-    <text bindtap='handleTap1' class="{{text1}}">我发布的</text>
-    <text bindtap='handleTap2' class="{{text2}}">我接受的</text>
+    <text bindtap='handleTap1'>我接收的</text>
+    <text bindtap='handleTap2'>我发布的</text>
   </view>
 
   <view class="page__bd page__bd_spacing">
-    <view class="taskList" wx:for="{{taskList}}" wx:key="{{item}}">
-      <my-card item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg "></my-card>
+    <view class="taskList" wx:for="{{isPublish?publishedTasks:acceptedTasks}}" wx:key="{{item}}">
+      <my-card bindtap="openReview" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="{{isPublish?'2':'1'}}"></my-card>
     </view>
 
     <i-load-more tip="哎呀，没有更多了~" loading="{{ false }}" />
