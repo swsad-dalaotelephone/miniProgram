@@ -117,7 +117,7 @@ Page({
     console.log('task: ', this.data.task);
     if (task.type == "q") {
       wx.navigateTo({
-        url: '/pages/newtask/newtask?task=' + JSON.stringify(task),
+        url: '/pages/newquestionnaire/newquestionnaire?task=' + JSON.stringify(task),
       })
     }
     else if (task.type == "d") {

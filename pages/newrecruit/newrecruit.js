@@ -7,6 +7,11 @@ Page({
    */
 
   data: {
+    task: {
+      
+    },
+
+
     task_type: '招募',
     description: '',
     location: '',

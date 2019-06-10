@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/receive/receive",
-    "pages/newtask/newtask",
+    "pages/newquestionnaire/newquestionnaire",
     "pages/editprofile/editprofile",
     "pages/mine/mine",
     "pages/login/login",

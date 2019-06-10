@@ -1,4 +1,4 @@
-// pages/newtask/newtask.js
+// pages/newquestionnaire/newquestionnaire.js
 var app = getApp()
 Page({
 
