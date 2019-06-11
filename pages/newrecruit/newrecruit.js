@@ -8,43 +8,34 @@ Page({
 
   data: {
     task: {
-      
+      content: {
+        description: '',
+        start_time:'',
+        end_time: '',
+        participant_info: []
+      }
     },
-
-
     task_type: '招募',
-    description: '',
-    location: '',
-    contact: '',
     start_date: '2019-05-01',
     end_date: '2019-09-30',
-    questionList: [{
-      type: 'choice',
-      content: '',
-      options: [{
-        content: '',
-        index: 'A'
-      },
-      {
-        content: '',
-        index: 'B'
-      }
-      ]
-    },
-    {
-      type: 'text',
-      content: '',
-    }
-    ], 
+
   },
+
+  bindStartTime(e) {
+    this.setData({
+      'task.content.start_time': event.detail.value
+    });
+  },
+
+
   bindDescriptionInput: function (e) {
     this.setData({
-      description: e.detail.value
+      'task.content.description': e.detail.value
     })
   },
   bindLocationInput: function (e) {
     this.setData({
-      location: e.detail.value
+      'this.content.location': e.detail.value
     })
   },
   handleReturn: function () {
@@ -68,17 +59,17 @@ Page({
 
   handleDeleteQuestion: function (e) {
     var index = e.currentTarget.dataset.index;
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     newQuestionList.splice(index, 1);
     console.log(newQuestionList);
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleAddText: function () {
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     newQuestionList.push({
       type: 'text',
@@ -86,12 +77,12 @@ Page({
     });
     console.log(newQuestionList);
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleAddChoice: function () {
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     newQuestionList.push({
       type: 'choice',
@@ -108,14 +99,14 @@ Page({
     });
     console.log(newQuestionList);
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleAddOption: function (e) {
     var index = e.currentTarget.dataset.index;
     console.log(index);
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     var cur_options = newQuestionList[index].options.length;
     console.log(cur_options);
@@ -126,14 +117,14 @@ Page({
     console.log(newQuestionList);
 
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleDeleteOption: function (e) {
     var index = e.currentTarget.dataset.index;
     console.log(index);
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     var cur_options = newQuestionList[index].options.length;
     console.log(cur_options);
@@ -142,7 +133,7 @@ Page({
 
 
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 

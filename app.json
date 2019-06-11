@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/newrecruit/newrecruit",
     "pages/index/index",
     "pages/receive/receive",
     "pages/newquestionnaire/newquestionnaire",
@@ -11,7 +12,7 @@
     "pages/task/task",
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
-    "pages/newrecruit/newrecruit",
+    
     "pages/newcollect/newcollect",
     "pages/fulfiltask/fulfiltask",
     "pages/review/review"

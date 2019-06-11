@@ -1,0 +1,12 @@
+<!--components/my-datetimepicker/my-datetimepicker.wxml-->
+<button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-class="bottom"
+  bind:close="toggleBottomPopup"
+  bind:transitionEnd="onTransitionEnd"
+>
+  内容
+</van-popup>

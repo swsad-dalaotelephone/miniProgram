@@ -18,7 +18,7 @@
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="textarea-input">
-                      <textarea placeholder="活动描述" value="{{description}}" bindinput="bindDescriptionInput"/>
+                      <textarea placeholder="活动描述" value="{{task.content.description}}" bindinput="bindDescriptionInput"/>
                     </view>                
                   </i-col>
               </i-row>
@@ -37,7 +37,48 @@
                           {{start_date}}
                         </view>
                       </picker>
-                      <view class="indicate">至</view>
+
+      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+
+      <van-popup
+        show="{{ show }}"
+        position="bottom"
+        custom-class="bottom"
+        bind:close="toggleBottomPopup"
+        bind:transitionEnd="onTransitionEnd"
+      >
+        内容
+      </van-popup>      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+
+      <van-popup
+        show="{{ show }}"
+        position="bottom"
+        custom-class="bottom"
+        bind:close="toggleBottomPopup"
+        bind:transitionEnd="onTransitionEnd"
+      >
+        内容
+      </van-popup>      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+
+      <van-popup
+        show="{{ show }}"
+        position="bottom"
+        custom-class="bottom"
+        bind:close="toggleBottomPopup"
+        bind:transitionEnd="onTransitionEnd"
+      >
+        内容
+      </van-popup>      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+
+      <van-popup
+        show="{{ show }}"
+        position="bottom"
+        custom-class="bottom"
+        bind:close="toggleBottomPopup"
+        bind:transitionEnd="onTransitionEnd"
+      >
+        内容
+      </van-po                    <view class="indicate">至</view>
                       
                       <picker mode="date" value="{{end_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindEndDateChange">
                         <view class="date-picker">
@@ -55,7 +96,7 @@
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="single-line-input">
-                      <input placeholder="地点" value="{{location}}" bindinput="bindLocationInput"/>
+                      <input placeholder="地点" value="{{this.task.location}}" bindinput="bindLocationInput"/>
                     </view>                
                   </i-col>
               </i-row>
@@ -73,7 +114,7 @@
 
               <i-row i-class="attr-row">
                 <view class="questions">
-                  <view class="question" wx:for="{{questionList}}">
+                  <view class="question" wx:for="{{task.content.participant_info}}">
                       <i-row i-class="questionTitle">
                           <i-col span="3" i-class="col-class">
                             <view class="questionIndex">{{index + 1}}.</view>
