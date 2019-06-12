@@ -32,59 +32,13 @@
                   <i-col span="16" i-class="col-class">
                     <view class="time-range">
                       <view class="indicate">从</view>
-                      <picker mode="date" value="{{start_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindStartDateChange">
-                        <view class="date-picker">
-                          {{start_date}}
-                        </view>
-                      </picker>
 
-      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+                      <my-datetimepicker bindchange="bindStartTimeChange" value="{{task.content.start_time}}"/> 
 
-      <van-popup
-        show="{{ show }}"
-        position="bottom"
-        custom-class="bottom"
-        bind:close="toggleBottomPopup"
-        bind:transitionEnd="onTransitionEnd"
-      >
-        内容
-      </van-popup>      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
-
-      <van-popup
-        show="{{ show }}"
-        position="bottom"
-        custom-class="bottom"
-        bind:close="toggleBottomPopup"
-        bind:transitionEnd="onTransitionEnd"
-      >
-        内容
-      </van-popup>      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
-
-      <van-popup
-        show="{{ show }}"
-        position="bottom"
-        custom-class="bottom"
-        bind:close="toggleBottomPopup"
-        bind:transitionEnd="onTransitionEnd"
-      >
-        内容
-      </van-popup>      <button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
-
-      <van-popup
-        show="{{ show }}"
-        position="bottom"
-        custom-class="bottom"
-        bind:close="toggleBottomPopup"
-        bind:transitionEnd="onTransitionEnd"
-      >
-        内容
-      </van-po                    <view class="indicate">至</view>
+                      <view class="indicate">至</view>
                       
-                      <picker mode="date" value="{{end_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindEndDateChange">
-                        <view class="date-picker">
-                           {{end_date}}
-                        </view>
-                      </picker>                                        
+                      <my-datetimepicker bindchange="bindEndTimeChange" value="{{task.content.end_time}}"/> 
+                                     
                     </view>                
                   </i-col>
               </i-row>

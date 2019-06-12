@@ -1,5 +1,5 @@
 <!--components/my-datetimepicker/my-datetimepicker.wxml-->
-<button bindtap="toggleBottomPopup" class="demo-margin-right">底部弹出</button>
+<view bindtap="toggleBottomPopup" class="my-datetimepicker">{{value}}</view>
 
 <van-popup
   show="{{ show }}"
@@ -8,5 +8,12 @@
   bind:close="toggleBottomPopup"
   bind:transitionEnd="onTransitionEnd"
 >
-  内容
+
+<van-datetime-picker
+  type="datetime"
+  value="{{ currentDate }}"
+  bind:confirm="onConfirm"
+  bind:cancel="onCancel"
+/>
+
 </van-popup>

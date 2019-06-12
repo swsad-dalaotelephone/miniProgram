@@ -1,1 +1,9 @@
 /* components/my-datetimepicker/my-datetimepicker.wxss */
+
+.my-datetimepicker {
+  min-height: 25px;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  color: #333;
+  font-size: 36rpx;
+}

@@ -10,22 +10,27 @@ Page({
     task: {
       content: {
         description: '',
-        start_time:'',
-        end_time: '',
+        start_time:'2019-06-15 20:53:00',
+        end_time: '2019-06-20 21:00:00',
         participant_info: []
       }
     },
     task_type: '招募',
     start_date: '2019-05-01',
     end_date: '2019-09-30',
-
   },
 
-  bindStartTime(e) {
+  bindStartTimeChange({detail}) {
     this.setData({
-      'task.content.start_time': event.detail.value
-    });
+      'task.content.start_time': detail
+    })
   },
+  bindEndTimeChange({ detail }) {
+    this.setData({
+      'task.content.end_time': detail
+    })
+  },
+
 
 
   bindDescriptionInput: function (e) {
