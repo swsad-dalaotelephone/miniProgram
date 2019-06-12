@@ -68,7 +68,7 @@
 
               <i-row i-class="attr-row">
                 <view class="questions">
-                  <view class="question" wx:for="{{task.content.participant_info}}">
+                  <view class="question" wx:for="{{task.content.participant_info}}" wx:key="id">
                       <i-row i-class="questionTitle">
                           <i-col span="3" i-class="col-class">
                             <view class="questionIndex">{{index + 1}}.</view>
@@ -84,7 +84,7 @@
                       </i-row>
                       
                       <view class="optionsPanel" wx:if="{{item.type == 'choice'}} ">
-                        <view class="option" wx:for="{{item.options}}" wx:for-index="idx" wx:for-item="option"> 
+                        <view class="option" wx:for="{{item.options}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
                           <i-row>
                               <i-col span="3" i-class="col-class">
                                 <view class="addOptionButton">

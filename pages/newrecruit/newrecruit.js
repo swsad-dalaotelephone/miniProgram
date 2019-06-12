@@ -16,8 +16,6 @@ Page({
       }
     },
     task_type: '招募',
-    start_date: '2019-05-01',
-    end_date: '2019-09-30',
   },
 
   bindStartTimeChange({detail}) {
@@ -76,9 +74,11 @@ Page({
   handleAddText: function () {
     var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
       type: 'text',
-      content: ''
+      content: '',
+      id: new_id
     });
     console.log(newQuestionList);
     this.setData({
@@ -89,6 +89,7 @@ Page({
   handleAddChoice: function () {
     var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
       type: 'choice',
       content: '',
@@ -100,7 +101,8 @@ Page({
         content: '',
         index: 'B'
       },
-      ]
+      ],
+      id: new_id
     });
     console.log(newQuestionList);
     this.setData({

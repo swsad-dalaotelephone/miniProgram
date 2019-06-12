@@ -90,7 +90,7 @@ textarea {
   padding: 1px 1px;
 }
 
-.date-picker, .single-line-input {
+.single-line-input {
   width: 80%;
   border: 1px solid #bdbdbd;
   border-radius: 7px;

@@ -63,7 +63,7 @@ Page({
   handleAddText: function (){
     var newQuestionList = this.data.task.content.questions;
     console.log(newQuestionList);
-    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length-1].id;
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length-1].id + 1;
     newQuestionList.push({
       type: 'text',
       title: '',
@@ -78,6 +78,7 @@ Page({
   handleAddChoice: function () {
     var newQuestionList = this.data.task.content.questions
     console.log(newQuestionList);
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
       type: 'choice',
       title: '',
@@ -89,7 +90,8 @@ Page({
         content: '',
         index: 'B'
       },
-      ]
+      ],
+      id: new_id
     });
     console.log(newQuestionList);
     this.setData({
