@@ -74,13 +74,11 @@
       </view>
     
       <view class='bottom'>
-        <button>不做限制</button>
-        <button>发布</button>
+        <button bindtap="handleNoRestrict">不做限制</button>
+        <button bindtap="handlePublish">发布</button>
       </view>
     
     </view>
-
-
 
   </view>
 </view>

@@ -1,0 +1,46 @@
+<!--pages/fulfiltask/fulfiltask.wxml-->
+
+  <view class='page'>
+    <view class='head'>
+      <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
+      <text>{{page_title}}</text>
+      <i-icon type="more" size="28" color="white"></i-icon>
+    </view>
+
+    <view class="page__bd page__bd_spacing pagebd" >
+        <view class="newTaskPanel">  
+            <view class="main-content">
+              <view class="quest-ans" wx:if="{{type == 'q' || type == 'r'}}">
+                <view class="question" wx:for="{{questions}}" wx:key="id" wx:for-index="question_index" wx:for-item="question">
+                  <view class="questionTitle">{{question_index + 1}}. {{question.title}}</view>
+                  <view class="optionsPanel" wx:if="{{question.type == 'choice'}} ">
+                    <i-radio-group data-qindex="{{question_index}}" current="{{answers[question_index]}}"  bindchange="handleOptionChange">
+                      <view class="parent"> 
+                        <i-radio class="child" wx:for="{{question.options}}" wx:key="{{item.index}}"wx:for="{{question.options}}" wx:key="{{item.index}}" value="{{item.content}}">
+                        </i-radio>
+                      </view>
+                    </i-radio-group>
+                  </view>
+
+
+                  <view class="textPanel" wx:if="{{question.type == 'text'}}">
+                    <textarea placeholder="请输入答案" class="textInputArea" value="{{answers[question_index]}}" data-qindex="{{question_index}}" bindinput="bindTextInput"/>
+                  </view>  
+                </view>
+              </view>
+              <view class="mail-ans" wx:if="{{type == 'd'}}">
+                <view class="questionTitle">请填写发送信息的邮箱</view>
+                  <view class="textPanel">
+                    <textarea placeholder="请输入邮箱" class="textInputArea" value="{{mail}}" bindinput="bindMailInput"/>
+                  </view>                  
+              </view>
+            </view>  
+
+            <view class='bottom'>
+              <button bindtap="handleSubmit">提交</button>
+            </view>
+        </view>
+    </view>
+  </view>
+
+

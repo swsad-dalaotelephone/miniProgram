@@ -18,7 +18,7 @@
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="textarea-input">
-                      <textarea placeholder="活动描述" value="{{description}}" bindinput="bindDescriptionInput"/>
+                      <textarea placeholder="活动描述" value="{{task.content.description}}" bindinput="bindDescriptionInput"/>
                     </view>                
                   </i-col>
               </i-row>
@@ -32,18 +32,13 @@
                   <i-col span="16" i-class="col-class">
                     <view class="time-range">
                       <view class="indicate">从</view>
-                      <picker mode="date" value="{{start_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindStartDateChange">
-                        <view class="date-picker">
-                          {{start_date}}
-                        </view>
-                      </picker>
+
+                      <my-datetimepicker bindchange="bindStartTimeChange" value="{{task.content.start_time}}"/> 
+
                       <view class="indicate">至</view>
                       
-                      <picker mode="date" value="{{end_date}}" start="2010-05-01" end="2030-09-01" bindchange="bindEndDateChange">
-                        <view class="date-picker">
-                           {{end_date}}
-                        </view>
-                      </picker>                                        
+                      <my-datetimepicker bindchange="bindEndTimeChange" value="{{task.content.end_time}}"/> 
+                                     
                     </view>                
                   </i-col>
               </i-row>
@@ -55,7 +50,7 @@
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="single-line-input">
-                      <input placeholder="地点" value="{{location}}" bindinput="bindLocationInput"/>
+                      <input placeholder="地点" value="{{this.task.content.location}}" bindinput="bindLocationInput"/>
                     </view>                
                   </i-col>
               </i-row>
@@ -73,7 +68,7 @@
 
               <i-row i-class="attr-row">
                 <view class="questions">
-                  <view class="question" wx:for="{{questionList}}">
+                  <view class="question" wx:for="{{task.content.participant_info}}" wx:key="id">
                       <i-row i-class="questionTitle">
                           <i-col span="3" i-class="col-class">
                             <view class="questionIndex">{{index + 1}}.</view>
@@ -89,7 +84,7 @@
                       </i-row>
                       
                       <view class="optionsPanel" wx:if="{{item.type == 'choice'}} ">
-                        <view class="option" wx:for="{{item.options}}" wx:for-index="idx" wx:for-item="option"> 
+                        <view class="option" wx:for="{{item.options}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
                           <i-row>
                               <i-col span="3" i-class="col-class">
                                 <view class="addOptionButton">

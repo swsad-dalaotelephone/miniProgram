@@ -1,11 +1,14 @@
-/* pages/newrecruit/newrecruit.wxss */
+/* pages/newquestionnaire/newquestionnairek.wxss */
+
+
+
 page{
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.page{
+.page {
   flex-grow: 1; /* Grow to fill available space */
   display: flex;
   flex-direction: column;
@@ -28,10 +31,6 @@ page{
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-}
-
-.attr-row {
-  margin: 10px 5px;
 }
 
 .main-content {
@@ -57,6 +56,8 @@ page{
   flex: 0 0 40%;
 }
 
+
+
 .page1 {
   display: flex;
   flex-direction: column
@@ -77,44 +78,6 @@ page{
   width: 28px;
 }
 
-
-.input {
-  height: 10px;
-}
-
-textarea {
-  height: 250rpx;
-  width: 80%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
-}
-
-.single-line-input {
-  width: 80%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
-}
-
-my-datetimepicker {
-  width: 82%;
-}
-
-.attrname {
-  text-align: center;
-  color: rgb(119, 169, 253);
-}
-
-.time-range {
-  display: flex;
-  flex-direction: column;
-}
-
-.date-picker, .indicate {
-  height: 25px;
-}
-
 .attrname {
   text-align: center;
 }
@@ -127,7 +90,7 @@ my-datetimepicker {
   height: 10px;
 }
 
-.questionContentInput {
+.questionTitleInput {
   font-size: 15px;
 }
 
@@ -172,5 +135,3 @@ my-datetimepicker {
   width: 60px;
   height: 60px;
 }
-
-

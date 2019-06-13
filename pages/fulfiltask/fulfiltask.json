@@ -8,7 +8,8 @@
     "i-input": "../../dist/input/index",
     "i-row": "../../dist/row/index",
     "i-col": "../../dist/col/index",
-    "my-datetimepicker": "../../components/my-datetimepicker/my-datetimepicker"
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index"
   },
   "enablePullDownRefresh": true
 }

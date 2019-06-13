@@ -8,7 +8,7 @@ Page({
 
   data: {
     task : {
-      type: 'questionnaire',
+      type: 'q',
       name: '',
       brief_info: '',
       current_tag: [], 
@@ -40,7 +40,7 @@ Page({
     position: 'left',
     
     task_types: ['问卷', '信息收集', '招募'],
-    task_types_english: ['questionnaire', 'data collection', 'recruit'],
+    task_types_english: ['q', 'd', 'r'],
     type_index: 0,
     newTaskText: '发布任务',
   },
@@ -115,17 +115,17 @@ Page({
       return;      
     }
     console.log('task: ', this.data.task);
-    if (task.type == "questionnaire") {
+    if (task.type == "q") {
       wx.navigateTo({
-        url: '/pages/newtask/newtask?task=' + JSON.stringify(task),
+        url: '/pages/newquestionnaire/newquestionnaire?task=' + JSON.stringify(task),
       })
     }
-    else if (task.type == "data collection") {
+    else if (task.type == "d") {
       wx.navigateTo({
         url: '/pages/newcollect/newcollect?task=' + JSON.stringify(task),
       })      
     }
-    else if (task.type == "recruit") {
+    else if (task.type == "r") {
       wx.navigateTo({
         url: '/pages/newrecruit/newrecruit?task=' + JSON.stringify(task),
       })            

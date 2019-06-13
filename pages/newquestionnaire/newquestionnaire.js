@@ -1,4 +1,4 @@
-// pages/newtask/newtask.js
+// pages/newquestionnaire/newquestionnaire.js
 var app = getApp()
 Page({
 
@@ -8,6 +8,7 @@ Page({
 
   data: {
     task : {
+      type: 'q',
       content: {
         questions: [{
           type: 'choice',
@@ -50,20 +51,32 @@ Page({
   },
 
   handleDeleteQuestion: function (e) {
-    var index = e.currentTarget.dataset.index;
-    var newQuestionList= this.data.task.content.questions;
-    console.log(newQuestionList);
-    newQuestionList.splice(index, 1);
-    console.log(newQuestionList);
-    this.setData({
-      'task.content.questions': newQuestionList
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除此问题？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          var index = e.currentTarget.dataset.index;
+          var newQuestionList = that.data.task.content.participant_info;
+          console.log(newQuestionList);
+          newQuestionList.splice(index, 1);
+          console.log(newQuestionList);
+          that.setData({
+            'task.content.participant_info': newQuestionList
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      }
     });
   },
 
   handleAddText: function (){
     var newQuestionList = this.data.task.content.questions;
     console.log(newQuestionList);
-    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length-1].id;
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length-1].id + 1;
     newQuestionList.push({
       type: 'text',
       title: '',
@@ -78,6 +91,7 @@ Page({
   handleAddChoice: function () {
     var newQuestionList = this.data.task.content.questions
     console.log(newQuestionList);
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
       type: 'choice',
       title: '',
@@ -89,7 +103,8 @@ Page({
         content: '',
         index: 'B'
       },
-      ]
+      ],
+      id: new_id
     });
     console.log(newQuestionList);
     this.setData({
@@ -162,6 +177,16 @@ Page({
   handleNextStep: function () {
     var task = this.data.task;
     var questions = task.content.questions;
+
+    if (questions.length == 0) {
+      wx.showToast({
+        title: '题目数量不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;       
+    }
+
     for (var i = 0; i < questions.length; i++) {
       if (questions[i].title.length == 0) {
         wx.showToast({
@@ -194,15 +219,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var new_task = JSON.parse(options.task);
-    console.log("new_task: ", new_task);
-    var comm = require('../../utils/common.js');
-    var task = this.data.task;
-    comm.mergeTaskInfo(task, new_task);
-    console.log("task: ", task);
-    this.setData({
-      task: task
-    })
+    if (typeof options.task != "undefined") {
+      var new_task = JSON.parse(options.task);
+      console.log("new_task: ", new_task);
+      var comm = require('../../utils/common.js');
+      var task = this.data.task;
+      comm.mergeTaskInfo(task, new_task);
+      console.log("task: ", task);
+      this.setData({
+        task: task
+      })
+    }
   },
 
   /**

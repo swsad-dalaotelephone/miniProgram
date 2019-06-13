@@ -7,39 +7,38 @@ Page({
    */
 
   data: {
-    task_type: '招募',
-    description: '',
-    location: '',
-    contact: '',
-    start_date: '2019-05-01',
-    end_date: '2019-09-30',
-    questionList: [{
-      type: 'choice',
-      content: '',
-      options: [{
-        content: '',
-        index: 'A'
-      },
-      {
-        content: '',
-        index: 'B'
+    task: {
+      type: 'r',
+      content: {
+        description: '',
+        start_time:'2019-06-15 20:53:00',
+        end_time: '2019-06-20 21:00:00',
+        location: '',
+        participant_info: []
       }
-      ]
     },
-    {
-      type: 'text',
-      content: '',
-    }
-    ], 
+    task_type: '招募',
   },
+
+  bindStartTimeChange({detail}) {
+    this.setData({
+      'task.content.start_time': detail
+    })
+  },
+  bindEndTimeChange({ detail }) {
+    this.setData({
+      'task.content.end_time': detail
+    })
+  },
+
   bindDescriptionInput: function (e) {
     this.setData({
-      description: e.detail.value
+      'task.content.description': e.detail.value
     })
   },
   bindLocationInput: function (e) {
     this.setData({
-      location: e.detail.value
+      'task.content.location': e.detail.value
     })
   },
   handleReturn: function () {
@@ -48,46 +47,48 @@ Page({
     })
   },
 
-  bindStartDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      start_date: e.detail.value
-    })
-  },
-  bindEndDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      end_date: e.detail.value
-    })
-  },
-
   handleDeleteQuestion: function (e) {
-    var index = e.currentTarget.dataset.index;
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.splice(index, 1);
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除此问题？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          var index = e.currentTarget.dataset.index;
+          var newQuestionList = that.data.task.content.participant_info;
+          console.log(newQuestionList);
+          newQuestionList.splice(index, 1);
+          console.log(newQuestionList);
+          that.setData({
+            'task.content.participant_info': newQuestionList
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      }
     });
   },
 
   handleAddText: function () {
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
       type: 'text',
-      content: ''
+      content: '',
+      id: new_id
     });
     console.log(newQuestionList);
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleAddChoice: function () {
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
+    var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
       type: 'choice',
       content: '',
@@ -99,18 +100,19 @@ Page({
         content: '',
         index: 'B'
       },
-      ]
+      ],
+      id: new_id
     });
     console.log(newQuestionList);
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleAddOption: function (e) {
     var index = e.currentTarget.dataset.index;
     console.log(index);
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     var cur_options = newQuestionList[index].options.length;
     console.log(cur_options);
@@ -121,14 +123,14 @@ Page({
     console.log(newQuestionList);
 
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
   handleDeleteOption: function (e) {
     var index = e.currentTarget.dataset.index;
     console.log(index);
-    var newQuestionList = this.data.questionList;
+    var newQuestionList = this.data.task.content.participant_info;
     console.log(newQuestionList);
     var cur_options = newQuestionList[index].options.length;
     console.log(cur_options);
@@ -137,7 +139,7 @@ Page({
 
 
     this.setData({
-      questionList: newQuestionList
+      'task.content.participant_info': newQuestionList
     });
   },
 
@@ -145,7 +147,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (typeof options.task != "undefined") {
+      var new_task = JSON.parse(options.task);
+      console.log("new_task: ", new_task);
+      var comm = require('../../utils/common.js');
+      var task = this.data.task;
+      comm.mergeTaskInfo(task, new_task);
+      console.log("task: ", task);
+      this.setData({
+        task: task
+      })
+    }
   },
 
   /**
@@ -178,8 +190,61 @@ Page({
 
   },
   handleNextStep: function () {
+    var task = this.data.task;
+    if (task.content.description.length == 0) {
+      wx.showToast({
+        title: '活动描述不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }  
+    if (task.content.location.length == 0) {
+      wx.showToast({
+        title: '活动地点不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }  
+    var start_time = new Date(task.content.start_time);
+    var end_time = new Date(task.content.end_time);
+    if (start_time > end_time) {
+      wx.showToast({
+        title: '开始时间不能晚于结束时间',
+        icon: 'none',
+        duration: 2000
+      });
+      return;      
+    }
+
+    var questions = task.content.participant_info;
+    for (var i = 0; i < questions.length; i++) {
+      if (questions[i].title.length == 0) {
+        wx.showToast({
+          title: '题目' + (i + 1) + '不能为空',
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      }
+      if (questions[i].type == 'choice') {
+        var options = questions[i].options;
+        for (var j = 0; j < options.length; j++) {
+          if (options[j].content.length == 0) {
+            wx.showToast({
+              title: '题目' + (i + 1) + '选项' + options[j].index + '不能为空',
+              icon: 'none',
+              duration: 2000
+            });
+            return;
+          }
+        }
+      }
+    }
+  
     wx.navigateTo({
-      url: '/pages/scope/scope'
+      url: '/pages/scope/scope?task=' + JSON.stringify(task),
     })
   },   
 
