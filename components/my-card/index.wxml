@@ -6,7 +6,7 @@
   <view class="i-card-header">
     <view class="i-card-header-content">
       <text class='i-card-header-title'>{{item.name}}</text>
-      <view class="i-card-header-extra" wx:if="{{ item.reward }}">￥{{ item.price }}</view>
+      <view class="i-card-header-extra" wx:if="{{ item.reward }}">￥{{ item.reward }}</view>
     </view>
 
     <view wx:if="{{item.type=='r'}}">
