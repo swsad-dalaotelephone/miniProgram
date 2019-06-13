@@ -59,12 +59,12 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定');
           var index = e.currentTarget.dataset.index;
-          var newQuestionList = that.data.task.content.participant_info;
+          var newQuestionList = that.data.task.content.questions;
           console.log(newQuestionList);
           newQuestionList.splice(index, 1);
           console.log(newQuestionList);
           that.setData({
-            'task.content.participant_info': newQuestionList
+            'task.content.questions': newQuestionList
           });
         } else if (res.cancel) {
           console.log('用户点击取消');

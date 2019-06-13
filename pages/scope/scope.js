@@ -110,7 +110,7 @@ Page({
   submitTask() {
     var task = this.data.task;
     wx.navigateTo({
-      url: '/pages/fulfiltask/fultiltask?task=' + JSON.stringify(task)
+      url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
     })
   },
 
@@ -120,7 +120,7 @@ Page({
     this.setData({
       task: task
     })
-    submitTask();
+    this.submitTask();
   },
 
   handlePublish() {
@@ -129,7 +129,7 @@ Page({
     this.setData({
       task: task
     })
-    submitTask();    
+    this.submitTask();    
   },
 
 

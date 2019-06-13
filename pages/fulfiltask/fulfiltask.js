@@ -70,7 +70,11 @@ Page({
     mail: "",
     answers: [],
   },
-
+  handleReturn: function () {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   handleOptionChange: function(e) {
     var qindex = e.currentTarget.dataset.qindex;
     var answers = this.data.answers;
