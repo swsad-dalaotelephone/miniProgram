@@ -28,6 +28,7 @@ page{
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  padding: 10px 10px;
 }
 
 .attr-row {
@@ -72,101 +73,32 @@ page{
   background-color: #77a9fd
 }
 
-.icon {
-  height: 28px;
-  width: 28px;
-}
-
-
-.input {
-  height: 10px;
-}
-
-textarea {
-  height: 250rpx;
-  width: 80%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
-}
-
-.date-picker, .single-line-input {
-  width: 80%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
-}
-
-.attrname {
-  text-align: center;
-  color: rgb(119, 169, 253);
-}
-
-.time-range {
-  display: flex;
-  flex-direction: column;
-}
-
-.date-picker, .indicate {
-  height: 25px;
-}
-
-.attrname {
-  text-align: center;
-}
-
-.picker {
-  padding-left: 20%;
-}
-
-.input {
-  height: 10px;
-}
-
-.questionContentInput {
-  font-size: 15px;
-}
-
-.optionInput {
-  font-size: 14px;
-}
-
-.choiceIndex {
-  color: #8e9094;
-}
-
-.questionIndex {
-  text-align: center;
-}
-.addOptionButton {
-  text-align: center;
-  height: 20px;
-}
 
 .textInputArea {
   border: 1px solid #8e9094;
-  height: 30px;
-  width: 80%;
-  position: relative;
-  left: 5%;
+  height: 100px;
+  width: 100%;
   border-radius: 5px;
   font-size: 14px;
 }
 
-.addQuestionPanel {
+.questionTitle {
+  color: rgb(119, 169, 253);
+}
+
+.parent {
+  width: 100%;
+  /* height: 150px; */
   display: flex;
-  justify-content: space-around;
-  border: 3px dashed rgb(172, 172, 172); 
-  border-radius: 10px;
-  flex-flow: row;
+  flex-flow: row wrap;
   align-content: flex-start;
-  margin: 20px 10px;
-  padding: 8px 10px 2px 10px;
 }
 
-.image-button {
-  width: 60px;
-  height: 60px;
+.child {
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 50%;
+  height: 30px; 
+  /* border: 1px solid red; */
+  display: flex;
 }
-
-

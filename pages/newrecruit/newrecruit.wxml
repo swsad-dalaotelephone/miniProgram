@@ -50,7 +50,7 @@
                   </i-col>
                   <i-col span="16" i-class="col-class">
                     <view class="single-line-input">
-                      <input placeholder="地点" value="{{this.task.location}}" bindinput="bindLocationInput"/>
+                      <input placeholder="地点" value="{{this.task.content.location}}" bindinput="bindLocationInput"/>
                     </view>                
                   </i-col>
               </i-row>

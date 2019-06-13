@@ -8,7 +8,7 @@ Page({
 
   data: {
     task : {
-      type: 'questionnaire',
+      type: 'q',
       name: '',
       brief_info: '',
       current_tag: [], 

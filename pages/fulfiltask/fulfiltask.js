@@ -7,144 +7,102 @@ Page({
    */
 
   data: {
-    task_type: '招募',
-    description: '',
-    location: '',
-    contact: '',
-    start_date: '2019-05-01',
-    end_date: '2019-09-30',
-    questionList: [{
+    page_title: '问卷',
+    type: 'q',
+    questions: [{
       type: 'choice',
-      content: '',
+      title: '你认为中国将在多久之后夺得世界杯冠军？',
+      id: 1,
       options: [{
-        content: '',
+        content: '20年内',
         index: 'A'
       },
       {
-        content: '',
+        content: '50年内',
         index: 'B'
-      }
+      },
+      {
+        content: '100年内',
+        index: 'C'
+      },   
+      {
+        content: '200年内',
+        index: 'D'
+      },     
       ]
     },
     {
       type: 'text',
-      content: '',
-    }
-    ], 
-  },
-  bindDescriptionInput: function (e) {
-    this.setData({
-      description: e.detail.value
-    })
-  },
-  bindLocationInput: function (e) {
-    this.setData({
-      location: e.detail.value
-    })
-  },
-  handleReturn: function () {
-    wx.navigateBack({
-      delta: 1
-    })
-  },
-
-  bindStartDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      start_date: e.detail.value
-    })
-  },
-  bindEndDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      end_date: e.detail.value
-    })
-  },
-
-  handleDeleteQuestion: function (e) {
-    var index = e.currentTarget.dataset.index;
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.splice(index, 1);
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
-
-  handleAddText: function () {
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.push({
-      type: 'text',
-      content: ''
-    });
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
-    });
-  },
-
-  handleAddChoice: function () {
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    newQuestionList.push({
+      title: '说说你对中国足球的看法。',
+      id: 2
+    },
+    {
       type: 'choice',
-      content: '',
+      title: '你认为小熊维尼会连任到什么时候？',
+      id: 3,
       options: [{
-        content: '',
+        content: '2022',
         index: 'A'
       },
       {
-        content: '',
+        content: '2027',
         index: 'B'
       },
+      {
+        content: '2032',
+        index: 'C'
+      },
+      {
+        content: '2037',
+        index: 'D'
+      },
+      {
+        content: '2042',
+        index: 'E'
+      },    
+      {
+        content: '2047',
+        index: 'F'
+      }
       ]
-    });
-    console.log(newQuestionList);
-    this.setData({
-      questionList: newQuestionList
-    });
+    },
+    ],
+    mail: "",
+    answers: [],
   },
 
-  handleAddOption: function (e) {
-    var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    var cur_options = newQuestionList[index].options.length;
-    console.log(cur_options);
-    newQuestionList[index].options.push({
-      content: '',
-      index: String.fromCharCode(cur_options + 65)
-    });
-    console.log(newQuestionList);
-
+  handleOptionChange: function(e) {
+    var qindex = e.currentTarget.dataset.qindex;
+    var answers = this.data.answers;
+    answers[qindex] = e.detail.value;
     this.setData({
-      questionList: newQuestionList
-    });
+      answers: answers
+    })
   },
 
-  handleDeleteOption: function (e) {
-    var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.questionList;
-    console.log(newQuestionList);
-    var cur_options = newQuestionList[index].options.length;
-    console.log(cur_options);
-    newQuestionList[index].options.splice(cur_options - 1, 1);
-    console.log(newQuestionList);
-
-
+  bindTextInput: function(e) {
+    var qindex = e.currentTarget.dataset.qindex;
+    var answers = this.data.answers;
+    answers[qindex] = e.detail.value;
     this.setData({
-      questionList: newQuestionList
-    });
+      answers: answers
+    })
+  },
+  bindMailInput: function (e) {
+    this.setData({
+      mail: e.detail.value
+    })
+  },
+  handleSubmit: function(e) {
+    console.log(this.data.answers);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
 
   },
 
@@ -159,9 +117,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      typeName: app.globalData.currentTask
-    })
+
   },
 
   /**
@@ -177,11 +133,7 @@ Page({
   onUnload: function () {
 
   },
-  handleNextStep: function () {
-    wx.navigateTo({
-      url: '/pages/scope/scope'
-    })
-  },   
+
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

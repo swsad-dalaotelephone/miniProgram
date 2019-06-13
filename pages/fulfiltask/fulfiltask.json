@@ -7,7 +7,9 @@
     "i-panel": "../../dist/panel/index",
     "i-input": "../../dist/input/index",
     "i-row": "../../dist/row/index",
-    "i-col": "../../dist/col/index"
+    "i-col": "../../dist/col/index",
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index"
   },
   "enablePullDownRefresh": true
 }

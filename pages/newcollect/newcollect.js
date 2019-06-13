@@ -9,6 +9,7 @@ Page({
   data: {
     task_type: '信息收集',
     task: {
+      type: 'd',
       content: {
         data_des: '',
         submit_way: ''
@@ -58,15 +59,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var new_task = JSON.parse(options.task);
-    console.log("new_task: ", new_task);
-    var comm = require('../../utils/common.js');
-    var task = this.data.task;
-    comm.mergeTaskInfo(task, new_task);
-    console.log("task: ", task);
-    this.setData({
-      task: task
-    })
+    if (typeof options.task != "undefined") {
+      var new_task = JSON.parse(options.task);
+      console.log("new_task: ", new_task);
+      var comm = require('../../utils/common.js');
+      var task = this.data.task;
+      comm.mergeTaskInfo(task, new_task);
+      console.log("task: ", task);
+      this.setData({
+        task: task
+      })
+    }
   },
 
   /**

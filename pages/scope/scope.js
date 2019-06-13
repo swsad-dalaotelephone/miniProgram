@@ -8,6 +8,7 @@ Page({
 
   data: {
     task: {
+      type: 'q',
       requirements: {
         
       }
@@ -100,18 +101,36 @@ Page({
     console.log('major选择改变为', this.data.current_major)
   },
 
-  handleClick() {
-    this.setData({
-      position: this.data.position.indexOf('left') !== -1 ? 'right' : 'left',
-    });
-  },
   handleReturn: function () {
     wx.navigateBack({
       delta: 1
     })
   },
 
-  
+  submitTask() {
+    var task = this.data.task;
+    wx.navigateTo({
+      url: '/pages/fulfiltask/fultiltask?task=' + JSON.stringify(task)
+    })
+  },
+
+  handleNoRestrict() {
+    var task = this.data.task;
+    task.requirements = {};
+    this.setData({
+      task: task
+    })
+    submitTask();
+  },
+
+  handlePublish() {
+    var task = this.data.task;
+    task.requirements = {};
+    this.setData({
+      task: task
+    })
+    submitTask();    
+  },
 
 
   /**
@@ -140,9 +159,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      typeName: app.globalData.currentTask
-    })
+
   },
 
   /**
