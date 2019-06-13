@@ -23,13 +23,10 @@ Page({
 
   //事件处理函数
   onLoad: function() {
-    this.loadLists()
+    
   },
-  handletap: function(e) {
-    app.globalData.currentTask = e.currentTarget.dataset.name
-    wx.switchTab({
-      url: '/pages/task/task'
-    })
+  onShow: function() {
+    this.loadLists()
   },
   handleAddButton: function() {
     wx.navigateTo({
@@ -38,7 +35,7 @@ Page({
   },
   openReceive: function(e) {
     wx.navigateTo({
-      url: '/pages/receive/receive?item='+JSON.stringify(e.currentTarget.dataset.item)
+      url: '/pages/receive/receive?id='+e.currentTarget.dataset.item.id
     })
   },
   loadLists: function() {

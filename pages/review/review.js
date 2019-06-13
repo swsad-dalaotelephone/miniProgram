@@ -1,6 +1,7 @@
 // pages/review/review.js
-Page({
+const http = require('../../utils/http.js')
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -25,54 +26,62 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var item = JSON.parse(options.item);
-    var detailList = []
-    switch (item.type) {
-      case 'r':
-        detailList = [{
-          title: '活动描述',
-          detail: item.content
-        }, {
-          title: '活动时间',
-          detail: item.reward
-        }, {
-          title: '活动地点',
-          detail: item.required_count
-        }, {
-          title: '活动报酬',
-          detail: item.required_count
-        }]
-        break;
-      case 'q':
-        detailList = [{
-          title: '问卷描述',
-          detail: item.content
-        }, {
-          title: '问卷报酬',
-          detail: item.reward
-        }, {
-          title: '问卷预计份数',
-          detail: item.required_count
-        }]
-        break;
-      case 'd':
-        detailList = [{
-          title: '信息收集描述',
-          detail: item.content
-        }, {
-          title: '报酬',
-          detail: item.reward
-        }, {
-          title: '需要份数',
-          detail: item.required_count
-        }]
-        break;
-      default:
-        break;
-    }
-    this.setData({
-      task: item,
-      detailList: detailList
+    let id = options.id
+    let item = {}
+    http._get('/task/' + id).then(res => {
+      item = JSON.parse(res.task)
+      // console.log(item)
+
+      var detailList = []
+      switch (item.type) {
+        case 'r':
+          detailList = [{
+            title: '活动描述',
+            detail: item.content.recruit_des
+          }, {
+            title: '活动时间',
+            detail: item.content.start_time + item.content.end_time
+          }, {
+            title: '活动地点',
+            detail: item.content.location
+          }, {
+            title: '活动报酬',
+            detail: item.required_count
+          }]
+          break;
+        case 'q':
+          detailList = [{
+            title: '问卷描述',
+            detail: item.content.quest_des
+          }, {
+            title: '问卷报酬',
+            detail: item.reward
+          }, {
+            title: '问卷预计份数',
+            detail: item.required_count
+          }]
+          break;
+        case 'd':
+          detailList = [{
+            title: '信息收集描述',
+            detail: item.content.data_des
+          }, {
+            title: '报酬',
+            detail: item.reward
+          }, {
+            title: '需要份数',
+            detail: item.required_count
+          }]
+          break;
+        default:
+          break;
+      }
+      this.setData({
+        task: item,
+        detailList: detailList
+      })
+    }).catch(e => {
+      console.log(e)
     })
   },
 

@@ -27,7 +27,7 @@ Page({
 
   openReview: function(e) {
     wx.navigateTo({
-      url: '/pages/review/review?item='+JSON.stringify(e.currentTarget.dataset.item),
+      url: '/pages/review/review?id='+e.currentTarget.dataset.item.id,
     })
   },
 
@@ -48,28 +48,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    http._get('/user/publishedTasks').then(res => {
-      console.log(res)
-      this.setData({
-        publishedTasks: JSON.parse(res.tasks)
-      })
-    }).catch(e => {
-      console.log(e)
-    })
-    http._get('/user/acceptedTasks').then(res => {
-      let data = JSON.parse(res.accepted)
-      console.log(res)
-      let tempList=[]
-        data.forEach(item=>{
-        item.task.status=item.acceptance.status
-        tempList.push(item.task)
-      })
-      this.setData({
-        acceptedTasks: tempList
-      })
-    }).catch(e => {
-      console.log(e)
-    })
+
   },
 
   /**
@@ -83,7 +62,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    
+    http._get('/user/publishedTasks').then(res => {
+      // console.log(res)
+      this.setData({
+        publishedTasks: JSON.parse(res.tasks)
+      })
+    }).catch(e => {
+      console.log(e)
+    })
+    http._get('/user/acceptedTasks').then(res => {
+      let data = JSON.parse(res.accepted)
+      // console.log(res)
+      let tempList = []
+      data.forEach(item => {
+        item.task.status = item.acceptance.status
+        tempList.push(item.task)
+      })
+      this.setData({
+        acceptedTasks: tempList
+      })
+    }).catch(e => {
+      console.log(e)
+    })
   },
 
   /**

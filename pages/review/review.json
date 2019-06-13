@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-icon": "../../dist/icon/index"
+  }
 }
