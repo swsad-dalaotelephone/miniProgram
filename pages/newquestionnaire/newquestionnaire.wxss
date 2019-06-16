@@ -78,9 +78,6 @@ page{
   width: 28px;
 }
 
-.attrname {
-  text-align: center;
-}
 
 .picker {
   padding-left: 20%;
@@ -134,4 +131,21 @@ page{
 .image-button {
   width: 60px;
   height: 60px;
+}
+
+
+textarea {
+  height: 250rpx;
+  width: 80%;
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+  padding: 1px 1px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 10px 0px;
 }

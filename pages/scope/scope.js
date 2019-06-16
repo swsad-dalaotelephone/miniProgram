@@ -1,5 +1,6 @@
 // pages/scope/scope.js
 var app = getApp()
+const http = require('../../utils/http.js')
 Page({
 
   /**
@@ -107,10 +108,20 @@ Page({
     })
   },
 
-  submitTask() {
+  publishTask() {
     var task = this.data.task;
+
+    http._post('/user/publishedTasks').then(res => {
+      // console.log(res)
+      this.setData({
+        publishedTasks: JSON.parse(res.tasks)
+      })
+    }).catch(e => {
+      console.log(e)
+    })
+    
     wx.navigateTo({
-      url: '/pages/fulfiltask/fultiltask?task=' + JSON.stringify(task)
+      url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
     })
   },
 
@@ -120,7 +131,7 @@ Page({
     this.setData({
       task: task
     })
-    submitTask();
+    this.publishTask();
   },
 
   handlePublish() {
@@ -128,8 +139,9 @@ Page({
     task.requirements = {};
     this.setData({
       task: task
-    })
-    submitTask();    
+    });
+    console.log('task: ', task);
+    this.publishTask();    
   },
 
 
