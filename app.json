@@ -1,8 +1,8 @@
 {
   "pages": [            
     "pages/index/index",
-    "pages/receive/receive",
     "pages/newquestionnaire/newquestionnaire",
+    "pages/receive/receive",   
     "pages/editprofile/editprofile",
     "pages/mine/mine",
     "pages/login/login",

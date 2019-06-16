@@ -88,7 +88,7 @@
               </i-col>
               <i-col span="16" i-class="col-class">
                 <view class="checkboxs">
-                  <i-radio-group  current="{{task.current_tag}}"  bindchange="handleTagChange">
+                  <i-radio-group  current="{{current_tag}}"  bindchange="handleTagChange">
                       <view class="parent">
                         <i-radio class="child" wx:for="{{tags}}" wx:key="{{item.id}}" value="{{item.name}}">
                         </i-radio>
