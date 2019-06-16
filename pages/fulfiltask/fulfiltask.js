@@ -10,10 +10,10 @@ Page({
     page_title: '问卷',
     type: 'q',
     questions: [{
-      type: 'choice',
-      title: '你认为中国将在多久之后夺得世界杯冠军？',
+      quest_type: 'choice',
+      quest_title: '你认为中国将在多久之后夺得世界杯冠军？',
       id: 1,
-      options: [{
+      quest_option: [{
         content: '20年内',
         index: 'A'
       },
@@ -32,15 +32,15 @@ Page({
       ]
     },
     {
-      type: 'text',
-      title: '说说你对中国足球的看法。',
+      quest_type: 'text',
+      quest_title: '说说你对中国足球的看法。',
       id: 2
     },
     {
-      type: 'choice',
-      title: '你认为小熊维尼会连任到什么时候？',
+      quest_type: 'choice',
+      quest_title: '你认为小熊维尼会连任到什么时候？',
       id: 3,
-      options: [{
+      quest_option: [{
         content: '2022',
         index: 'A'
       },
@@ -105,6 +105,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (typeof options.task != 'undefined') {
+      let task = JSON.parse(options.task);
+      let page_title = '';
+      if (task.type == 'q') page_title = '问卷';
+      else if (task.type == 'd') page_title = '信息收集';
+      else if (task.type == 'r') page_title = '招募';
+
+      let questions = task.type == 'q' ? task.content.questions : task.content.participant_info;
+
+      let new_id = 0;
+
+      for (let i = 0; i < questions.length; i++) {
+        questions[i].id = ++new_id;
+        if (questions[i].quest_type == 'text') continue;
+        let options = [];
+        
+        for (let j = 0; j < questions[i].quest_option.length; j++) {
+          options.push({
+            content: questions[i].quest_option[j],
+            index: String.fromCharCode(j + 65)
+          })
+        }
+
+        questions[i].quest_option = options;
+      }
+
+
+      this.setData({
+        type: task.type,
+        page_title: page_title,
+        questions: questions
+      });
+    }
+    
 
 
 

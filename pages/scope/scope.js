@@ -111,18 +111,35 @@ Page({
   publishTask() {
     var task = this.data.task;
 
-    http._post('/user/publishedTasks').then(res => {
-      // console.log(res)
-      this.setData({
-        publishedTasks: JSON.parse(res.tasks)
-      })
+    http._post('/user/publishedTasks', task).then(res => {
+      console.log(res);
+      wx.showToast({
+        title: '发布成功',
+        icon: 'success',
+        duration: 2000,
+        success: function () {
+          console.log('haha');
+          setTimeout(function () {
+            //要延时执行的代码
+            wx.switchTab({
+              url: '/pages/task/task'
+            });
+          }, 2000) //延迟时间
+        }
+      });      
     }).catch(e => {
-      console.log(e)
+      console.log(e);
+      wx.showToast({
+        title: '发布失败，请联系程序员小哥哥',
+        icon: 'none',
+        duration: 2000
+      })
+      wx.navigateTo({
+        url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
+      })
     })
     
-    wx.navigateTo({
-      url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
-    })
+    
   },
 
   handleNoRestrict() {
