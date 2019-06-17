@@ -110,8 +110,8 @@ Page({
 
   publishTask() {
     var task = this.data.task;
-
-    http._post('/user/publishedTasks', task).then(res => {
+    task.publisher_id = 'e8600b83-a23b-42c2-8940-70f63c16854a';
+    http._post('/task', task).then(res => {
       console.log(res);
       wx.showToast({
         title: '发布成功',
@@ -132,14 +132,20 @@ Page({
       wx.showToast({
         title: '发布失败，请联系程序员小哥哥',
         icon: 'none',
-        duration: 2000
+        duration: 2000,
+        success: function () {
+          console.log('haha');
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
+            })
+          }, 2000) //延迟时间
+        }
+
       })
-      wx.navigateTo({
-        url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
-      })
+      
     })
-    
-    
+       
   },
 
   handleNoRestrict() {
