@@ -67,7 +67,7 @@ Page({
       ]
     },
     ],
-    mail: "",
+    task_id: '',
     answers: [],
   },
   handleReturn: function () {
@@ -78,7 +78,17 @@ Page({
   handleOptionChange: function(e) {
     var qindex = e.currentTarget.dataset.qindex;
     var answers = this.data.answers;
-    answers[qindex] = e.detail.value;
+
+    let option_index = 0;
+    let options = this.data.questions[qindex].quest_option;
+    for (; option_index < options.length; option_index++) {
+      if (options[option_index].content == e.detail.value) break;
+    }
+
+    answers[qindex] = {
+      type: 'm',
+      option: option_index
+    };
     this.setData({
       answers: answers
     })
@@ -87,18 +97,60 @@ Page({
   bindTextInput: function(e) {
     var qindex = e.currentTarget.dataset.qindex;
     var answers = this.data.answers;
-    answers[qindex] = e.detail.value;
+    answers[qindex] = {
+      type: 'f',
+      text: e.detail.value
+    }
     this.setData({
       answers: answers
     })
   },
   bindMailInput: function (e) {
-    this.setData({
-      mail: e.detail.value
-    })
+    answers[0] = {
+      type: 'f',
+      text: e.detail.value
+    }
   },
   handleSubmit: function(e) {
-    console.log(this.data.answers);
+    let answers = this.data.answers;
+    let questions = this.data.questions;
+    console.log(answers);
+    for (let i = 0; i < questions.length; i++) {
+      if (typeof answers[i] == 'undefined') {
+        wx.showToast({
+          title: '需填写第'+(i+1)+'题',
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      }
+    }
+
+
+    http._patch('/task/' + this.data.task_id + '/acceptance/answer', answers,'application/x-www-form-urlencoded').then(res => {
+      console.log(res);
+      wx.showToast({
+        title: '提交成功',
+        icon: 'success',
+        duration: 2000,
+        success: function () {
+          setTimeout(function () {
+            //要延时执行的代码
+            wx.switchTab({
+              url: '/pages/task/task'
+            });
+          }, 2000) //延迟时间
+        }
+      });
+    }).catch(e => {
+      console.log(e);
+      wx.showToast({
+        title: '提交失败，请联系程序员小哥哥',
+        icon: 'none',
+        duration: 2000,
+        });
+    })
+
   },
 
   /**
