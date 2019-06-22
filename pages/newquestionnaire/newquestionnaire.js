@@ -10,11 +10,11 @@ Page({
     task : {
       type: 'q',
       content: {
+        quest_des: '',
         questions: [{
-          type: 'choice',
-          title: '',
-          id: 1,
-          options: [{
+          quest_type: 'choice',
+          quest_title: '',
+          quest_option: [{
             content: '',
             index: 'A'
           },
@@ -22,25 +22,24 @@ Page({
             content: '',
             index: 'B'
           }
-          ]
+          ],
+          id: 1
         },
         {
-          type: 'text',
-          title: '',
+          quest_type: 'text',
+          quest_title: '',
           id: 2
         }
         ],
       },
     },
 
-
-
     task_type: '问卷',
   },
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+
+  bindDescriptionInput: function(e) {
     this.setData({
-      index: e.detail.value
+      'task.content.quest_des': e.detail.value
     })
   },
   
@@ -78,8 +77,8 @@ Page({
     console.log(newQuestionList);
     var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length-1].id + 1;
     newQuestionList.push({
-      type: 'text',
-      title: '',
+      quest_type: 'text',
+      quest_title: '',
       id: new_id
     });
     console.log(newQuestionList);
@@ -93,9 +92,9 @@ Page({
     console.log(newQuestionList);
     var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
-      type: 'choice',
-      title: '',
-      options: [{
+      quest_type: 'choice',
+      quest_title: '',
+      quest_option: [{
         content: '',
         index: 'A'
       },
@@ -117,7 +116,7 @@ Page({
     console.log(index);
     var newQuestionList = this.data.task.content.questions;
     console.log(newQuestionList);
-    newQuestionList[index].title = e.detail.value;
+    newQuestionList[index].quest_title = e.detail.value;
     console.log(newQuestionList);
 
     this.setData({
@@ -130,9 +129,9 @@ Page({
     console.log(index);
     var newQuestionList = this.data.task.content.questions;
     console.log(newQuestionList);
-    var cur_options = newQuestionList[index].options.length;
+    var cur_options = newQuestionList[index].quest_option.length;
     console.log(cur_options);
-    newQuestionList[index].options.push({
+    newQuestionList[index].quest_option.push({
         content: '',
         index: String.fromCharCode(cur_options + 65)
       });
@@ -150,7 +149,7 @@ Page({
     console.log(idx);
     var newQuestionList = this.data.task.content.questions;
     console.log(newQuestionList);
-    newQuestionList[qindex].options[idx].content = e.detail.value;
+    newQuestionList[qindex].quest_option[idx].content = e.detail.value;
     console.log(newQuestionList);
 
     this.setData({
@@ -163,11 +162,10 @@ Page({
     console.log(index);
     var newQuestionList = this.data.task.content.questions;
     console.log(newQuestionList);
-    var cur_options = newQuestionList[index].options.length;
+    var cur_options = newQuestionList[index].quest_option.length;
     console.log(cur_options);
-    newQuestionList[index].options.splice(cur_options-1, 1);
+    newQuestionList[index].quest_option.splice(cur_options-1, 1);
     console.log(newQuestionList);
-
 
     this.setData({
       'task.content.questions': newQuestionList
@@ -176,6 +174,16 @@ Page({
 
   handleNextStep: function () {
     var task = this.data.task;
+
+    if (task.content.quest_des.length == 0) {
+      wx.showToast({
+        title: '问卷描述不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;          
+    }
+
     var questions = task.content.questions;
 
     if (questions.length == 0) {
@@ -188,7 +196,7 @@ Page({
     }
 
     for (var i = 0; i < questions.length; i++) {
-      if (questions[i].title.length == 0) {
+      if (questions[i].quest_title.length == 0) {
         wx.showToast({
           title: '题目' + (i+1) + '不能为空',
           icon: 'none',
@@ -196,8 +204,8 @@ Page({
         });
         return;      
       }
-      if (questions[i].type == 'choice') {
-        var options = questions[i].options;
+      if (questions[i].quest_type == 'choice') {
+        var options = questions[i].quest_option;
         for (var j = 0; j < options.length; j++) {
           if (options[j].content.length == 0) {
             wx.showToast({
@@ -210,7 +218,22 @@ Page({
         }
       }
     }
+    for (var i = 0; i < questions.length; i++) {
+      delete questions[i].id;
+      if (questions[i].quest_type == 'choice') {
+        var options = [];
 
+        for (var j = 0; j < questions[i].quest_option.length; j++) {
+          options.push(questions[i].quest_option[j].content);
+        }
+        questions[i].quest_option = options;
+      }
+      else {
+        questions[i].quest_option = [];
+      }
+
+    }
+    console.log("task: ", task);
     wx.navigateTo({
       url: '/pages/scope/scope?task=' + JSON.stringify(task),
     })

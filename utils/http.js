@@ -1,7 +1,7 @@
 const baseUrl = 'https://api.baobaozhuan.cn';
 // const baseUrl = 'https://182.254.170.203';
 
-const http = ({ url = '', param = {}, ...other } = {}) => {
+const http = ({ url = '', param = {}, content_type = 'application/json', ...other } = {}) => {
   wx.showLoading({
     title: '请求中，请耐心等待..'
   });
@@ -11,7 +11,7 @@ const http = ({ url = '', param = {}, ...other } = {}) => {
       url: getUrl(url),
       data: param,
       header: {
-        'content-type': 'application/json', // 默认值 ,另一种是 "content-type": "application/x-www-form-urlencoded"
+        'content-type': content_type, // 默认值 'application/json',另一种是'application/x-www-form-urlencoded'
         'cookie': 'baobaozhuan_cookie=MTU1OTc0NDc0NnxOd3dBTkVReVVWSlZVRmxRVGpkV1NsVlFTMVExUmxaRVJ6SlZXVXRSTlZsQlEwczNTVk5aUWtGSlYxaEpWRTlWUmxkV1YwcFZVVkU9fOVCHZvG4YuCNmQJFA1lSNU0e0VHrD2d2KhzIbO14FjS'
       },
       ...other,
@@ -44,11 +44,21 @@ const _get = (url, param = {}) => {
   })
 }
 
-const _post = (url, param = {}) => {
+const _post = (url, param = {}, content_type = 'application/json') => {
   return http({
     url,
     param,
+    content_type,
     method: 'post'
+  })
+}
+
+const _patch = (url, param = {}, content_type = 'application/json') => {
+  return http({
+    url,
+    param,
+    content_type,
+    method: 'patch'
   })
 }
 
@@ -72,5 +82,6 @@ module.exports = {
   _get,
   _post,
   _put,
-  _delete
+  _delete,
+  _patch
 }

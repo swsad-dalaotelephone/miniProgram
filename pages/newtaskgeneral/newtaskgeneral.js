@@ -11,9 +11,9 @@ Page({
       type: 'q',
       name: '',
       brief_info: '',
-      current_tag: [], 
       required_count: 1,
       reward: 0,
+      tag_id: 0,
     },
     tags: [{
       id: 1,
@@ -43,6 +43,8 @@ Page({
     task_types_english: ['q', 'd', 'r'],
     type_index: 0,
     newTaskText: '发布任务',
+    tag_names: ['运动','美食','社会','效率','心理','音乐'],
+    current_tag: ''
   },
 
   bindTaskNameInput: function (e) {
@@ -78,8 +80,13 @@ Page({
 
   handleTagChange({ detail = {} }) {
     this.setData({
-      'task.current_tag': detail.value
+      'current_tag': detail.value
     });
+
+    var index = this.data.tag_names.indexOf(detail.value);
+    this.setData({
+      'task.tag_id': index
+    })
   },
 
   handleReturn: function () {
@@ -106,14 +113,7 @@ Page({
       });
       return;
     }
-    if (task.current_tag.length == 0) {
-      wx.showToast({
-        title: '标签不能为空',
-        icon: 'none',
-        duration: 2000
-      });
-      return;      
-    }
+
     console.log('task: ', this.data.task);
     if (task.type == "q") {
       wx.navigateTo({
