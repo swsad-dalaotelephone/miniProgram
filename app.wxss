@@ -64,7 +64,6 @@ page{
 }
 
 .inputBox{
-    /* TODO 公共属性移到Box里去 */
     width: 670rpx;
     background-color: white;
     border-radius: 5px;

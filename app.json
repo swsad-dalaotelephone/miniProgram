@@ -1,8 +1,9 @@
 {
-  "pages": [            
+  "pages": [
+    "pages/auditlist/auditlist",
     "pages/index/index",
     "pages/newquestionnaire/newquestionnaire",
-    "pages/receive/receive",   
+    "pages/receive/receive",
     "pages/editprofile/editprofile",
     "pages/mine/mine",
     "pages/login/login",
@@ -12,7 +13,7 @@
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
     "pages/newrecruit/newrecruit",
-    "pages/newcollect/newcollect",  
+    "pages/newcollect/newcollect",
     "pages/fulfiltask/fulfiltask",
     "pages/taskcomplete/taskcomplete",
     "pages/review/review"
