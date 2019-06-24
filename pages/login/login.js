@@ -118,9 +118,12 @@ Page({
 				"&phone=" + e.detail.value.phone +
 				"&password=" + e.detail.value.password, 'application/x-www-form-urlencoded')
 			.then(res => {
-				wx.navigateBack({
-					delta: 1
-				  })
+				// wx.navigateBack({
+				// 	delta: 1
+				//   })
+				wx.navigateTo({
+					url: '/pages/auditlist/auditlist'
+				})
 				wx.showToast({
 					title: '登陆成功',
 					icon: 'none'

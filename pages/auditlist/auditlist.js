@@ -33,6 +33,21 @@ Page({
 	 */
 	onLoad: function (options) {
 
+		http._get("/task/5fae4333-f3ee-4a41-884e-85a3b738bcaa")
+		.then(res=>{
+			console.log('task success:',res)
+		})
+		.catch(res=>{
+			console.log('task fail:',res)
+		})
+
+		http._get("/task/5fae4333-f3ee-4a41-884e-85a3b738bcaa/submittedTasks")
+		.then(res=>{
+			console.log('submitted success:',res)
+		})
+		.catch(res=>{
+			console.log('sumitted fail:',res)
+		})
 	},
 
 	/**

@@ -17,13 +17,15 @@ const http = ({
 			data: param,
 			header: {
 				'content-type': content_type, // 默认值 'application/json',另一种是'application/x-www-form-urlencoded'
-				'cookie': wx.getStorageSync("sessionid")
+				'cookie': wx.getStorageSync("sessionid").split(';')[0]
 				// 'cookie': 'baobaozhuan_cookie=MTU1OTc0NDc0NnxOd3dBTkVReVVWSlZVRmxRVGpkV1NsVlFTMVExUmxaRVJ6SlZXVXRSTlZsQlEwczNTVk5aUWtGSlYxaEpWRTlWUmxkV1YwcFZVVkU9fOVCHZvG4YuCNmQJFA1lSNU0e0VHrD2d2KhzIbO14FjS'
 			},
 			...other,
 			complete: (res) => {
 				console.log(res)
-				wx.setStorageSync("sessionid", res.header["Set-Cookie"])
+				if(res.header && res.header["Set-Cookie"]){
+					wx.setStorageSync("sessionid", res.header["Set-Cookie"])
+				}
 				wx.hideLoading();
 				console.log(timeStart)
 				console.log(`耗时${Date.now() - timeStart}ms`);

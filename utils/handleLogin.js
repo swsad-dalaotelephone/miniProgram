@@ -47,9 +47,7 @@ function getUserInfo(code, callback) { //TODO: 改为按钮登陆, 获取失败�
 						url: '/pages/register/register?openId=' + res.open_id
 					})
 				} else {
-					// TODO: 获取到用户信息并保存
 					wx.navigateTo({
-						// url: '/pages/auditlist/auditlist'
 						url: '/pages/login/login'
 					})
 				}
