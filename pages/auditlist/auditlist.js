@@ -1,5 +1,6 @@
 // pages/auditlist/auditlist.js
 var app = getApp();
+const http = require('../../utils/http.js')
 
 Page({
 

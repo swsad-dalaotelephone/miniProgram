@@ -15,7 +15,11 @@ Page({
     })
   },
   handleTap1: function () {
-
+    let task = this.data.task;
+    console.log('task: ', task);
+    wx.navigateTo({
+      url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
+    })
   },
   handleTap2: function () {
     wx.navigateBack({

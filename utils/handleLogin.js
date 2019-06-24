@@ -21,7 +21,7 @@ function login(callback) {
 }
 
 // 获取用户信息
-function getUserInfo(code, callback) {
+function getUserInfo(code, callback) { //TODO: 改为按钮登陆, 获取失败需清除cookie登陆态
 	wx.getUserInfo({
 		// 获取成功，全局存储用户信息，开发者服务器登录
 		success(res) {
@@ -36,19 +36,24 @@ function getUserInfo(code, callback) {
 		// 获取失败，弹窗提示一键登录
 		fail() {
 			wx.hideLoading()
+			console.log(code)
 			http._get("/user/weApp?code=" + code).then((res) => {
 				console.log("succeed", res);
 				//res.oepnId
 				//res.msg
-				if (res.openId) {
+				if (res['open_id']) {
 					// 获取到openId说明未注册, 跳转注册界面
 					wx.navigateTo({
-						url: '/pages/register/register?openId=' + res.openId
+						url: '/pages/register/register?openId=' + res.open_id
 					})
 				} else {
-					// TODO: 获取到用户信息并保存 (cookie, 记得修改http.js)
+					// TODO: 获取到用户信息并保存
+					wx.navigateTo({
+						// url: '/pages/auditlist/auditlist'
+						url: '/pages/login/login'
+					})
 				}
-			})
+			}).catch(res=>console.log(res))
 			// 获取用户信息失败，清除全局存储的登录状态，弹窗提示一键登录
 			// 使用token管理登录态的，清除存储全局的token
 			// 使用cookie管理登录态的，可以清除全局登录状态管理的变量

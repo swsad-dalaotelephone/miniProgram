@@ -4,27 +4,30 @@
   <view>SIGN UP</view>
 </view>
 
-<view class="inputPhone inputBox">
-  <image class="headImg"/>
-  <view class="text">Enter phone number</view>
-</view>
+<form bindsubmit='formRegister'>
 
-<view class="inputPass inputBox">
-  <image class="headImg"/>
-  <view class="text">Password</view>
-</view>
+  <view class="inputNickname inputBox">
+    <image class="headImg" />
+    <input class="text" placeholder="Nickname" name="nickname"></input>
+  </view>
 
-<view class="inputConfirmPass inputBox">
-  <image class="headImg"/>
-  <view class="text">Confirm password</view>
-</view>
+  <view class="inputPhone inputBox">
+    <image class="headImg" />
+    <input class="text" placeholder="Phone number" name="phone"></input>
+  </view>
 
-<view class="inputVeriCode inputBox">
-  <image class="headImg"/>
-  <view class="text">Verication code</view>
-  <text class="obtainVeriCode" id="obtainVeriCode">Obtain</text>
-</view>
+  <view class="inputPass inputBox">
+    <image class="headImg" />
+    <input class="text" password="true" placeholder="Password" name="password"></input>
+  </view>
 
-<button class="confirmButton">CONFIRM</button>
+  <view class="inputConfirmPass inputBox">
+    <image class="headImg" />
+    <input class="text" password="true" placeholder="Confirm password" name="cpassword"></input>
+  </view>
+
+  <button class="confirmButton" form-type='submit'>CONFIRM</button>
+
+</form>
 
 <view class="toLogin"><text id="toLogin">登陆/Sign in</text></view>

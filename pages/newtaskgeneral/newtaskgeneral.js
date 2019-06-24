@@ -14,7 +14,6 @@ Page({
       required_count: 1,
       reward: 0,
       tag_id: 0,
-      ddl: '',
     },
     tags: [{
       id: 1,
