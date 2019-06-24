@@ -1,5 +1,6 @@
 // pages/fulfiltask/fulfiltask.js
 var app = getApp()
+const http = require('../../utils/http.js')
 Page({
 
   /**
@@ -127,7 +128,7 @@ Page({
     }
 
 
-    http._patch('/task/' + this.data.task_id + '/acceptance/answer', answers,'application/x-www-form-urlencoded').then(res => {
+    http._put('/task/' + this.data.task_id + '/acceptance/answer',{answer: answers},'application/x-www-form-urlencoded').then(res => {
       console.log(res);
       wx.showToast({
         title: '提交成功',
@@ -186,6 +187,7 @@ Page({
 
       this.setData({
         type: task.type,
+        task_id: task.id,
         page_title: page_title,
         questions: questions
       });

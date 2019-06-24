@@ -17,8 +17,8 @@ const http = ({
 			data: param,
 			header: {
 				'content-type': content_type, // 默认值 'application/json',另一种是'application/x-www-form-urlencoded'
-				'cookie': wx.getStorageSync("sessionid").split(';')[0]
-				// 'cookie': 'baobaozhuan_cookie=MTU1OTc0NDc0NnxOd3dBTkVReVVWSlZVRmxRVGpkV1NsVlFTMVExUmxaRVJ6SlZXVXRSTlZsQlEwczNTVk5aUWtGSlYxaEpWRTlWUmxkV1YwcFZVVkU9fOVCHZvG4YuCNmQJFA1lSNU0e0VHrD2d2KhzIbO14FjS'
+				//'cookie': wx.getStorageSync("sessionid").split(';')[0]
+				 'cookie': 'baobaozhuan_cookie=MTU1OTc0NDc0NnxOd3dBTkVReVVWSlZVRmxRVGpkV1NsVlFTMVExUmxaRVJ6SlZXVXRSTlZsQlEwczNTVk5aUWtGSlYxaEpWRTlWUmxkV1YwcFZVVkU9fOVCHZvG4YuCNmQJFA1lSNU0e0VHrD2d2KhzIbO14FjS'
 			},
 			...other,
 			complete: (res) => {
@@ -72,13 +72,15 @@ const _patch = (url, param = {}, content_type = 'application/json') => {
 	})
 }
 
-const _put = (url, param = {}) => {
-	return http({
-		url,
-		param,
-		method: 'put'
-	})
+const _put = (url, param = {}, content_type = 'application/json') => {
+  return http({
+    url,
+    param,
+    content_type,
+    method: 'put'
+  })
 }
+
 
 const _delete = (url, param = {}) => {
 	return http({
