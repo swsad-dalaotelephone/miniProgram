@@ -1,5 +1,5 @@
 {
-  "pages": [         
+  "pages": [
     "pages/index/index",
     "pages/login/login",
     "pages/newrecruit/newrecruit",
@@ -12,11 +12,14 @@
     "pages/task/task",
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
-    "pages/newcollect/newcollect",  
+    "pages/newcollect/newcollect",
     "pages/fulfiltask/fulfiltask",
     "pages/taskcomplete/taskcomplete",
     "pages/review/review",
-    "pages/auditlist/auditlist"
+    "pages/auditlist/auditlist",
+    "pages/auditquestionnaire/auditquestionnaire",
+    "pages/auditcollect/auditcollect",
+    "pages/auditrecruit/auditrecruit"
   ],
   "window": {
     "backgroundTextStyle": "light",

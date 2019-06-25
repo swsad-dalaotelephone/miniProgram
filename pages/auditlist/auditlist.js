@@ -9,21 +9,24 @@ Page({
 	 */
 	data: {
 		selectedTab: 0,
-		taskName: "任务名称",
+		taskInfo: {
+			name: "任务名称"
+		},
 		auditList: [
-			{	//TODO: example, to be deleted
-				id: 0,
-				selected: 0,
-				submitter: "Name",
-				type: 0, // 0:问卷; 1:招募; 2:信息收集
-				status: 0,	// 0: 未审核; 1: 已审核
+			{
+				acceptance_id: "test1",
+				accepter: "Name1",
+				status: 1,	// 1: 未审核; 2: 已审核; 3: 已完成
 			},
-			{	//TODO: example, to be deleted
-				id: 0,
-				selected: 0,
-				submitter: "Name",
-				type: 0, // 0:问卷; 1:招募; 2:信息收集
-				status: 1,	// 0: 未审核; 1: 已审核
+			{
+				acceptance_id: "test2",
+				accepter: "Name2",
+				status: 2,	// 1: 未审核; 2: 已审核; 3: 已完成
+			},
+			{
+				acceptance_id: "test3",
+				accepter: "Name3",
+				status: 3,	// 1: 未审核; 2: 已审核; 3: 已完成
 			}
 		]
 	},
@@ -33,21 +36,46 @@ Page({
 	 */
 	onLoad: function (options) {
 
-		http._get("/task/5fae4333-f3ee-4a41-884e-85a3b738bcaa")
-		.then(res=>{
-			console.log('task success:',res)
-		})
-		.catch(res=>{
-			console.log('task fail:',res)
-		})
+		// TODO: 从options读取任务id，现在暂时是写死
+		let task_id = "5fae4333-f3ee-4a41-884e-85a3b738bcaa";
+		http._get("/task/" + task_id)
+			.then(res => {
+				let taskInfo = JSON.parse(res.task)
+				this.setData({
+					taskInfo: taskInfo
+				})
+			})
+			.catch(res => {
+				wx.navigateBack({
+					delta: 1
+				});
+				wx.showToast({
+					title: '任务打开失败，咨询程序员小哥哥吧~',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				});
 
-		http._get("/task/5fae4333-f3ee-4a41-884e-85a3b738bcaa/submittedTasks")
-		.then(res=>{
-			console.log('submitted success:',res)
-		})
-		.catch(res=>{
-			console.log('sumitted fail:',res)
-		})
+			})
+
+		http._get("/task/" + task_id + "/submittedTasks")
+			.then(res => {
+				let acceptanceArray = JSON.parse(res.submitted)
+				this.setData({
+					auditList: acceptanceArray
+				})
+			})
+			.catch(res => {
+				wx.navigateBack({
+					delta: 1
+				});
+				wx.showToast({
+					title: '任务打开失败，咨询程序员小哥哥吧~',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				});
+			})
 	},
 
 	/**
@@ -99,9 +127,31 @@ Page({
 
 	},
 
-	switchTab: function(e){
+	switchTab: function (e) {
 		this.setData({
-			selectedTab: (this.data.selectedTab == 0)?1:0
+			selectedTab: (this.data.selectedTab == 0) ? 1 : 0
 		});
+	},
+
+	// 点击某个提交进行审核
+	tapAudit: function (e) {
+		let submitJson = JSON.stringify(e.currentTarget.dataset.item)
+		let dest = ''
+		switch (this.data.taskInfo.type) {
+			case 'q':
+				dest = 'auditquestionnaire'
+				break;
+			case 'd':
+				dest = 'auditcollect'
+				break;
+			case 'r':
+				dest = 'auditrecruit'
+				break;
+			default:
+				break;
+		}
+		wx.navigateTo({
+			url: '/pages/' + dest + '/' + dest + '?submitJson=' + submitJson,
+		})
 	}
 })

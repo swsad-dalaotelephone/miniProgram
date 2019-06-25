@@ -1,6 +1,6 @@
 <!--pages/auditlist/auditlist.wxml-->
 <view class="titleBox">
-    <view>{{taskName}}</view>
+    <view>{{taskInfo.name}}</view>
 </view>
 
 <view class="selectTab">
@@ -25,15 +25,10 @@
 
 <view class="auditList {{selectedTab==0?'invisible':'visible'}}">
 
-    <view class="Box auditItem" wx:for="{{auditList}}" wx:key="{{item.id}}">
-        <radio class="selectRadio"> </radio>
+    <view class="Box auditItem" wx:for="{{auditList}}" wx:key="{{item.acceptance_id}}" bindtap="tapAudit"  data-item="{{item}}" item="{{item}}">
         <image> </image>
-        <view class="text"> <text style="color:#77a9fd">{{item.submitter}}</text> 的提交</view>
-        <view class="status {{item.status==0?'unauditted':'auditted'}}">{{item.status==0?'未审核':'已审核'}}</view>
+        <view class="text"> <text style="color:#77a9fd">{{item.accepter.length > 0 ? item.accepter : '匿名用户'}}</text> 的提交</view>
+        <view class="status {{item.status==1?'waitConfirm':(item.status==3?'finished':'unqualified')}}">{{item.status==1?'待审核':(item.status==3?'已通过':'未通过')}}</view>
     </view>
-    
-    <button>全选</button>
-    <button>全不选</button>
-    <button>批量审核</button>
 </view>
 

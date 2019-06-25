@@ -93,12 +93,17 @@ button{
     margin-top:30rpx;
     margin-right:-50rpx;
     color:white;
+    font-size:30rpx;
 }
 
-.auditted{
-    background-color:greenyellow;
-}
-
-.unauditted{
+.waitConfirm{
     background-color:orange;
+}
+
+.unqualified{
+    background-color:gray;
+}
+
+.finished{
+    background-color: greenyellow;
 }
