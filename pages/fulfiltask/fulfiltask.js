@@ -39,7 +39,7 @@ Page({
     },
     {
       quest_type: 'choice',
-      quest_title: '你认为小熊维尼会连任到什么时候？',
+      quest_title: '你认为***会连任到什么时候？',
       id: 3,
       quest_option: [{
         content: '2022',
@@ -127,7 +127,6 @@ Page({
       }
     }
 
-
     http._put('/task/' + this.data.task_id + '/acceptance/answer', 'answer=' + JSON.stringify(answers),'application/x-www-form-urlencoded').then(res => {
       console.log(res);
       wx.showToast({
@@ -137,8 +136,8 @@ Page({
         success: function () {
           setTimeout(function () {
             //要延时执行的代码
-            wx.switchTab({
-              url: '/pages/task/task'
+            wx.navigateTo({
+              url: '/pages/taskcomplete/taskcomplete'
             });
           }, 2000) //延迟时间
         }
@@ -160,30 +159,21 @@ Page({
   onLoad: function (options) {
     if (typeof options.task != 'undefined') {
       let task = JSON.parse(options.task);
-      let page_title = '';
-      if (task.type == 'q') page_title = '问卷';
-      else if (task.type == 'd') page_title = '信息收集';
-      else if (task.type == 'r') page_title = '招募';
-
+      let page_title = task.name;
       let questions = task.type == 'q' ? task.content.questions : task.content.participant_info;
-
       let new_id = 0;
-
       for (let i = 0; i < questions.length; i++) {
         questions[i].id = ++new_id;
         if (questions[i].quest_type == 'text') continue;
-        let options = [];
-        
+        let options = [];       
         for (let j = 0; j < questions[i].quest_option.length; j++) {
           options.push({
             content: questions[i].quest_option[j],
             index: String.fromCharCode(j + 65)
           })
         }
-
         questions[i].quest_option = options;
       }
-
 
       this.setData({
         type: task.type,
@@ -192,10 +182,6 @@ Page({
         questions: questions
       });
     }
-    
-
-
-
   },
 
   /**
