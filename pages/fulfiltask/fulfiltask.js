@@ -128,7 +128,7 @@ Page({
     }
 
 
-    http._put('/task/' + this.data.task_id + '/acceptance/answer',{answer: answers},'application/x-www-form-urlencoded').then(res => {
+    http._put('/task/' + this.data.task_id + '/acceptance/answer', 'answer=' + JSON.stringify(answers),'application/x-www-form-urlencoded').then(res => {
       console.log(res);
       wx.showToast({
         title: '提交成功',
