@@ -63,15 +63,6 @@ const _post = (url, param = {}, content_type = 'application/json') => {
 	})
 }
 
-const _patch = (url, param = {}, content_type = 'application/json') => {
-	return http({
-		url,
-		param,
-		content_type,
-		method: 'patch'
-	})
-}
-
 const _put = (url, param = {}, content_type = 'application/json') => {
   return http({
     url,
@@ -94,6 +85,5 @@ module.exports = {
 	_get,
 	_post,
 	_put,
-	_delete,
-	_patch
+	_delete
 }
