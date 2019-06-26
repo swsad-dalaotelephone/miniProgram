@@ -1,9 +1,6 @@
 {
   "usingComponents": {
-    "my-card": "../../components/my-card/index",
-    "i-load-more": "../../dist/load-more/index",
     "i-icon": "../../dist/icon/index",
-    "i-divider": "../../dist/divider/index",
     "i-radio-group": "../../dist/radio-group/index",
     "i-radio": "../../dist/radio/index"
   },

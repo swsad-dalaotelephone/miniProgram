@@ -15,7 +15,6 @@
             <textarea placeholder="问卷描述" value="{{task.content.quest_des}}" bindinput="bindDescriptionInput"/>
           </view>                
 
-
           <view class="question" wx:for="{{task.content.questions}}" wx:key="id">
               <i-row i-class="questionTitle">
                   <i-col span="3" i-class="col-class">
