@@ -17,9 +17,6 @@
     "pages/taskcomplete/taskcomplete",
     "pages/review/review",
     "pages/auditlist/auditlist",
-    "pages/auditquestionnaire/auditquestionnaire",
-    "pages/auditcollect/auditcollect",
-    "pages/auditrecruit/auditrecruit",
     "pages/audit/audit"
   ],
   "window": {
