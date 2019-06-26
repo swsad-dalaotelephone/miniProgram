@@ -23,11 +23,11 @@
 
 <view class="selfBox Box">
   <view class="selfieContainer">
-    <image class="selfie" />
+    <open-data type="userAvatarUrl" class="selfie"></open-data>
     <view class="level Box">Lv.1</view>
   </view>
   <view class="usernameBox">
-    <view class="username">Sherry</view>
+    <view class="username">{{nickname}}</view>
     <image class="changename"/>
   </view>
   <view class="introduction">这个同学很懒~还没有自我介绍呢</view>
