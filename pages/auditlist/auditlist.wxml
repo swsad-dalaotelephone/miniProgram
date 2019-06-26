@@ -12,8 +12,10 @@
 
     <!-- wx:for 遍历数组来存放各项信息 -->
     <view class="innerMsgBox">
-        <view class="msgTitle">问卷描述</view>
-        <view class="msg">blablabla</view>
+        <view wx:for="{{detailList}}" wx:key="{{item}}">
+            <view class='title'> {{item.title}}:</view>
+            <view class="detail"> {{item.detail}} </view>
+        </view>
     </view>
 
     <view class="buttonLine">
@@ -24,10 +26,13 @@
 </view>
 
 <view class="auditList {{selectedTab==0?'invisible':'visible'}}">
-    <view class="Box auditItem" wx:for="{{auditList}}" wx:key="{{item.acceptance_id}}" bindtap="tapAudit"  data-item="{{item}}" item="{{item}}">
+
+    <view class="Box auditItem" wx:for="{{auditList}}" wx:key="{{item.acceptance_id}}" bindtap="tapAudit"
+        data-item="{{item}}" item="{{item}}">
         <image> </image>
-        <view class="text"> <text style="color:#77a9fd">{{item.accepter.length > 0 ? item.accepter : '匿名用户'}}</text> 的提交</view>
-        <view class="status {{item.status==1?'waitConfirm':(item.status==3?'finished':'unqualified')}}">{{item.status==1?'待审核':(item.status==3?'已通过':'未通过')}}</view>
+        <view class="text"> <text style="color:#77a9fd">{{item.accepter.length > 0 ? item.accepter : '匿名用户'}}</text> 的提交
+        </view>
+        <view class="status {{item.status==1?'waitConfirm':(item.status==3?'finished':'unqualified')}}">
+            {{item.status==1?'待审核':(item.status==3?'已通过':'未通过')}}</view>
     </view>
 </view>
-

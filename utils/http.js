@@ -22,13 +22,13 @@ const http = ({
 			},
 			...other,
 			complete: (res) => {
-				console.log(res)
+				// console.log(res)
 				if(res.header && res.header["Set-Cookie"]){
 					wx.setStorageSync("sessionid", res.header["Set-Cookie"])
 				}
 				wx.hideLoading();
-				console.log(timeStart)
-				console.log(`耗时${Date.now() - timeStart}ms`);
+				// console.log(timeStart)
+				// console.log(`耗时${Date.now() - timeStart}ms`);
 				if (res.statusCode >= 200 && res.statusCode < 300) {
 					resolve(res.data)
 				} else {
