@@ -143,10 +143,10 @@ Page({
           questions[i].quest_option = options;
         }
       }
-      console.log('answer: ', submitInfo.answer);
+      console.log('answer: ', transferInfo.submitInfo.answer.answer);
       this.setData({
         questions: questions,
-        answers: submitInfo.answer
+        answers: transferInfo.submitInfo.answer.answer
       })
     }
 	},
