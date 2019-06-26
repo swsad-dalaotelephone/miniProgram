@@ -22,8 +22,28 @@ Page({
     })
   },
   handleTap2: function () {
-    wx.navigateBack({
-      
+    http._delete('/task/' + this.data.task.id + '/acceptance').then(res => {
+      console.log(res);
+      wx.showToast({
+        title: '放弃任务成功',
+        icon: 'success',
+        duration: 1500,
+        success: function () {
+          setTimeout(function () {
+            //要延时执行的代码
+            wx.navigateBack({
+
+            })
+          }, 1000) //延迟时间
+        }
+      });
+    }).catch(e => {
+      console.log(e);
+      wx.showToast({
+        title: '请求失败，请联系程序员小哥哥',
+        icon: 'none',
+        duration: 2000,
+      });
     })
   },
   /**

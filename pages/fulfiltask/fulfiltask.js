@@ -132,14 +132,14 @@ Page({
       wx.showToast({
         title: '提交成功',
         icon: 'success',
-        duration: 2000,
+        duration: 1000,
         success: function () {
           setTimeout(function () {
             //要延时执行的代码
             wx.navigateTo({
               url: '/pages/taskcomplete/taskcomplete'
             });
-          }, 2000) //延迟时间
+          }, 1000) //延迟时间
         }
       });
     }).catch(e => {

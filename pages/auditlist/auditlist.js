@@ -51,7 +51,6 @@ Page({
 		this.setData({
 			task_id: task_id
 		})
-
 	},
 
 	/**
