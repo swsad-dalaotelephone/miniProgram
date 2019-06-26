@@ -27,6 +27,15 @@ Page({
 				accepter: "Name3",
 				status: 3, // 1: 未审核; 2: 已审核; 3: 已完成
 			}
+		],
+		detailList: [{
+				title: '活动描述',
+				detail: '一段不走心的活动描述'
+			},
+			{
+				title: '活动描述',
+				detail: '一段不走心的活动描述'
+			},
 		]
 	},
 
@@ -61,6 +70,7 @@ Page({
 				this.setData({
 					taskInfo: taskInfo
 				})
+				this.renderTask(taskInfo)
 			})
 			.catch(res => {
 				wx.switchTab({
@@ -93,6 +103,56 @@ Page({
 					mask: false,
 				})
 			})
+	},
+
+	renderTask(taskInfo) {
+		var detailList = []
+		switch (taskInfo.type) {
+			case 'r':
+				detailList = [{
+					title: '活动描述',
+					detail: taskInfo.content.recruit_des
+				}, {
+					title: '活动时间',
+					detail: taskInfo.content.start_time + taskInfo.content.end_time
+				}, {
+					title: '活动地点',
+					detail: taskInfo.content.location
+				}, {
+					title: '活动报酬',
+					detail: taskInfo.required_count
+				}]
+				break;
+			case 'q':
+				detailList = [{
+					title: '问卷描述',
+					detail: taskInfo.content.quest_des
+				}, {
+					title: '问卷报酬',
+					detail: taskInfo.reward
+				}, {
+					title: '问卷预计份数',
+					detail: taskInfo.required_count
+				}]
+				break;
+			case 'd':
+				detailList = [{
+					title: '信息收集描述',
+					detail: taskInfo.content.data_des
+				}, {
+					title: '报酬',
+					detail: taskInfo.reward
+				}, {
+					title: '需要份数',
+					detail: taskInfo.required_count
+				}]
+				break;
+			default:
+				break;
+		}
+		this.setData({
+			detailList: detailList
+		})
 	},
 
 	/**

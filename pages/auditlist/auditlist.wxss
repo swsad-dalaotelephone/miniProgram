@@ -1,109 +1,125 @@
-button{
-    width:250rpx;
-    height:80rpx;
-    background-color:#77A9FD;
-    color:rgba(255, 255, 255, 1);
-    font-size:40rpx;
-    text-align:center;
-    font-family:Arial;
-    border-radius:4px;
-    box-shadow:0px 0px 10px 0px rgba(190, 211, 254, 1);
-    border:1px solid rgba(255, 255, 255, 0);
-    float:left;
-    margin-left:50rpx;    
+button {
+    width: 250rpx;
+    height: 80rpx;
+    background-color: #77A9FD;
+    color: rgba(255, 255, 255, 1);
+    font-size: 40rpx;
+    text-align: center;
+    font-family: Arial;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
+    border: 1px solid rgba(255, 255, 255, 0);
+    float: left;
+    margin-left: 50rpx;
 }
 
-.selectTab{
+.selectTab {
     height: 50rpx;
     margin-top: -65rpx;
 }
 
-.selectTab .tab{
+.selectTab .tab {
     float: left;
     width: 375rpx;
     font-size: 32rpx;
     text-align: center;
 }
 
-.selected{
+.selected {
     text-decoration: none;
     color: white;
 }
 
-.unselected{
+.unselected {
     text-decoration: underline;
     color: #BED3FE;
 }
 
-.invisible{
+.invisible {
     display: none;
 }
 
-.visible{
+.visible {
     visibility: visible;
 }
 
-.detailBox{
+.detailBox {
     margin-top: 20rpx;
 }
 
-.detailBox .buttonLine{
+.detailBox .buttonLine {
     height: 100rpx;
     margin-top: 20rpx;
 }
 
-.auditList{
+.innerMsgBox {
+    padding: 30rpx;
+}
+
+.innerMsgBox .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(119, 169, 253);
+    font-family: PingFangSC;
+}
+
+.innerMsgBox .detail {
+    margin-bottom: 20px;
+}
+
+
+.auditList {
     margin-top: 20rpx;
 }
 
-.auditList .auditItem{
+.auditList .auditItem {
     margin-bottom: 20rpx;
     height: 130rpx;
     overflow: hidden;
 }
 
-.auditList .auditItem radio{
+.auditList .auditItem radio {
     float: left;
     height: 100rpx;
-    margin-left:30rpx;
-    margin-top:35rpx;    
+    margin-left: 30rpx;
+    margin-top: 35rpx;
 }
 
-.auditList .auditItem image{
+.auditList .auditItem image {
     width: 100rpx;
     height: 100rpx;
     float: left;
     background-color: greenyellow;
-    margin-left:20rpx;
-    margin-top:15rpx;    
+    margin-left: 20rpx;
+    margin-top: 15rpx;
 }
 
-.auditList .auditItem .text{
+.auditList .auditItem .text {
     float: left;
     font-size: 35rpx;
     margin-left: 20rpx;
     margin-top: 30rpx;
 }
 
-.auditList .auditItem .status{
-    float:right;
-    transform:rotate(45deg);
-    width:200rpx;
-    text-align:center;
-    margin-top:30rpx;
-    margin-right:-50rpx;
-    color:white;
-    font-size:30rpx;
+.auditList .auditItem .status {
+    float: right;
+    transform: rotate(45deg);
+    width: 200rpx;
+    text-align: center;
+    margin-top: 30rpx;
+    margin-right: -50rpx;
+    color: white;
+    font-size: 30rpx;
 }
 
-.waitConfirm{
-    background-color:orange;
+.waitConfirm {
+    background-color: orange;
 }
 
-.unqualified{
-    background-color:gray;
+.unqualified {
+    background-color: gray;
 }
 
-.finished{
+.finished {
     background-color: greenyellow;
 }
