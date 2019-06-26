@@ -19,15 +19,18 @@
       <button bindtap='handleTap1'>修改</button>
       <button class='gray' bindtap='handleTap2'>放弃</button>
     </view>
-    <view wx:elif="{{task.status=='2'}}" class='bottom'>
-      <button bindtap='handleTap1'>修改</button>
-      <button class='gray' bindtap='handleTap2'>放弃</button>
+    <view wx:elif="{{task.status=='2'}}">
+      <view class='bottom'>
+        <button bindtap='handleTap1'>修改</button>
+        <button class='gray' bindtap='handleTap2'>放弃</button>
+      </view>
+      <view class="divLine"></view>
       <view>
         评语
       </view>
     </view>
     <view wx:else class='bottom'>
-     
+
     </view>
   </view>
 </view>

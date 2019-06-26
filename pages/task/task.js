@@ -63,7 +63,7 @@ Page({
    */
   onShow: function() {
     http._get('/user/publishedTasks').then(res => {
-      // console.log(res)
+      // console.log(JSON.parse(res.tasks))
       this.setData({
         publishedTasks: JSON.parse(res.tasks)
       })
@@ -72,7 +72,7 @@ Page({
     })
     http._get('/user/acceptedTasks').then(res => {
       let data = JSON.parse(res.accepted)
-      // console.log(res)
+      console.log(data)
       let tempList = []
       data.forEach(item => {
         item.task.status = item.acceptance.status
