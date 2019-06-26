@@ -1,4 +1,4 @@
-/* pages/auditrecruit/auditrecruit.wxss */
+/* pages/audit/audit.wxss */
 
 .feedbackInput {
     width: 620rpx;

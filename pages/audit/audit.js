@@ -1,4 +1,4 @@
-// pages/auditquestionnaire/auditquestionnaire.js
+// pages/audit/audit.js
 var app = getApp();
 const http = require('../../utils/http.js')
 
@@ -8,7 +8,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		submitItem: {
+		submitInfo: {
 			acceptance_id: "",
 			accepter: "",
 			accepter_id: "",
@@ -24,9 +24,10 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		let submitItem = JSON.parse(options.submitJson)
+		let transferInfo = JSON.parse(options.info)
 		this.setData({
-			submitItem: submitItem
+			submitInfo: transferInfo.submitInfo,
+			taskInfo: transferInfo.taskInfo
 		})
 	},
 
@@ -89,10 +90,10 @@ Page({
 
 		let feedbackInput = this.data.feedbackInput
 		if (feedbackInput.length > 0) {
-			let url = '/task/' + this.data.submitItem.task_id + '/acceptance/result'
-			
-			console.log("测试url",url)
-			let result = 'accepter_id=' + this.data.submitItem.accepter_id + '&result=false&feedback=' + this.data.feedbackInput
+			let url = '/task/' + this.data.submitInfo.task_id + '/acceptance/result'
+
+			console.log("测试url", url)
+			let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=false&feedback=' + this.data.feedbackInput
 			http._put(url, result, 'application/x-www-form-urlencoded')
 				.then(res => {
 					wx.showToast({
@@ -124,8 +125,8 @@ Page({
 	},
 
 	tapYes: function (e) {
-		let url = '/task/' + this.data.submitItem.task_id + '/acceptance/result'
-		let result = 'accepter_id=' + this.data.submitItem.accepter_id + '&result=true&feedback=' + this.data.feedbackInput
+		let url = '/task/' + this.data.submitInfo.task_id + '/acceptance/result'
+		let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=true&feedback=' + this.data.feedbackInput
 		http._put(url, result, 'application/x-www-form-urlencoded')
 			.then(res => {
 				wx.showToast({
