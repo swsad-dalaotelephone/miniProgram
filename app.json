@@ -34,15 +34,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "selectedIconPath": "images/icons/index-selected.png",
+        "iconPath": "images/icons/index.png"
       },
       {
         "pagePath": "pages/task/task",
-        "text": "任务"
+        "text": "任务",
+        "selectedIconPath": "images/icons/task-selected.png",
+        "iconPath": "images/icons/task.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "selectedIconPath": "images/icons/mine-selected.png",
+        "iconPath": "images/icons/mine.png"
       }
     ]
   },
