@@ -28,7 +28,7 @@
                   </view>                  
               </view>
             </view>              
-
+        <view class="questionTitle">我的反馈信息： {{question.quest_title}}</view>
         <textarea placeholder="请输入反馈" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.item==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
         <view class="buttonLine {{submitInfo.item==1?'':'hidden'}}"> 
             <button class="no" bindtap="tapNo">审核不通过</button>
