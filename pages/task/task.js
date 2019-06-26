@@ -26,9 +26,17 @@ Page({
   },
 
   openReview: function(e) {
-    wx.navigateTo({
-      url: '/pages/review/review?id='+e.currentTarget.dataset.item.id,
-    })
+    if (this.data.isPublish) {
+      wx.navigateTo({
+        url: '/pages/auditlist/auditlist?id=' + e.currentTarget.dataset.item.id
+      })      
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/review/review?id=' + e.currentTarget.dataset.item.id,
+      })
+    }
+
   },
 
   handleTap1: function(e) {

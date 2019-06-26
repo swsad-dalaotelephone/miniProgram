@@ -24,7 +24,6 @@
 </view>
 
 <view class="auditList {{selectedTab==0?'invisible':'visible'}}">
-
     <view class="Box auditItem" wx:for="{{auditList}}" wx:key="{{item.acceptance_id}}" bindtap="tapAudit"  data-item="{{item}}" item="{{item}}">
         <image> </image>
         <view class="text"> <text style="color:#77a9fd">{{item.accepter.length > 0 ? item.accepter : '匿名用户'}}</text> 的提交</view>

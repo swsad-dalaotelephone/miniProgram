@@ -34,9 +34,11 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
-		// TODO: 从options读取任务id，现在暂时是写死
-		let task_id = "5fae4333-f3ee-4a41-884e-85a3b738bcaa";
+    let task_id = "5fae4333-f3ee-4a41-884e-85a3b738bcaa";
+    if (typeof options.id != "undefined") {
+      let task_id = options.id;
+    } 
+    console.log('task_id: ', task_id);
 		this.setData({
 			task_id: task_id
 		})

@@ -22,7 +22,6 @@
                     </i-radio-group>
                   </view>
 
-
                   <view class="textPanel" wx:if="{{question.quest_type == 'text'}}">
                     <textarea placeholder="请输入答案" class="textInputArea" value="{{answers[question_index].text}}" data-qindex="{{question_index}}" bindinput="bindTextInput"/>
                   </view>  
