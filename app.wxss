@@ -93,7 +93,7 @@ page{
     margin-top: 26rpx;
 
     /* temp */
-    background: #ACACAC;
+    /*background: #ACACAC;*/
 }
 
 .inputBox .text{
