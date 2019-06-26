@@ -36,9 +36,14 @@ Page({
 				title: '活动描述',
 				detail: '一段不走心的活动描述'
 			},
-		]
+		],
+    task_id: ''
 	},
-
+  openStat: function() {
+    wx.navigateTo({
+      url: '/pages/statistic/statistic?task_id='+this.data.task_id,
+    })
+  },
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
