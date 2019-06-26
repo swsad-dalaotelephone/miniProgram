@@ -1,0 +1,104 @@
+/* pages/fulfiltask/fulfiltask.wxss */
+page{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page{
+  flex-grow: 1; /* Grow to fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.pagebd {
+  padding-bottom: 0px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.newTaskPanel {
+  position: relative;
+  top: -15px;
+  border-radius: 5px;
+  background-color: white;
+  height: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+}
+
+.attr-row {
+  margin: 10px 5px;
+}
+
+.main-content {
+  flex: 1 0 auto;
+}
+
+.bottom {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red;  */
+  flex-flow: row;
+  align-content: flex-start;
+}
+
+.bottom button {
+  border-radius: 10px;
+  margin: 10px 8%;
+  color: white;
+  background-color: #77a9fd;
+  box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
+  flex: 0 0 40%;
+}
+
+.page1 {
+  display: flex;
+  flex-direction: column
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;     /* 垂直居中 */
+  height: 90px;
+  color: white;
+  background-color: #77a9fd
+}
+
+
+.textInputArea {
+  border: 1px solid #8e9094;
+  height: 100px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.questionTitle {
+  color: rgb(119, 169, 253);
+}
+
+.parent {
+  width: 100%;
+  /* height: 150px; */
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.child {
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 50%;
+  height: 30px; 
+  /* border: 1px solid red; */
+  display: flex;
+}

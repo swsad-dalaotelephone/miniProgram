@@ -132,7 +132,7 @@
 }
 
 .selectBox{
-  height: 420rpx;
+  height: 225rpx;
   margin-top: 26rpx;
 
 }
@@ -143,6 +143,8 @@
   margin-top: 5%;
   text-align: center;
   float: left;
+  color: #B6C0CC;
+  font-size: 32rpx;
 }
 
 .selectBox .selectTab image{
@@ -151,14 +153,14 @@
   border-radius: 50%;
 }
 
-#myUnfinished image{
-  background-color: #BED3FE;
+#tutorial image{
+  background-color: #FECFBD;
 }
 
-#myFinished image{
-  background-color: #FE9E9F;
+#aboutus image{
+  background-color: #B8F1CE;
 }
 
-#myOthers image{
-  background-color: gray;
+#others image{
+  background-color: #DCC5FF;
 }

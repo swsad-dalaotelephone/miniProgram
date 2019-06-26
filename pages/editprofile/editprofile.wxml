@@ -1,0 +1,54 @@
+<view class="titleBox">
+    <view>个人资料</view>
+</view>
+
+<image class="safe" />
+
+<view class="infoContainer">
+    <view class="inputLine" id="nickname">
+        <view class="itemTitle">昵称:</view>
+        <input class="inputBox" value="{{nickname}}" placeholder="不超过20个字符"> </input>
+    </view>
+
+    <view class="inputLine" id="birthdate">
+        <view class="itemTitle">出生日期:</view>
+        <picker mode="date" value="{{date}}" start="1970-01-01" end="2050-12-31" bindchange="bindDateChange">
+            <view class="inputBox">
+                {{date}}
+            </view>
+        </picker>
+
+
+    </view>
+
+    <view class="inputLine" id="grade">
+        <view class="itemTitle">年级:</view>
+        <picker mode="selector" value="{{gradeIndex}}" range="{{grades}}" bindchange="bindGradeChange">
+            <view class="inputBox">
+                {{grades[gradeIndex]}}
+            </view>
+        </picker>
+
+    </view>
+
+    <view class="inputLine" id="subject">
+        <view class="itemTitle">学科:</view>
+
+    </view>
+
+    <view class="inputLine" id="campus">
+        <view class="itemTitle">校区:</view>
+        <picker mode="selector" value="{{campusIndex}}" range="{{campus}}" bindchange="bindCampusChange">
+            <view class="inputBox">
+                {{campus[campusIndex]}}
+            </view>
+        </picker>
+
+    </view>
+
+    <view class="inputLine" id="tags">
+        <view class="itemTitle">感兴趣的标签:</view>
+
+
+    </view>
+</view>

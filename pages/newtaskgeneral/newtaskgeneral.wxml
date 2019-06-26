@@ -1,0 +1,107 @@
+<!--pages/newtaskgeneral/newtaskgeneral.wxml-->
+<view class='page'>
+  <view class='head'>
+    <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
+    <text>{{newTaskText}}</text>
+    <i-icon type="more" size="28" color="white"></i-icon>
+  </view>
+
+  <view class="page__bd page__bd_spacing pagebd" >
+    <view class="newTaskPanel">
+        <view class="main-content">
+          <i-row i-class="attr-row">
+              <i-col span="8" i-class="col-class">        
+                <view class="attrname">
+                  类别：
+                </view>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                  <view class="picker">
+                    <my-picker bindchange="handleTypeChange" array="{{task_types}}" index="{{type_index}}">
+                    </my-picker>   
+                  </view>          
+              </i-col>
+          </i-row>
+          <i-row i-class="attr-row">
+              <i-col span="8" i-class="col-class">        
+                <view class="attrname">
+                  名称：
+                </view>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                <view class="single-line-input">
+                  <input bindinput="bindTaskNameInput" placeholder="请输入任务名" value="{{task.name}}"/>
+                </view>
+              </i-col>
+          </i-row>
+
+          <i-row i-class="attr-row">
+              <i-col span="8" i-class="col-class">        
+                <view class="attrname">
+                  描述：
+                </view>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                <view class="textarea-input">
+                  <textarea bindinput="bindBriefInfoInput" placeholder="任务简介（100字以内）" value="{{task.brief_info}}"/>
+                </view>                
+              </i-col>
+          </i-row>
+
+          <i-row i-class="attr-row">
+              <i-col span="8" i-class="col-class">        
+                <view class="attrname">
+                  数量：
+                </view>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                <view class="number-wrap">
+                  <view class="number-input">
+                    <i-input-number value="{{ task.required_count }}" min="1" max="1000" bindchange="handleRequiredCountChange" />
+                  </view>
+                  <view class="quantifier">个</view>
+                </view>
+              </i-col>
+          </i-row>
+
+          <i-row i-class="attr-row">
+              <i-col span="8" i-class="col-class">        
+                <view class="attrname">
+                  报酬：
+                </view>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                <view class="number-wrap">
+                  <view class="number-input">
+                    <i-input-number value="{{ task.reward }}" min="0" max="1000" bindchange="handleRewardChange" />
+                  </view>
+                  <view class="quantifier">元</view>
+                </view>
+              </i-col>
+          </i-row>
+
+          <i-row i-class="attr-row">
+              <i-col span="8" i-class="col-class">        
+                <view class="attrname">
+                  标签：
+                </view>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                <view class="checkboxs">
+                  <i-radio-group  current="{{current_tag}}"  bindchange="handleTagChange">
+                      <view class="parent">
+                        <i-radio class="child" wx:for="{{tags}}" wx:key="{{item.id}}" value="{{item.name}}">
+                        </i-radio>
+                      </view>
+                  </i-radio-group>
+                </view>
+              </i-col>
+          </i-row>
+        </view>
+        
+        <view class='bottom'>
+          <button bindtap="handleNextStep">下一步</button>
+        </view>
+    </view>
+  </view>
+</view>

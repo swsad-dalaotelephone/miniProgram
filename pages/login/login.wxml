@@ -41,21 +41,24 @@
   <view>SIGN IN</view>
 </view>
 
-<view class="inputPhone inputBox">
-  <image class="headImg"/>
-  <view class="text">Enter phone number</view>
-</view>
+<form bindsubmit='formLogin'>
 
-<view class="inputPass inputBox">
-  <image class="headImg"/>
-  <view class="text">Enter password</view>
-</view>
+  <view class="inputPhone inputBox">
+    <image class="headImg" />
+    <input class="text" placeholder="Enter phone number" name="phone"></input>
+  </view>
 
-<button class="confirmButton">CONFIRM</button>
+  <view class="inputPass inputBox">
+    <image class="headImg" />
+    <input class="text" password="true" placeholder="Enter password" name="password"></input>
+  </view>
+
+  <button class="confirmButton" form-type='submit'>CONFIRM</button>
+
+</form>
 
 <view class="toRegister"><text id="toRegister">注册/Sign up</text></view>
 
 <view class="toWechat">
-  <image id="toWechat"/>
+  <image id="toWechat" />
 </view>
-

@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="titleBox">
+        <text style="margin-top: -50rpx;">审核 <text style="color:black;display:inline">{{submitInfo.accepter.length > 0 ? submitInfo.accepter : '匿名用户'}}</text> 的提交</text>
+    </view>
+
+    <view class="Box" style="margin-top: -80rpx">
+        <view class="info"> </view>
+            <!-- TODO: 将数据填充进来 -->
+
+        <textarea placeholder="请输入反馈" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.item==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
+        <view class="buttonLine {{submitInfo.item==1?'':'hidden'}}"> 
+            <button class="no" bindtap="tapNo">审核不通过</button>
+            <button class="yes" bindtap="tapYes">审核通过</button>
+        </view>
+    </view>
+</view>

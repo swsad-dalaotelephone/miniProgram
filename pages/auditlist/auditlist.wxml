@@ -1,0 +1,34 @@
+<!--pages/auditlist/auditlist.wxml-->
+<view class="titleBox">
+    <view>{{taskInfo.name}}</view>
+</view>
+
+<view class="selectTab">
+    <view class="tab {{selectedTab==0?'selected':'unselected'}}" bindtap="switchTab">任务详情</view>
+    <view class="tab {{selectedTab==0?'unselected':'selected'}}" bindtap="switchTab">审核列表</view>
+</view>
+
+<view class="Box detailBox {{selectedTab==0?'visible':'invisible'}}">
+
+    <!-- wx:for 遍历数组来存放各项信息 -->
+    <view class="innerMsgBox">
+        <view class="msgTitle">问卷描述</view>
+        <view class="msg">blablabla</view>
+    </view>
+
+    <view class="buttonLine">
+        <button class="btnEnd">中止任务</button>
+        <button class="btnViewStat">查看统计</button>
+    </view>
+
+</view>
+
+<view class="auditList {{selectedTab==0?'invisible':'visible'}}">
+
+    <view class="Box auditItem" wx:for="{{auditList}}" wx:key="{{item.acceptance_id}}" bindtap="tapAudit"  data-item="{{item}}" item="{{item}}">
+        <image> </image>
+        <view class="text"> <text style="color:#77a9fd">{{item.accepter.length > 0 ? item.accepter : '匿名用户'}}</text> 的提交</view>
+        <view class="status {{item.status==1?'waitConfirm':(item.status==3?'finished':'unqualified')}}">{{item.status==1?'待审核':(item.status==3?'已通过':'未通过')}}</view>
+    </view>
+</view>
+

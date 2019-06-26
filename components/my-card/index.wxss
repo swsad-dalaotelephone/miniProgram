@@ -5,9 +5,8 @@
   overflow: hidden;
   position: relative;
   background: #fff;
-  border: 1px solid rgba(255, 255, 255, 0);
   border-radius: 5px;
-  box-shadow:0px 0px 10px 0px rgba(190, 211, 254, 1);
+  box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
 }
 
 .left {
@@ -66,16 +65,22 @@
 
 .i-card-header-extra {
   width: 35px;
+  line-height:26px;
   text-align: center;
   font-size: 14px;
   color: #77a9fd;
   border: 1rpx solid #77a9fd;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .i-card-body {
   color: #495060;
   font-size: 14px;
+  /* 居中 */
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1; */
 }
 
 .i-card-body::before {

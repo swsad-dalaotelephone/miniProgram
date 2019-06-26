@@ -1,0 +1,26 @@
+/* components/my-picker/my-picker.wxss */
+ .my-picker-container{
+    min-height: 100%;
+    border: 1px solid #bdbdbd;
+    border-radius: 7px;
+ } 
+
+ .fb-type{
+  /* margin-bottom: 20rpx; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30rpx;
+  padding-right: 15rpx; 
+}
+
+.fb-type .type-label{
+  flex: 1;
+  color: #333;
+  font-size: 36rpx;
+}
+
+.fb-type .type-icon{
+  height: 45rpx;
+  width: 45rpx;
+} 

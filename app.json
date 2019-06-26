@@ -1,13 +1,23 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/mine/mine",
     "pages/login/login",
+    "pages/newrecruit/newrecruit",
+    "pages/newquestionnaire/newquestionnaire",
+    "pages/receive/receive",
+    "pages/editprofile/editprofile",
+    "pages/mine/mine",
     "pages/register/register",
     "pages/logs/logs",
     "pages/task/task",
-    "pages/newtask/newtask",
-    "pages/receive/receive"
+    "pages/scope/scope",
+    "pages/newtaskgeneral/newtaskgeneral",
+    "pages/newcollect/newcollect",
+    "pages/fulfiltask/fulfiltask",
+    "pages/taskcomplete/taskcomplete",
+    "pages/review/review",
+    "pages/auditlist/auditlist",
+    "pages/audit/audit"
   ],
   "window": {
     "backgroundTextStyle": "light",

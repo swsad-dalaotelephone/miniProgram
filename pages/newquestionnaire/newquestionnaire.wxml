@@ -1,0 +1,81 @@
+                      <!--pages/newquestionnaire/newquestionnaire.wxml-->
+
+<view class='page'>
+  <view class='head'>
+    <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
+    <text>{{task_type}}</text>
+    <i-icon type="more" size="28" color="white"></i-icon>
+  </view>
+
+  <view class="page__bd page__bd_spacing pagebd" >
+      <view class="newTaskPanel">  
+        <view class="main-content">
+          
+          <view class="description">
+            <textarea placeholder="问卷描述" value="{{task.content.quest_des}}" bindinput="bindDescriptionInput"/>
+          </view>                
+
+
+          <view class="question" wx:for="{{task.content.questions}}" wx:key="id">
+              <i-row i-class="questionTitle">
+                  <i-col span="3" i-class="col-class">
+                    <view class="questionIndex">{{index + 1}}.</view>
+                  </i-col>
+
+                  <i-col span="18" i-class="col-class">
+                    <input placeholder="请输入题目" class="questionTitleInput" data-index="{{index}}" value="{{task.content.questions[index].quest_title}}" bindinput="bindQuestionTitleInput"/>
+                  </i-col>
+
+                  <i-col span="3" i-class="col-class">
+                    <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#1e98ea"> </i-icon>          
+                  </i-col>
+              </i-row>
+              
+              <view class="optionsPanel" wx:if="{{item.quest_type == 'choice'}} ">
+                <view class="option" wx:for="{{item.quest_option}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
+                  <i-row>
+                      <i-col span="3" i-class="col-class">
+                        <view class="addOptionButton">
+                          <i-icon type="add" bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"> </i-icon>  
+                        </view>
+                      </i-col>
+                      <i-col span="2" i-class="col-class">
+                        <view class="choiceIndex">
+                          {{option.index+':'}}
+                        </view>
+                      </i-col>
+                      <i-col span="8"  i-class="col-class">
+                        <input placeholder="请输入选项" class="optionInput" data-qindex="{{index}}" data-idx="{{idx}}" bindinput="bindOptionInput" value="{{task.content.questions[index].quest_option[idx].content}}"/>
+                      </i-col>
+                      <i-col span="6" i-class="col-class">
+                        <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.quest_option.length-1 && idx >= 2}}"></i-icon>
+                      
+                      </i-col>
+                  </i-row>
+                  
+                </view>
+              </view>
+
+              <view class="TextPanel" wx:if="{{item.quest_type == 'text'}}">
+                <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
+              </view>  
+          </view>
+
+          <view class="addQuestionPanel">
+            <view class="addQuesion" bindtap='handleAddText'>
+              <image class="image-button" src="../../images/addText.png"></image>
+            </view>           
+
+            <view class="addQuesion" bindtap='handleAddChoice'>
+              <image class="image-button" src="../../images/addChoice.png"></image>
+            </view>  
+          </view>
+        </view>
+
+        <view class='bottom'>
+          <button bindtap="handleNextStep">下一步</button>
+        </view>     
+      </view>
+  </view>
+</view>
+
