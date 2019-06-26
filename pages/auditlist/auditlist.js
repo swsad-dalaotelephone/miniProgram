@@ -138,23 +138,13 @@ Page({
 
 	// 点击某个提交进行审核
 	tapAudit: function (e) {
-		let submitJson = JSON.stringify(e.currentTarget.dataset.item)
-		let dest = ''
-		switch (this.data.taskInfo.type) {
-			case 'q':
-				dest = 'auditquestionnaire'
-				break;
-			case 'd':
-				dest = 'auditcollect'
-				break;
-			case 'r':
-				dest = 'auditrecruit'
-				break;
-			default:
-				break;
+		let transferObj = {
+			submitInfo: e.currentTarget.dataset.item,
+			taskInfo: this.data.taskInfo
 		}
+		let transferJson = JSON.stringify(transferObj)
 		wx.navigateTo({
-			url: '/pages/' + dest + '/' + dest + '?submitJson=' + submitJson,
+			url: '/pages/audit/audit?info=' + transferJson,
 		})
 	}
 })

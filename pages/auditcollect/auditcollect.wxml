@@ -7,7 +7,7 @@
         <view class="info"> </view>
             <!-- TODO: 将数据填充进来 -->
 
-        <textarea placeholder="请输入反馈" bindlinechange="%{15}" class="feedbackInput"> </textarea>
+        <textarea placeholder="请输入反馈" class="feedbackInput"> </textarea>
         <view class="buttonLine"> 
             <button class="no">审核不通过</button>
             <button class="yes">审核通过</button>

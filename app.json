@@ -19,7 +19,8 @@
     "pages/auditlist/auditlist",
     "pages/auditquestionnaire/auditquestionnaire",
     "pages/auditcollect/auditcollect",
-    "pages/auditrecruit/auditrecruit"
+    "pages/auditrecruit/auditrecruit",
+    "pages/audit/audit"
   ],
   "window": {
     "backgroundTextStyle": "light",
