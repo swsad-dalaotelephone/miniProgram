@@ -4,10 +4,6 @@
     "i-load-more": "../../dist/load-more/index",
     "i-icon": "../../dist/icon/index",
     "i-divider": "../../dist/divider/index",
-    "i-panel": "../../dist/panel/index",
-    "i-input": "../../dist/input/index",
-    "i-row": "../../dist/row/index",
-    "i-col": "../../dist/col/index",
     "i-radio-group": "../../dist/radio-group/index",
     "i-radio": "../../dist/radio/index"
   },

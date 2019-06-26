@@ -14,7 +14,7 @@
                 <view class="question" wx:for="{{questions}}" wx:key="id" wx:for-index="question_index" wx:for-item="question">
                   <view class="questionTitle">{{question_index + 1}}. {{question.quest_title}}</view>
                   <view class="optionsPanel" wx:if="{{question.quest_type == 'choice'}} ">
-                    <i-radio-group data-qindex="{{question_index}}" current="{{question.quest_option[answers[question_index].option].content}}"  bindchange="handleOptionChange">
+                    <i-radio-group data-qindex="{{question_index}}" current="{{question.quest_option[answers[question_index].option[0]].content}}"  bindchange="handleOptionChange">
                       <view class="parent"> 
                         <i-radio class="child" wx:for="{{question.quest_option}}" wx:key="{{item.index}}"wx:for="{{question.quest_option}}"  value="{{item.content}}">
                         </i-radio>

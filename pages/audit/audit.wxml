@@ -5,7 +5,29 @@
 
     <view class="Box" style="margin-top: -80rpx">
         <view class="info"> </view>
-            <!-- TODO: 将数据填充进来 -->
+          <view class="answer-area">
+              <view class="quest-ans" wx:if="{{type == 'q' || type == 'r'}}">
+                <view class="question" wx:for="{{questions}}" wx:key="id" wx:for-index="question_index" wx:for-item="question">
+                  <view class="questionTitle">{{question_index + 1}}. {{question.quest_title}}</view>
+                  <view class="optionsPanel" wx:if="{{question.quest_type == 'choice'}} ">
+                      <view class="parent"> 
+                        <i-radio class="child" wx:for="{{question.quest_option}}" wx:for-index="option_index" wx:key="{{item.index}}" value="{{item.content}}" checked="{{option_index==answers[question_index].option[0]}}" disabled="{{option_index!=answers[question_index].option[0]}}">
+                        </i-radio>
+                      </view>
+                  </view>
+
+                  <view class="textPanel" wx:if="{{question.quest_type == 'text'}}">
+                     {{answers[question_index].text}}
+                  </view>
+                </view>
+              </view>
+              <view class="mail-ans" wx:if="{{type == 'd'}}">
+                <view class="questionTitle">发送信息的邮箱:</view>
+                  <view class="textPanel">
+                    {{answers[0].text}}
+                  </view>                  
+              </view>
+            </view>              
 
         <textarea placeholder="请输入反馈" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.item==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
         <view class="buttonLine {{submitInfo.item==1?'':'hidden'}}"> 
