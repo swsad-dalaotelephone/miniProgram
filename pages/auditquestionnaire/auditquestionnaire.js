@@ -1,4 +1,7 @@
 // pages/auditquestionnaire/auditquestionnaire.js
+var app = getApp();
+const http = require('../../utils/http.js')
+
 Page({
 
 	/**
@@ -13,7 +16,8 @@ Page({
 			feedback: "",
 			status: 0,
 			task_id: ""
-		}
+		},
+		feedbackInput: ''
 	},
 
 	/**
@@ -73,5 +77,74 @@ Page({
 	 */
 	onShareAppMessage: function () {
 
+	},
+
+	inputFeedback: function (e) {
+		this.setData({
+			feedbackInput: e.detail.value
+		})
+	},
+
+	tapNo: function (e) {
+
+		let feedbackInput = this.data.feedbackInput
+		if (feedbackInput.length > 0) {
+			let url = '/task/' + this.data.submitItem.task_id + '/acceptance/result'
+			
+			console.log("测试url",url)
+			let result = 'accepter_id=' + this.data.submitItem.accepter_id + '&result=false&feedback=' + this.data.feedbackInput
+			http._put(url, result, 'application/x-www-form-urlencoded')
+				.then(res => {
+					wx.showToast({
+						title: '审核成功',
+						icon: 'none',
+						duration: 1500,
+						mask: false,
+					})
+					wx.navigateBack({
+						delta: 1
+					})
+				})
+				.catch(res => {
+					wx.showToast({
+						title: '审核出现错误，请联系客服',
+						icon: 'none',
+						duration: 1500,
+						mask: false,
+					})
+				})
+		} else {
+			wx.showToast({
+				title: '审核不通过需填写反馈',
+				icon: 'none',
+				duration: 1500,
+				mask: false,
+			});
+		}
+	},
+
+	tapYes: function (e) {
+		let url = '/task/' + this.data.submitItem.task_id + '/acceptance/result'
+		let result = 'accepter_id=' + this.data.submitItem.accepter_id + '&result=true&feedback=' + this.data.feedbackInput
+		http._put(url, result, 'application/x-www-form-urlencoded')
+			.then(res => {
+				wx.showToast({
+					title: '审核成功',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				})
+				wx.navigateBack({
+					delta: 1
+				})
+			})
+			.catch(res => {
+				wx.showToast({
+					title: '审核出现错误，请联系客服',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				})
+			})
 	}
 })

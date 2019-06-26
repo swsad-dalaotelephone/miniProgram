@@ -1,4 +1,7 @@
 // pages/auditcollect/auditcollect.js
+var app = getApp();
+const http = require('../../utils/http.js')
+
 Page({
 
 	/**
@@ -13,7 +16,8 @@ Page({
 			feedback: "",
 			status: 0,
 			task_id: ""
-		}
+		},
+		feedbackInput: ''
 	},
 
 	/**
@@ -25,6 +29,7 @@ Page({
 			submitItem: submitItem
 		})
 	},
+	
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */

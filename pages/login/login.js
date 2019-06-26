@@ -122,7 +122,7 @@ Page({
 				// 	delta: 1
 				//   })
 				wx.navigateTo({
-					url: '/pages/index/index'
+					url: '/pages/auditlist/auditlist'
 				})
 				wx.showToast({
 					title: '登陆成功',

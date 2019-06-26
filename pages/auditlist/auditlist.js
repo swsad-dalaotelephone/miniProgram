@@ -12,21 +12,20 @@ Page({
 		taskInfo: {
 			name: "任务名称"
 		},
-		auditList: [
-			{
+		auditList: [{
 				acceptance_id: "test1",
 				accepter: "Name1",
-				status: 1,	// 1: 未审核; 2: 已审核; 3: 已完成
+				status: 1, // 1: 未审核; 2: 已审核; 3: 已完成
 			},
 			{
 				acceptance_id: "test2",
 				accepter: "Name2",
-				status: 2,	// 1: 未审核; 2: 已审核; 3: 已完成
+				status: 2, // 1: 未审核; 2: 已审核; 3: 已完成
 			},
 			{
 				acceptance_id: "test3",
 				accepter: "Name3",
-				status: 3,	// 1: 未审核; 2: 已审核; 3: 已完成
+				status: 3, // 1: 未审核; 2: 已审核; 3: 已完成
 			}
 		]
 	},
@@ -38,44 +37,10 @@ Page({
 
 		// TODO: 从options读取任务id，现在暂时是写死
 		let task_id = "5fae4333-f3ee-4a41-884e-85a3b738bcaa";
-		http._get("/task/" + task_id)
-			.then(res => {
-				let taskInfo = JSON.parse(res.task)
-				this.setData({
-					taskInfo: taskInfo
-				})
-			})
-			.catch(res => {
-				wx.navigateBack({
-					delta: 1
-				});
-				wx.showToast({
-					title: '任务打开失败，咨询程序员小哥哥吧~',
-					icon: 'none',
-					duration: 1500,
-					mask: false,
-				});
+		this.setData({
+			task_id: task_id
+		})
 
-			})
-
-		http._get("/task/" + task_id + "/submittedTasks")
-			.then(res => {
-				let acceptanceArray = JSON.parse(res.submitted)
-				this.setData({
-					auditList: acceptanceArray
-				})
-			})
-			.catch(res => {
-				wx.navigateBack({
-					delta: 1
-				});
-				wx.showToast({
-					title: '任务打开失败，咨询程序员小哥哥吧~',
-					icon: 'none',
-					duration: 1500,
-					mask: false,
-				});
-			})
 	},
 
 	/**
@@ -89,7 +54,45 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
+		let task_id = this.data.task_id
+		http._get("/task/" + task_id)
+			.then(res => {
+				let taskInfo = JSON.parse(res.task)
+				this.setData({
+					taskInfo: taskInfo
+				})
+			})
+			.catch(res => {
+				wx.switchTab({
+					url: '/pages/task/task',
+				})
+				wx.showToast({
+					title: '任务打开失败，咨询程序员小哥哥吧~',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				})
 
+			})
+
+		http._get("/task/" + task_id + "/submittedTasks")
+			.then(res => {
+				let acceptanceArray = JSON.parse(res.submitted)
+				this.setData({
+					auditList: acceptanceArray
+				})
+			})
+			.catch(res => {
+				wx.switchTab({
+					url: '/pages/task/task',
+				})
+				wx.showToast({
+					title: '任务打开失败，咨询程序员小哥哥吧~',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				})
+			})
 	},
 
 	/**

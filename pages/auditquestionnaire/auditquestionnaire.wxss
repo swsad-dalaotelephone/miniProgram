@@ -40,3 +40,7 @@
 .buttonLine .yes{
     background-color: #77A9FD;
 }
+
+.hidden{
+    display:none;
+}
