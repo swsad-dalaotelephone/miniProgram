@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/wechatlogin/wechatlogin",
     "pages/index/index",
     "pages/login/login",
     "pages/newrecruit/newrecruit",

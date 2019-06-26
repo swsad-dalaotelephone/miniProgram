@@ -1,0 +1,5 @@
+<!--pages/wechatlogin/wechatlogin.wxml-->
+
+<view class="titleBox">微信登陆</view>
+
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击授权微信登陆</button>
