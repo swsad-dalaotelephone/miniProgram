@@ -21,6 +21,5 @@
       <text>{{item.brief_info}}</text>
     </view>
 
-
   </view>
 </view>

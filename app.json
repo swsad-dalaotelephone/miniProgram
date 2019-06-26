@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/login/login",
     "pages/newrecruit/newrecruit",
@@ -18,7 +17,8 @@
     "pages/taskcomplete/taskcomplete",
     "pages/review/review",
     "pages/auditlist/auditlist",
-    "pages/audit/audit"
+    "pages/audit/audit",
+    "pages/statistic/statistic"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -20,7 +20,7 @@
 
     <view class="buttonLine">
         <button class="btnEnd">中止任务</button>
-        <button class="btnViewStat">查看统计</button>
+        <button class="btnViewStat" bindtap='openStat'>查看统计</button>
     </view>
 
 </view>
