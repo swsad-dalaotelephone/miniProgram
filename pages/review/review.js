@@ -53,7 +53,7 @@ Page({
     let id = options.id
     let item = {}
     http._get('/task/' + id).then(res => {
-      // console.log(JSON.parse(res.acceptance))
+      // console.log(res)
       item = JSON.parse(res.task)
       let acceptance = JSON.parse(res.acceptance)
       item.status = acceptance.status
