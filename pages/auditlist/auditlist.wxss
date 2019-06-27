@@ -10,7 +10,6 @@ button {
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
     float: left;
-    margin-left: 50rpx;
 }
 
 
@@ -53,6 +52,11 @@ button {
 .detailBox .buttonLine {
     height: 100rpx;
     margin-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+}
+.btnEnd, .btnViewStat {
+  flex: 1 0 auto;
 }
 
 .innerMsgBox {
@@ -79,13 +83,6 @@ button {
     margin-bottom: 20rpx;
     height: 130rpx;
     overflow: hidden;
-}
-
-.auditList .auditItem radio {
-    float: left;
-    height: 100rpx;
-    margin-left: 30rpx;
-    margin-top: 35rpx;
 }
 
 .auditList .auditItem image {
