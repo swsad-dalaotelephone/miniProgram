@@ -1,6 +1,8 @@
 <!--pages/auditlist/auditlist.wxml-->
 <view class="titleBox">
+  <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
     <view>{{taskInfo.name}}</view>
+    <image class="smallIcon"/>
 </view>
 
 <view class="tabContainer">
@@ -8,7 +10,7 @@
     <text class="rightTab {{selectedTab==0?'unselectedTab':'selectedTab'}}" bindtap="switchTab">审核列表</text>
 </view>
 
-<view class="Box detailBox {{selectedTab==0?'visible':'invisible'}}">
+<view class="panel panelPlus {{selectedTab==0?'visible':'invisible'}}">
     <!-- wx:for 遍历数组来存放各项信息 -->
     <view class="innerMsgBox">
         <view wx:for="{{detailList}}" wx:key="{{item}}">
@@ -18,8 +20,8 @@
     </view>
 
     <view class="buttonLine">
-        <button class="btnEnd">终止任务</button>
-        <button class="btnViewStat" bindtap="openStat" wx:if="{{taskInfo.type == 'q'}}">查看统计</button>
+        <button class="alternativeButton">终止任务</button>
+        <button class="recommendButton" bindtap="openStat" wx:if="{{taskInfo.type == 'q'}}">查看统计</button>
     </view>
 
 </view>

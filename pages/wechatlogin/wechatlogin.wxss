@@ -1,1 +1,7 @@
 /* pages/wechatlogin/wechatlogin.wxss */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
