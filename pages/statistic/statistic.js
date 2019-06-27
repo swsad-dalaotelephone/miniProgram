@@ -1,12 +1,18 @@
 // pages/statistic/statistic.js
+import * as echarts from '../../ec-canvas/echarts';
 const http = require('../../utils/http.js')
+var list = []
+var list1 = []
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    task_id: ''
+    task_id: '',
+    ec: {
+      onInit: initChart
+    }
   },
 
   /**
@@ -74,3 +80,51 @@ Page({
 
   }
 })
+// 初始化图表
+function initChart(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height
+  });
+  canvas.setChart(chart);
+
+  var option = {
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['客户']
+    },
+    grid: {
+      left: '1%',
+      right: '30rpx',
+      bottom: '1%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: list,
+      name: '月份',
+      nameGap: 2,
+      axisLabel: {
+        interval: 0
+      }
+    },
+    yAxis: {
+      type: 'value',
+      name: '数量'
+    },
+    series: [
+      {
+        name: '客户',
+        type: 'line',
+        stack: '总量',
+        data: list1
+      }
+    ]
+  };
+
+  chart.setOption(option);
+  return chart;
+}

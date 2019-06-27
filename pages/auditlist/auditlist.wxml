@@ -4,8 +4,8 @@
 </view>
 
 <view class="selectTab">
-    <view class="tab {{selectedTab==0?'selected':'unselected'}}" bindtap="switchTab">任务详情</view>
-    <view class="tab {{selectedTab==0?'unselected':'selected'}}" bindtap="switchTab">审核列表</view>
+    <text class="leftTab {{selectedTab==0?'selectedTab':'unselectedTab'}}" bindtap="switchTab">任务详情</text>
+    <text class="rightTab {{selectedTab==0?'unselectedTab':'selectedTab'}}" bindtap="switchTab">审核列表</text>
 </view>
 
 <view class="Box detailBox {{selectedTab==0?'visible':'invisible'}}">
@@ -19,7 +19,7 @@
     </view>
 
     <view class="buttonLine">
-        <button class="btnEnd">中止任务</button>
+        <button class="btnEnd">终止任务</button>
         <button class="btnViewStat" bindtap='openStat'>查看统计</button>
     </view>
 
