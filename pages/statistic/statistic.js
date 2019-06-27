@@ -2,6 +2,7 @@
 const http = require('../../utils/http.js')
 var wxCharts = require('../../utils/wxcharts.js');
 var pieChart = null;
+var kTypeChoice = 'm';
 Page({
 
   /**
@@ -27,34 +28,45 @@ Page({
     }
 
     console.log(options)
-    let task_id = options.task_id
-    http._get('/task/' + task_id + '/statistic').then(res => {
-      let tempData = JSON.parse(res).statistics
-      // console.log('static data:', tempData)
-      tempData.forEach(function(item){
-        console.log(item)
-        let data = []
-        for(let i=0;i<10;++i){
-          data.push({ name: item.option_name[i], data: item.option_count[i]})
-        }
-        console.log(data)
-        pieChart = new wxCharts({
-          animation: true,
-          canvasId: 'pieCanvas',
-          type: 'pie',
-          series: data,
-          width: windowWidth,
-          height: 300,
-          dataLabel: true,
-        })
+    if (typeof options.task != 'undefined') {
+      let task = JSON.parse(options.task);
+      if (task.type != 'q') return;
+      let task_id = task.id;
+      this.setData({
+        task_id: task_id
       })
+      http._get('/task/' + task_id + '/statistic').then(res => {
+        let tempData = JSON.parse(res).statistics
+        
+        let question_count = 0;
+        for (let i = 0; i < task.content.questions.length; i++) {
+          if (task.content.questions[i].quest_type != kTypeChoice) continue;
+          tempData[question_count++].option_name = task.content.questions[i].quest_option;
+        }
+        console.log('tempData:', tempData);
 
-    }).catch(e => {
-      console.log(e)
-    })
-    this.setData({
-      task_id: task_id
-    })
+        tempData.forEach(function(item){
+          console.log(item)
+          let data = []
+          for(let i=0;i < item.option_name.length; ++i){
+            data.push({ name: item.option_name[i], data: item.option_count[i]})
+          }
+          console.log(data)
+          pieChart = new wxCharts({
+            animation: true,
+            canvasId: 'pieCanvas',
+            type: 'pie',
+            series: data,
+            width: windowWidth,
+            height: 300,
+            dataLabel: true,
+          })
+        })
+
+      }).catch(e => {
+        console.log(e)
+      })
+    }
   },
 
   /**
