@@ -38,12 +38,14 @@ page{
     /* 背景 */
     background-color: #77A9FD;
     width: 750rpx;
-    height: 180rpx;
+    height: 130rpx;
 
     /* 标题居中 */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* 横向排列 */
+    flex-direction: row;
+    /* 间隔 */
+    justify-content: space-between;
     align-items: center;
 
     /* 字体 */
@@ -51,7 +53,8 @@ page{
     color: #FFFFFF;
 
     /* 边距 */
-    margin-bottom: 20rpx;
+    /* margin-bottom: 20rpx; */
+    padding-bottom: 50rpx;
 }
 
 .Box{
@@ -163,4 +166,21 @@ page{
 .unselectedTab {
   text-decoration: underline;
   color: #ecf5fc
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;     /* 垂直居中 */
+  height: 100px;
+  color: white;
+  background-color: #77a9fd
+}
+
+/* icons */
+.smallIcon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
 }

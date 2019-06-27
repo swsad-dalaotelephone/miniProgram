@@ -1,20 +1,23 @@
 <!--index.wxml-->
 <view class='page'>
-  <view class='head'>
-    <i-icon type="return" size="28" color="#77a9fd"></i-icon>
+  <!-- 蓝色头部 -->
+  <view class='titleBox'>
+  <!-- TODO return function -->
+    <image class="smallIcon" />
     <text>Home</text>
-    <i-icon type="add" size="28" color="white" bindtap='handleAddButton'></i-icon>
+    <image class="smallIcon" src='../../images/icons/publish.png'  bindtap='handleAddButton'/>
   </view>
+  <!-- 页面主体 -->
   <view class="top page__bd_spacing">
-
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+    <!-- 广告位 -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px" >
       <block wx:for="{{background}}" wx:key="*this">
         <swiper-item>
           <image class='imgw' src="{{item}}" mode="aspectFit" />
         </swiper-item>
       </block>
     </swiper>
-
+    <!-- tab栏 -->
     <van-tabs swipeable animated sticky duration="0.5" custom-nav-class="tab" color="#77a9fd">
       <van-tab title="全部">
         <view class="taskList" wx:for="{{taskList}}" wx:key="{{item.id}}">
