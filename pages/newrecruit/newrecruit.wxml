@@ -1,135 +1,133 @@
 <!--pages/newrecruit/newrecruit.wxml-->
-
-  <view class='page'>
-    <view class='head'>
-      <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
-      <text>{{task_type}}</text>
-      <i-icon type="more" size="28" color="white"></i-icon>
-    </view>
-
-    <view class="page__bd page__bd_spacing pagebd" >
-        <view class="newTaskPanel">  
-            <view class="main-content">
-              <i-row i-class="attr-row">
-                  <i-col span="8" i-class="col-class">        
-                    <view class="attrname">
-                      描述：
-                    </view>
-                  </i-col>
-                  <i-col span="16" i-class="col-class">
-                    <view class="textarea-input">
-                      <textarea placeholder="活动描述" value="{{task.content.recruit_des}}" bindinput="bindDescriptionInput"/>
-                    </view>                
-                  </i-col>
-              </i-row>
-
-              <i-row i-class="attr-row">
-                  <i-col span="8" i-class="col-class">        
-                    <view class="attrname">
-                      活动时间：
-                    </view>
-                  </i-col>
-                  <i-col span="16" i-class="col-class">
-                    <view class="time-range">
-                      <view class="indicate">从</view>
-
-                      <my-datetimepicker bindchange="bindStartTimeChange" value="{{task.content.start_time}}"/> 
-
-                      <view class="indicate">至</view>
-                      
-                      <my-datetimepicker bindchange="bindEndTimeChange" value="{{task.content.end_time}}"/> 
-                                     
-                    </view>                
-                  </i-col>
-              </i-row>
-              <i-row i-class="attr-row">
-                  <i-col span="8" i-class="col-class">        
-                    <view class="attrname">
-                      活动地点：
-                    </view>
-                  </i-col>
-                  <i-col span="16" i-class="col-class">
-                    <view class="single-line-input">
-                      <input placeholder="地点" value="{{this.task.content.location}}" bindinput="bindLocationInput"/>
-                    </view>                
-                  </i-col>
-              </i-row>
-
-              <i-row i-class="attr-row">
-                  <i-col span="8" i-class="col-class">        
-                    <view class="attrname">
-                      问题：
-                    </view>
-                  </i-col>
-                  <i-col span="16" i-class="col-class">              
-                  </i-col>
-              </i-row>
-
-
-              <i-row i-class="attr-row">
-                <view class="questions">
-                  <view class="question" wx:for="{{questions}}" wx:key="id">
-                    <i-row i-class="questionTitle">
-                        <i-col span="3" i-class="col-class">
-                          <view class="questionIndex">{{index + 1}}.</view>
-                        </i-col>
-
-                        <i-col span="18" i-class="col-class">
-                          <input placeholder="请输入题目" class="questionTitleInput" data-index="{{index}}" value="{{questions[index].quest_title}}" bindinput="bindQuestionTitleInput"/>
-                        </i-col>
-
-                        <i-col span="3" i-class="col-class">
-                          <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#1e98ea"> </i-icon>          
-                        </i-col>
-                    </i-row>
-                    
-                    <view class="optionsPanel" wx:if="{{item.quest_type == kTypeChoice}} ">
-                      <view class="option" wx:for="{{item.quest_option}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
-                        <i-row>
-                            <i-col span="3" i-class="col-class">
-                              <view class="addOptionButton">
-                                <i-icon type="add" bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"> </i-icon>  
-                              </view>
-                            </i-col>
-                            <i-col span="2" i-class="col-class">
-                              <view class="choiceIndex">
-                                {{option.index+':'}}
-                              </view>
-                            </i-col>
-                            <i-col span="8"  i-class="col-class">
-                              <input placeholder="请输入选项" class="optionInput" data-qindex="{{index}}" data-idx="{{idx}}" bindinput="bindOptionInput" value="{{questions[index].quest_option[idx].content}}"/>
-                            </i-col>
-                            <i-col span="6" i-class="col-class">
-                              <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.quest_option.length-1 && idx >= 2}}"></i-icon>
-                            
-                            </i-col>
-                        </i-row>
-                        
-                      </view>
-                    </view>
-
-                    <view class="TextPanel" wx:if="{{item.quest_type == kTypeText}}">
-                      <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
-                    </view>  
-                  </view>
-
-                  <view class="addQuestionPanel">
-                    <view class="addQuesion" bindtap='handleAddText'>
-                      <image class="image-button" src="../../images/addText.png"></image>
-                    </view>           
-
-                    <view class="addQuesion" bindtap='handleAddChoice'>
-                      <image class="image-button" src="../../images/addChoice.png"></image>
-                    </view>  
-                  </view>
-                </view>
-              </i-row>
-            </view>
-            <view class='bottom'>
-              <button bindtap="handleNextStep">下一步</button>
-            </view>
-        </view>
-    </view>
+<view class='page'>
+  <!-- title -->
+  <view class='titleBox'>
+    <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+    <text>{{task_type}}</text>
+    <image class="smallIcon"/>
   </view>
+
+  <!-- bg container -->
+  <view class="panel" >
+      <view class="newTaskPanel">  
+          <view class="main-content">
+            
+            <i-row i-class="attr-row">
+                <i-col span="8" i-class="col-class">        
+                  <view class="attrname"> 描述：</view>
+                </i-col>
+                <i-col span="16" i-class="col-class">
+                  <view class="textarea-input">
+                    <textarea placeholder="活动描述" value="{{task.content.recruit_des}}" bindinput="bindDescriptionInput"/>
+                  </view>                
+                </i-col>
+            </i-row>
+
+            <i-row i-class="attr-row">
+                <i-col span="8" i-class="col-class">        
+                  <view class="attrname">
+                    活动时间：
+                  </view>
+                </i-col>
+                <i-col span="16" i-class="col-class">
+                  <view class="time-range">
+                    <view class="indicate">从</view>
+                      <my-datetimepicker bindchange="bindStartTimeChange" value="{{task.content.start_time}}"/> 
+                    <view class="indicate">至</view>
+                    
+                    <my-datetimepicker bindchange="bindEndTimeChange" value="{{task.content.end_time}}"/> 
+                                    
+                  </view>                
+                </i-col>
+            </i-row>
+            <i-row i-class="attr-row">
+                <i-col span="8" i-class="col-class">        
+                  <view class="attrname">
+                    活动地点：
+                  </view>
+                </i-col>
+                <i-col span="16" i-class="col-class">
+                  <view class="publishSingeLineInput">
+                    <input placeholder="地点" value="{{this.task.content.location}}" bindinput="bindLocationInput"/>
+                  </view>                
+                </i-col>
+            </i-row>
+
+            <i-row i-class="attr-row">
+                <i-col span="8" i-class="col-class">        
+                  <view class="attrname">
+                    问题：
+                  </view>
+                </i-col>
+                <i-col span="16" i-class="col-class">              
+                </i-col>
+            </i-row>
+
+
+            <i-row i-class="attr-row">
+              <view class="questions">
+                <view class="question" wx:for="{{questions}}" wx:key="id">
+                  <i-row i-class="questionTitle">
+                      <i-col span="3" i-class="col-class">
+                        <view class="questionIndex">{{index + 1}}.</view>
+                      </i-col>
+
+                      <i-col span="18" i-class="col-class">
+                        <input placeholder="请输入题目" class="questionTitleInput" data-index="{{index}}" value="{{questions[index].quest_title}}" bindinput="bindQuestionTitleInput"/>
+                      </i-col>
+
+                      <i-col span="3" i-class="col-class">
+                        <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#1e98ea"> </i-icon>          
+                      </i-col>
+                  </i-row>
+                  
+                  <view class="optionsPanel" wx:if="{{item.quest_type == kTypeChoice}} ">
+                    <view class="option" wx:for="{{item.quest_option}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
+                      <i-row>
+                          <i-col span="3" i-class="col-class">
+                            <view class="addOptionButton">
+                              <i-icon type="add" bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"> </i-icon>  
+                            </view>
+                          </i-col>
+                          <i-col span="2" i-class="col-class">
+                            <view class="choiceIndex">
+                              {{option.index+':'}}
+                            </view>
+                          </i-col>
+                          <i-col span="8"  i-class="col-class">
+                            <input placeholder="请输入选项" class="optionInput" data-qindex="{{index}}" data-idx="{{idx}}" bindinput="bindOptionInput" value="{{questions[index].quest_option[idx].content}}"/>
+                          </i-col>
+                          <i-col span="6" i-class="col-class">
+                            <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.quest_option.length-1 && idx >= 2}}"></i-icon>
+                          
+                          </i-col>
+                      </i-row>
+                      
+                    </view>
+                  </view>
+
+                  <view class="TextPanel" wx:if="{{item.quest_type == kTypeText}}">
+                    <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
+                  </view>  
+                </view>
+
+                <view class="addQuestionPanel">
+                  <view class="addQuesion" bindtap='handleAddText'>
+                    <image class="image-button" src="../../images/addText.png"></image>
+                  </view>           
+
+                  <view class="addQuesion" bindtap='handleAddChoice'>
+                    <image class="image-button" src="../../images/addChoice.png"></image>
+                  </view>  
+                </view>
+              </view>
+            </i-row>
+          </view>
+          <view class=''>
+            <button class="recommendButton" bindtap="handleNextStep">下一步</button>
+          </view>
+      </view>
+  </view>
+</view>
 
 
