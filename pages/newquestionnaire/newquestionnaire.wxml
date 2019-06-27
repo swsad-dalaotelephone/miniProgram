@@ -26,7 +26,7 @@
                   </i-col>
 
                   <i-col span="3" i-class="col-class">
-                    <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#1e98ea"> </i-icon>          
+                    <i-icon type="delete" bindtap='handleDeleteQuestion' data-index="{{index}}" size="28" color="#77a9fd"> </i-icon>          
                   </i-col>
               </i-row>
               
@@ -47,7 +47,7 @@
                         <input placeholder="请输入选项" class="optionInput" data-qindex="{{index}}" data-idx="{{idx}}" bindinput="bindOptionInput" value="{{questions[index].quest_option[idx].content}}"/>
                       </i-col>
                       <i-col span="6" i-class="col-class">
-                        <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.quest_option.length-1 && idx >= 2}}"></i-icon>
+                        <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#77a9fd;" wx:if="{{idx==item.quest_option.length-1 && idx >= 2}}"></i-icon>
                       
                       </i-col>
                   </i-row>
@@ -71,8 +71,8 @@
           </view>
         </view>
 
-        <view class='bottom'>
-          <button bindtap="handleNextStep">下一步</button>
+        <view >
+          <button class='recommendButton' bindtap="handleNextStep">下一步</button>
         </view>     
       </view>
   </view>

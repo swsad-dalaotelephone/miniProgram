@@ -1,13 +1,14 @@
                       <!--pages/scope/scope.wxml-->
 <view class='page'>
-  <view class='head'>
-    <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
+  <!-- 蓝色头部 -->
+  <view class='titleBox'  >
+    <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
     <text>{{newTaskText}}</text>
-    <i-icon type="more" size="28" color="white"></i-icon>
+    <image class="smallIcon" />
   </view>
 
-  <view class="page__bd page__bd_spacing pagebd" >
-    <view class="newTaskPanel">
+  <view class="panel" >
+    <!-- <view class="newTaskPanel"> -->
       <view class="main-content">
         <i-row i-class="picker-row">
             <i-col span="8" i-class="col-class">        
@@ -74,11 +75,11 @@
       </view>
     
       <view class='bottom'>
-        <button bindtap="handleNoRestrict">不做限制</button>
-        <button bindtap="handlePublish">发布</button>
+        <button bindtap="handleNoRestrict" class='alternativeButton'>不做限制</button>
+        <button bindtap="handlePublish" class='recommendButton'>发布</button>
       </view>
     
     </view>
 
-  </view>
+  <!-- </view> -->
 </view>

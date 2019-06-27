@@ -1,28 +1,27 @@
 <!--pages/review/review.wxml-->
-<view class="head">
-  <i-icon type="return" size="28" color="white" bindtap='handleReturn'></i-icon>
-  <text class='name'>{{task.name}}</text>
-  <i-icon type="add" size="28" color="#77a9fd"></i-icon>
+<view class='titleBox'>
+  <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+  <text>{{task.name}}</text>
+  <image class="smallIcon" />
 </view>
 
-<view class=" page__bd page__bd_spacing">
-  <view class="top">
+<view class="panel">
     <block wx:for="{{detailList}}" wx:key="{{item}}">
       <view class='title'> {{item.title}}:</view>
       <view class="block"> {{item.detail}} </view>
     </block>
     <view wx:if="{{task.status=='0'}}" class='bottom'>
-      <button bindtap='handleTap1'>马上填写</button>
-      <button class='gray' bindtap='handleTap2'>放弃</button>
+      <button class='recommendButton' bindtap='handleTap1'>马上填写</button>
+      <button class='disabledButton' bindtap='handleTap2'>放弃</button>
     </view>
     <view wx:elif="{{task.status=='1'}}" class='bottom'>
-      <button bindtap='handleTap1'>修改</button>
-      <button class='gray' bindtap='handleTap2'>放弃</button>
+      <button class='recommendButton'bindtap='handleTap1'>修改</button>
+      <button class='disabledButton' bindtap='handleTap2'>放弃</button>
     </view>
     <view wx:elif="{{task.status=='2'}}">
       <view class='bottom'>
-        <button bindtap='handleTap1'>修改</button>
-        <button class='gray' bindtap='handleTap2'>放弃</button>
+        <button class='recommendButton' bindtap='handleTap1'>修改</button>
+        <button class='disabledButton' bindtap='handleTap2'>放弃</button>
       </view>
       <view class="divLine"></view>
       <view>
@@ -32,5 +31,4 @@
     <view wx:else class='bottom'>
 
     </view>
-  </view>
 </view>

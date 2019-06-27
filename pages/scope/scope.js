@@ -132,15 +132,15 @@ Page({
       wx.showToast({
         title: '发布失败，请联系程序员小哥哥',
         icon: 'none',
-        duration: 2000,
-        success: function () {
-          console.log('haha');
-          setTimeout(function () {
-            wx.navigateTo({
-              url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
-            })
-          }, 2000) //延迟时间
-        }
+        duration: 2000//,
+        // success: function () {
+        //   console.log('haha');
+        //   setTimeout(function () {
+        //     wx.navigateTo({
+        //       url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
+        //     })
+        //   }, 2000) //延迟时间
+        // }
 
       })
       
@@ -149,12 +149,13 @@ Page({
   },
 
   handleNoRestrict() {
+    // todo
     var task = this.data.task;
     task.requirements = {};
     this.setData({
       task: task
     })
-    this.publishTask();
+    // this.publishTask();
   },
 
   handlePublish() {

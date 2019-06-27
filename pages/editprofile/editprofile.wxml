@@ -1,10 +1,8 @@
-<view class="titleBox">
+<view class="logReg titleBox">
     <view>个人资料</view>
 </view>
 
 <form bindsubmit='formSave'>
-    <button class="safe" form-type='submit'/>
-
     <view class="infoContainer">
         <view class="inputLine" id="nickname">
             <view class="itemTitle">昵称:</view>
@@ -18,8 +16,6 @@
                     {{date}}
                 </view>
             </picker>
-
-
         </view>
 
         <view class="inputLine" id="grade">
@@ -29,12 +25,11 @@
                     {{grades[gradeIndex]}}
                 </view>
             </picker>
-
         </view>
 
         <view class="inputLine" id="subject">
             <view class="itemTitle">学科:</view>
-
+            <!-- TODO -->
         </view>
 
         <view class="inputLine" id="campus">
@@ -44,13 +39,12 @@
                     {{campus[campusIndex]}}
                 </view>
             </picker>
-
         </view>
 
         <view class="inputLine" id="tags">
             <view class="itemTitle">感兴趣的标签:</view>
-
-
+            <!-- TODO -->
         </view>
     </view>
+    <button class='recommendButton' form-type='submit'>保存</button>
 </form>

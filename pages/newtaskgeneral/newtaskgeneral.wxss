@@ -73,8 +73,8 @@ page{
   background-color: white;
   flex: 0 0 50%;
   height: 50px; 
-  /* border: 1px solid red; */
   display: flex;
+  font-size: 36rpx;  
 }
 
 
@@ -94,30 +94,30 @@ page{
 }
 
 
-.attrname {
+/* .attrname {
   text-align: center;
   color: rgb(119, 169, 253);
-}
+} */
 
-.picker{
+/* .picker{
   width: 80%;
-}
+} */
 
-.single-line-input {
+/* .single-line-input {
   width: 78%;
   border: 1px solid #bdbdbd;
   border-radius: 7px;
   height: 100%;
   padding: 1px 1px;
-}
-
+} */
+/* 
 textarea {
   height: 250rpx;
   width: 78%;
   border: 1px solid #bdbdbd;
   border-radius: 7px;
   padding: 1px 1px;
-}
+} */
 
 .number-wrap {
   display: flex;

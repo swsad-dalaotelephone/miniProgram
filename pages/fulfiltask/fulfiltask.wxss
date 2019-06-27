@@ -98,7 +98,8 @@ page{
   box-sizing: border-box;
   background-color: white;
   flex: 0 0 50%;
-  height: 30px; 
+  height: 40px; 
+  /* font-size:100rpx !important; */
   /* border: 1px solid red; */
   display: flex;
 }

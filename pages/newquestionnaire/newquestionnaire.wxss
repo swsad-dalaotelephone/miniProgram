@@ -101,6 +101,7 @@ page{
 
 .questionIndex {
   text-align: center;
+  color: #77a9fd;
 }
 .addOptionButton {
   text-align: center;

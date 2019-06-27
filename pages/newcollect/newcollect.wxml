@@ -1,13 +1,13 @@
 <!--pages/newcollect/newcollect.wxml-->
 
-  <view class='page'>
-    <view class='head'>
-      <i-icon type="return" bindtap='handleReturn' size="28" color="white"></i-icon>
-      <text>{{task_type}}</text>
-      <i-icon type="more" size="28" color="white"></i-icon>
-    </view>
+<view class='page'>
+  <view class='titleBox'  >
+    <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+    <text>{{newTaskText}}</text>
+    <image class="smallIcon" />
+  </view>
 
-    <view class="page__bd page__bd_spacing pagebd" >
+    <view class="panel" >
         <view class="newTaskPanel">  
             <view class="main-content">
               <i-row i-class="attr-row">
@@ -17,7 +17,7 @@
                     </view>
                   </i-col>
                   <i-col span="16" i-class="col-class">
-                    <view class="textarea-input">
+                    <view class="publishMultiLineInput">
                       <textarea placeholder="请输入任务要求" value="{{task.content.data_des}}" bindinput="bindRequirementInput"/>
                     </view>                
                   </i-col>
@@ -30,7 +30,7 @@
                     </view>
                   </i-col>
                   <i-col span="16" i-class="col-class">
-                    <view class="textarea-input">
+                    <view class="publishMultiLineInput">
                       <textarea placeholder="请输入提交方式（默认邮箱）" value="{{task.content.submit_way}}" bindinput="bindContactInput"/>
                     </view>                
                   </i-col>
@@ -39,7 +39,7 @@
             </view>
 
             <view class='bottom'>
-              <button bindtap="handleNextStep">下一步</button>
+              <button bindtap="handleNextStep" class='recommendButton'>下一步</button>
             </view>
         </view>
     </view>
