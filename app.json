@@ -1,18 +1,17 @@
 {
   "pages": [
-    "pages/newrecruit/newrecruit",
+   "pages/newquestionnaire/newquestionnaire",
     "pages/wechatlogin/wechatlogin",
-    
-  
     
     "pages/index/index",
     "pages/task/task",
     "pages/login/login",
     "pages/register/register",
+    "pages/newrecruit/newrecruit",
     
     
     
-    "pages/newquestionnaire/newquestionnaire",
+    
     "pages/receive/receive",
     "pages/editprofile/editprofile",
     "pages/mine/mine",

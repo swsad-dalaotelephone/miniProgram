@@ -106,7 +106,11 @@ page{
   text-align: center;
   height: 20px;
 }
-
+.smallIcon {
+  min-height: 50rpx;
+  min-width: 50rpx;
+  margin-top: -5rpx;
+}
 .textInputArea {
   border: 1px solid #8e9094;
   height: 30px;

@@ -18,7 +18,7 @@
                 </i-col>
                 <i-col span="16" i-class="col-class">
                   <view class="textarea-input">
-                    <textarea placeholder="活动描述" value="{{task.content.recruit_des}}" bindinput="bindDescriptionInput"/>
+                    <textarea class="" placeholder="活动描述" value="{{task.content.recruit_des}}" bindinput="bindDescriptionInput"/>
                   </view>                
                 </i-col>
             </i-row>

@@ -228,3 +228,13 @@ page{
   font-family: Arial;  
 }
 
+
+.publishMultiLineInput {
+  height: 250rpx;
+  border: 1px solid #bdbdbd;
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  margin: 10rpx;
+  /* font */
+  font-size: 32rpx;
+}
