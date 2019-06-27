@@ -15,6 +15,19 @@ Page({
     })
   },
   handleTap1: function() {
+    let data = {
+      task_id: this.data.task.id
+    }
+    http._post('/task/' + data.task_id + '/acceptance', data).then(res => {
+      if (res.msg == 'success') {
+        console.log('success')
+      } else {
+        console.log(res.msg)
+      }
+    }).catch(e => {
+      console.log(e)
+    })
+
     let task = this.data.task;
     console.log('task: ', task);
     wx.navigateTo({
