@@ -1,13 +1,16 @@
 {
   "pages": [
-    "pages/register/register",
     "pages/wechatlogin/wechatlogin",
+    "pages/newrecruit/newrecruit",
+    
+    
     "pages/index/index",
     "pages/task/task",
     "pages/login/login",
+    "pages/register/register",
     
     
-    "pages/newrecruit/newrecruit",
+    
     "pages/newquestionnaire/newquestionnaire",
     "pages/receive/receive",
     "pages/editprofile/editprofile",
@@ -58,3 +61,4 @@
   },
   "sitemapLocation": "sitemap.json"
 }
+

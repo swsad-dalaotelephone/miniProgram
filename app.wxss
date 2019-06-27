@@ -66,6 +66,15 @@ page{
     border: 1px solid rgba(255, 255, 255, 0);
 }
 
+/* ---------------------- register login ui ----------------------*/
+/* title */
+.logReg {
+  justify-content: center;
+  /* flex-direction: column; */
+  align-items: center;
+  padding-bottom: 0rpx;
+}
+
 .inputBox{
     width: 670rpx;
     background-color: white;
@@ -132,6 +141,10 @@ page{
     font-size: 36rpx;
     text-align: center;
     font-family: Arial;
+    width: 300rpx;
+    margin: 20rpx;
+    margin-left: auto;
+    margin-right: auto;
 }
     
 .recommendButton {
@@ -182,10 +195,27 @@ page{
 }
 
 
-/* login, signup page */
-.logReg {
-  justify-content: center;
-  /* flex-direction: column; */
-  align-items: center;
-  padding-bottom: 0rpx;
+
+/* 发布问卷字段名称 */
+.attrname {
+  text-align: left;
+  color: rgb(119, 169, 253);
+  margin: 20rpx;
+}
+
+.publishSingeLineInput {
+  /* 尺寸 */
+  min-height: 50rpx;
+  
+  /* 边缘 */
+    border: 1px solid #bdbdbd;
+    border-radius: 15rpx;
+    padding: 10rpx 20rpx 10rpx 20rpx;
+  /* 颜色 */
+    background-color: white;
+  /* 文字 */
+  color: #ACACAC;
+  font-size: 12pt;
+  text-align: left;
+  font-family: Arial;  
 }

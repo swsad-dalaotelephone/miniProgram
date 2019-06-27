@@ -90,21 +90,7 @@ textarea {
   padding: 1px 1px;
 }
 
-.single-line-input {
-  width: 80%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
-}
 
-my-datetimepicker {
-  width: 82%;
-}
-
-.attrname {
-  text-align: center;
-  color: rgb(119, 169, 253);
-}
 
 .time-range {
   display: flex;
@@ -112,11 +98,8 @@ my-datetimepicker {
 }
 
 .date-picker, .indicate {
-  height: 25px;
-}
-
-.attrname {
-  text-align: center;
+  height: 50rpx;
+  padding: 10rpx 20rpx 10rpx 20rpx;
 }
 
 .picker {
