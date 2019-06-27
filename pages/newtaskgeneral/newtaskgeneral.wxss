@@ -110,14 +110,6 @@ page{
   height: 100%;
   padding: 1px 1px;
 } */
-/* 
-textarea {
-  height: 250rpx;
-  width: 78%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
-} */
 
 .number-wrap {
   display: flex;

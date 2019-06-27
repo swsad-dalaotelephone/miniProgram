@@ -76,7 +76,7 @@ button {
 
 
 .auditList {
-    margin-top: 20rpx;
+    margin-top: 40rpx;
 }
 
 .auditList .auditItem {

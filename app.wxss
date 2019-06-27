@@ -63,7 +63,6 @@ page{
     /* 边距 */
     /* margin-bottom: 20rpx; */
     padding-bottom: 50rpx;
-
     z-index: -2;
 }
 
@@ -240,4 +239,7 @@ page{
   height: 250rpx;
   margin-bottom: 10rpx;
   padding: 20rpx 20rpx 20rpx 20rpx;
+}
+textarea {
+  width: auto;
 }
