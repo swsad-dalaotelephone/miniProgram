@@ -152,10 +152,11 @@ page{
     font-family: Arial;
     max-width: 600rpx;
     min-width: 200rpx;
-    margin: 20rpx;
+    margin: 20rpx auto;
     margin-left: 40rpx auto;
     margin-right: 40rpx auto;
     border-radius: 20rpx;
+
 }
     
 .recommendButton {
