@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/statistic/statistic",
+    
     "pages/wechatlogin/wechatlogin",
     
     "pages/index/index",
@@ -20,7 +20,8 @@
     "pages/taskcomplete/taskcomplete",
     "pages/review/review",
     "pages/auditlist/auditlist",
-    "pages/audit/audit" 
+    "pages/audit/audit",
+    "pages/statistic/statistic"
     
   ],
   "window": {
