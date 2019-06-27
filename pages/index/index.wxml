@@ -3,8 +3,8 @@
   <!-- 蓝色头部 -->
   <view class='titleBox'>
   <!-- TODO return function -->
-    <image class="smallIcon" />
-    <text>Home</text>
+    <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+    <text>主页</text>
     <image class="smallIcon" src='../../images/icons/publish.png'  bindtap='handleAddButton'/>
   </view>
   <!-- 页面主体 -->

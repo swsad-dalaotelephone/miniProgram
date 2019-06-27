@@ -69,7 +69,7 @@ page{
 .inputBox{
     width: 670rpx;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 20rpx;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
     margin-left: 40rpx;
@@ -121,7 +121,7 @@ page{
     font-family: Arial;
 
     /* 边框 */
-    border-radius: 4px;
+    border-radius: 20rpx;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
 }
@@ -168,14 +168,9 @@ page{
   color: #ecf5fc
 }
 
-.head {
-  display: flex;
-  flex-direction: row;
-  
-  align-items: center;     /* 垂直居中 */
-  height: 100px;
-  color: white;
-  background-color: #77a9fd
+.tabContainer {
+    text-align: center;
+    padding-top: 20rpx;
 }
 
 /* icons */
@@ -183,4 +178,14 @@ page{
   width: 50rpx;
   height: 50rpx;
   margin: 20rpx;
+  z-index: 1;
+}
+
+
+/* login, signup page */
+.logReg {
+  justify-content: center;
+  /* flex-direction: column; */
+  align-items: center;
+  padding-bottom: 0rpx;
 }
