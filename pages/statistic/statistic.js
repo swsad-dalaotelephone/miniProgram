@@ -41,6 +41,7 @@ Page({
         let tempData = JSON.parse(res).statistics
         
         let question_count = 0;
+        let title_list = [];
         for (let i = 0; i < task.content.questions.length; i++) {
           if (task.content.questions[i].quest_type != kTypeChoice) continue;
           tempData[question_count].title = task.content.questions[i].quest_title;
