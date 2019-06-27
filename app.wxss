@@ -63,6 +63,8 @@ page{
     /* 边距 */
     /* margin-bottom: 20rpx; */
     padding-bottom: 50rpx;
+
+    z-index: -2;
 }
 
 .Box{
@@ -149,7 +151,8 @@ page{
     font-size: 36rpx;
     text-align: center;
     font-family: Arial;
-    width: 300rpx;
+    max-width: 600rpx;
+    min-width: 200rpx;
     margin: 20rpx;
     margin-left: 40rpx auto;
     margin-right: 40rpx auto;
@@ -180,6 +183,7 @@ page{
   margin-left: 30rpx;
   margin-right: 30rpx;
   margin-bottom: -10rpx;
+  z-index: -1;
 }
 .selectedTab {
   background-color: #ecf5fc;
@@ -193,6 +197,7 @@ page{
 .tabContainer {
     text-align: center;
     padding-top: 20rpx;
+    margin-top:-80rpx;
 }
 
 /* icons */

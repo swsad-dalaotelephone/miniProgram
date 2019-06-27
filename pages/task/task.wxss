@@ -48,8 +48,3 @@
   height: 28px;
   width: 28px;
 }
-
-.tabContainer {
-    text-align: center;
-    margin-top: -80rpx;
-}
