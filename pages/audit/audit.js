@@ -193,13 +193,12 @@ Page({
 	},
 
 	tapNo: function (e) {
-
 		let feedbackInput = this.data.feedbackInput
 		if (feedbackInput.length > 0) {
 			let url = '/task/' + this.data.submitInfo.task_id + '/acceptance/result'
-
 			console.log("测试url", url)
-			let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=false&feedback=' + this.data.feedbackInput
+			let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=false&feedback=' + this.data.feedbackInput;
+      console.log('result: ', result);
 			http._put(url, result, 'application/x-www-form-urlencoded')
 				.then(res => {
 					wx.showToast({

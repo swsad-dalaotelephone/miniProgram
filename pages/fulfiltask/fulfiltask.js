@@ -189,6 +189,12 @@ Page({
         questions: questions
       });
     }
+    if (typeof options.answers != 'undefined') {
+      let answers = JSON.parse(options.answers);
+      this.setData({
+        answers: answers
+      })
+    }
   },
 
   /**

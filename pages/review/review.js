@@ -7,7 +7,8 @@ Page({
    */
   data: {
     detailList: [],
-    task: {}
+    task: {},
+    answers: []
   },
   handleReturn: function () {
     wx.navigateBack({
@@ -16,9 +17,11 @@ Page({
   },
   handleTap1: function () {
     let task = this.data.task;
+    let answers = this.data.answers;
     console.log('task: ', task);
+    console.log('answers', answers);
     wx.navigateTo({
-      url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task)
+      url: '/pages/fulfiltask/fulfiltask?task=' + JSON.stringify(task) + '&answers=' + JSON.stringify(answers)
     })
   },
   handleTap2: function () {
@@ -59,6 +62,11 @@ Page({
         let acceptance = JSON.parse(res.acceptance)
         item.status = acceptance.status
         item.feedback = acceptance.feedback
+        if (typeof acceptance.answer.answer != 'undefined') {
+          this.setData({
+            answers: acceptance.answer.answer
+          })
+        }
       }
       
       console.log(item)
