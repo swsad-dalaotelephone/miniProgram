@@ -11,7 +11,11 @@
       <view class='title'> {{item.title}}:</view>
       <view class="block"> {{item.detail}} </view>
     </block>
-    <view class='bottom'>
+    <view wx:if='{{isAccept}}' class='bottom'>
+      <button bindtap='handleTap1'>马上完成</button>
+      <button class='gray' bindtap='handleTap3'>放弃</button>
+    </view>
+    <view wx:else class='bottom'>
       <button bindtap='handleTap1'>马上完成</button>
       <button id='gray' bindtap='handleTap2'>暂时接收</button>
     </view>

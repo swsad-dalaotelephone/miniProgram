@@ -37,23 +37,23 @@
   <button class="weui-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">微信登录</button>
 </view> -->
 
-<view class="titleBox">
-  <view>SIGN IN</view>
+<view class="logReg titleBox">
+  <view>登录</view>
 </view>
 
 <form bindsubmit='formLogin'>
 
   <view class="inputPhone inputBox">
     <image class="headImg" src="../../images/icons/phone.png"/>
-    <input class="text" placeholder="Enter phone number" name="phone"></input>
+    <input class="text" placeholder="手机号" name="phone"></input>
   </view>
 
   <view class="inputPass inputBox">
     <image class="headImg" src="../../images/icons/loginPassword.png"/>
-    <input class="text" password="true" placeholder="Enter password" name="password"></input>
+    <input class="text" password="true" placeholder="密码" name="password"></input>
   </view>
 
-  <button class="confirmButton" form-type='submit'>CONFIRM</button>
+  <button class="confirmButton" form-type='submit'>确认</button>
 
 </form>
 

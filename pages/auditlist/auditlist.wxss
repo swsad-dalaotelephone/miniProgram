@@ -124,7 +124,3 @@ button {
     background-color: greenyellow;
 }
 
-.tabContainer {
-    text-align: center;
-    margin-top: -80rpx;
-}

@@ -1,32 +1,32 @@
 <!--pages/register/register.wxml-->
 
-<view class="titleBox">
-  <view>SIGN UP</view>
+<view class="logReg titleBox">
+  <view>注册</view>
 </view>
 
 <form bindsubmit='formRegister'>
 
   <view class="inputNickname inputBox">
     <image class="headImg" src="../../images/icons/loginUsername.png" />
-    <input class="text" placeholder="Nickname" name="nickname"></input>
+    <input class="text" placeholder="昵称" name="nickname"></input>
   </view>
 
   <view class="inputPhone inputBox">
     <image class="headImg" src="../../images/icons/phone.png"/>
-    <input class="text" placeholder="Phone number" name="phone"></input>
+    <input class="text" placeholder="手机号" name="phone"></input>
   </view>
 
   <view class="inputPass inputBox">
     <image class="headImg" src="../../images/icons/loginPassword.png"/>
-    <input class="text" password="true" placeholder="Password" name="password"></input>
+    <input class="text" password="true" placeholder="密码" name="password"></input>
   </view>
 
   <view class="inputConfirmPass inputBox">
     <image class="headImg" src="../../images/icons/confirmPassword.png"/>
-    <input class="text" password="true" placeholder="Confirm password" name="cpassword"></input>
+    <input class="text" password="true" placeholder="重复密码" name="cpassword"></input>
   </view>
 
-  <button class="confirmButton" form-type='submit'>CONFIRM</button>
+  <button class="confirmButton" form-type='submit'>确认</button>
 
 </form>
 

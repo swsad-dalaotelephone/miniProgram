@@ -5,6 +5,14 @@ page{
     font-size: 16px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
+
+.panel {
+  background-color: white;
+  margin: 30rpx;
+  padding: 30rpx;
+  margin-top: -50rpx;
+  border-radius: 20rpx;
+}
 .page__hd {
     padding: 40px;
 }
@@ -38,12 +46,14 @@ page{
     /* 背景 */
     background-color: #77A9FD;
     width: 750rpx;
-    height: 180rpx;
+    height: 130rpx;
 
     /* 标题居中 */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* 横向排列 */
+    flex-direction: row;
+    /* 间隔 */
+    justify-content: space-between;
     align-items: center;
 
     /* 字体 */
@@ -51,7 +61,8 @@ page{
     color: #FFFFFF;
 
     /* 边距 */
-    margin-bottom: 20rpx;
+    /* margin-bottom: 20rpx; */
+    padding-bottom: 50rpx;
 }
 
 .Box{
@@ -63,10 +74,19 @@ page{
     border: 1px solid rgba(255, 255, 255, 0);
 }
 
+/* ---------------------- register login ui ----------------------*/
+/* title */
+.logReg {
+  justify-content: center;
+  /* flex-direction: column; */
+  align-items: center;
+  padding-bottom: 0rpx;
+}
+
 .inputBox{
     width: 670rpx;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 20rpx;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
     margin-left: 40rpx;
@@ -118,7 +138,7 @@ page{
     font-family: Arial;
 
     /* 边框 */
-    border-radius: 4px;
+    border-radius: 20rpx;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
 }
@@ -129,6 +149,10 @@ page{
     font-size: 36rpx;
     text-align: center;
     font-family: Arial;
+    width: 300rpx;
+    margin: 20rpx;
+    margin-left: auto;
+    margin-right: auto;
 }
     
 .recommendButton {
@@ -164,3 +188,43 @@ page{
   text-decoration: underline;
   color: #ecf5fc
 }
+
+.tabContainer {
+    text-align: center;
+    padding-top: 20rpx;
+}
+
+/* icons */
+.smallIcon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+  z-index: 1;
+}
+
+
+
+/* 发布问卷字段名称 */
+.attrname {
+  text-align: left;
+  color: rgb(119, 169, 253);
+  margin: 20rpx;
+}
+
+.publishSingeLineInput {
+  /* 尺寸 */
+  min-height: 50rpx;
+  
+  /* 边缘 */
+    border: 1px solid #bdbdbd;
+    border-radius: 15rpx;
+    padding: 10rpx 20rpx 10rpx 20rpx;
+  /* 颜色 */
+    background-color: white;
+  /* 文字 */
+  color: #ACACAC;
+  font-size: 12pt;
+  text-align: left;
+  font-family: Arial;  
+}
+

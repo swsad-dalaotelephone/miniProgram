@@ -1,16 +1,24 @@
 {
   "pages": [
-    "pages/wechatlogin/wechatlogin",
-    "pages/index/index",
-    "pages/login/login",
     "pages/newrecruit/newrecruit",
+    "pages/wechatlogin/wechatlogin",
+    
+  
+    
+    "pages/index/index",
+    "pages/task/task",
+    "pages/login/login",
+    "pages/register/register",
+    
+    
+    
     "pages/newquestionnaire/newquestionnaire",
     "pages/receive/receive",
     "pages/editprofile/editprofile",
     "pages/mine/mine",
-    "pages/register/register",
+    
     "pages/logs/logs",
-    "pages/task/task",
+    
     "pages/scope/scope",
     "pages/newtaskgeneral/newtaskgeneral",
     "pages/newcollect/newcollect",
@@ -54,3 +62,4 @@
   },
   "sitemapLocation": "sitemap.json"
 }
+
