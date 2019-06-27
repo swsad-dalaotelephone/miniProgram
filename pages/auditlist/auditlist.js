@@ -40,9 +40,14 @@ Page({
     task_id: ''
 	},
   openStat: function() {
-    wx.navigateTo({
-      url: '/pages/statistic/statistic?task_id='+this.data.task_id,
-    })
+    let task = this.data.taskInfo;
+    console.log('task', task);
+    if (task.type == 'q') {
+		wx.navigateTo({
+			url: '/pages/statistic/statistic?task='+JSON.stringify(task)
+		  })
+    }
+
   },
 	/**
 	 * 生命周期函数--监听页面加载
