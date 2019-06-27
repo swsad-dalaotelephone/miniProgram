@@ -72,7 +72,7 @@ Page({
 	// 用户点击注册
 	formRegister: function (e) {
 		http._post("/user",
-				'nickname=' + e.detail.value.nickname +
+				'nick_name=' + e.detail.value.nickname +
 				"&password=" + e.detail.value.password +
 				"&phone=" + e.detail.value.phone +
 				"&open_id=" + this.data.openId, 'application/x-www-form-urlencoded')

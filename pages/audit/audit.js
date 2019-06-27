@@ -98,11 +98,11 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-    if (typeof options.info != "undefined") {
-      let transferInfo = JSON.parse(options.info)
-      this.setData({
-        submitInfo: transferInfo.submitInfo,
-      })
+		if (typeof options.info != "undefined") {
+			let transferInfo = JSON.parse(options.info)
+			this.setData({
+				submitInfo: transferInfo.submitInfo,
+			})
 
       let task = transferInfo.taskInfo;
       let questions = [];
@@ -233,6 +233,7 @@ Page({
 	tapYes: function (e) {
 		let url = '/task/' + this.data.submitInfo.task_id + '/acceptance/result'
 		let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=true&feedback=' + this.data.feedbackInput
+		console.log(result)
 		http._put(url, result, 'application/x-www-form-urlencoded')
 			.then(res => {
 				wx.showToast({
@@ -246,6 +247,7 @@ Page({
 				})
 			})
 			.catch(res => {
+				console.log(res)
 				wx.showToast({
 					title: '审核出现错误，请联系客服',
 					icon: 'none',

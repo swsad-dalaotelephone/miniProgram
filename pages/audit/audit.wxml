@@ -29,12 +29,12 @@
               </view>
             </view>              
         <view class="questionTitle">我的反馈信息： {{question.quest_title}}</view>
-        <textarea placeholder="请输入反馈" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.status==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
+        <textarea placeholder="" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.status==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
         <view class="buttonLine {{submitInfo.status==1?'':'hidden'}} "> 
             <button class="alternativeButton" bindtap="tapNo">审核不通过</button>
             <button class="recommendButton" bindtap="tapYes">审核通过</button>
         </view>
-        <view class="buttonLine {{submitInfo.status==1?'':'visible'}}"> 
+        <view class="buttonLine {{submitInfo.status==1?'hidden':''}}"> 
             <button class="disabledButton" bindtap="tapNo">已经审核过了</button>
         </view>
     </view>

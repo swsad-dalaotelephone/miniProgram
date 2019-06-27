@@ -17,12 +17,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('???')
     let data = []
     console.log(options)
     let task_id = options.task_id
     http._get('/task/' + task_id + '/statistic').then(res => {
       let tempData = JSON.parse(res).statistics
-      console.log(tempData)
+      console.log('static data:', tempData)
       tempData.forEach(function(item){
         console.log(item)
         // data.push({name:})
@@ -35,6 +36,7 @@ Page({
       task_id: task_id
     })
 
+    // plot 
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -42,46 +44,48 @@ Page({
     } catch (e) {
       console.error('getSystemInfoSync failed!');
     }
+    console.log(windowWidth)
     pieChart = new wxCharts({
       animation: true,
       canvasId: 'pieCanvas',
       type: 'pie',
-      // series: [{
-      //   name: '成交量1',
-      //   data: 15,
-      // }, {
-      //   name: '成交量2',
-      //   data: 35,
-      // }, {
-      //   name: '成交量3',
-      //   data: 78,
-      // }, {
-      //   name: '成交量4',
-      //   data: 63,
-      // }, {
-      //   name: '成交量2',
-      //   data: 35,
-      // }, {
-      //   name: '成交量3',
-      //   data: 78,
-      // }, {
-      //   name: '成交量4',
-      //   data: 63,
-      // }, {
-      //   name: '成交量2',
-      //   data: 35,
-      // }, {
-      //   name: '成交量3',
-      //   data: 78,
-      // }, {
-      //   name: '成交量3',
-      //   data: 78,
-      // }],
-      series: data,
+      series: [{
+        name: '成交量1',
+        data: 15,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }, {
+        name: '成交量4',
+        data: 63,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }, {
+        name: '成交量4',
+        data: 63,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }],
+      // series: data,
       width: windowWidth,
       height: 300,
       dataLabel: true,
     })
+
   },
 
   /**

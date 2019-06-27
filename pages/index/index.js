@@ -35,7 +35,7 @@ Page({
   },
   openReceive: function(e) {
     wx.navigateTo({
-      url: '/pages/receive/receive?id='+e.currentTarget.dataset.item.id
+      url: '/pages/review/review?id='+e.currentTarget.dataset.item.id
     })
   },
   loadLists: function() {

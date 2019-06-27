@@ -55,9 +55,12 @@ Page({
     http._get('/task/' + id).then(res => {
       // console.log(res)
       item = JSON.parse(res.task)
-      let acceptance = JSON.parse(res.acceptance)
-      item.status = acceptance.status
-      item.feedback = acceptance.feedback
+      if(res.acceptance) {
+        let acceptance = JSON.parse(res.acceptance)
+        item.status = acceptance.status
+        item.feedback = acceptance.feedback
+      }
+      
       console.log(item)
 
       var detailList = []
