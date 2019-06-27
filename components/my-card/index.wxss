@@ -36,6 +36,8 @@
   align-items: flex-start;
 }
 
+
+
 .i-card-header-content {
   display: flex;
   flex-direction: row;
@@ -56,23 +58,21 @@
   border-radius: 50%;
 }
 
+
 .i-card-header-title {
-  display: inline-block;
   vertical-align: middle;
   font-size: 18px;
   color: #77a9fd;
+  flex: 4 1 auto;
 }
-
 .i-card-header-extra {
-  width: 45px;
-  min-width: 35px;
+  flex: 0 0 auto;
   line-height:26px;
-  height: 26px;
+  height:26px;
   text-align: center;
   font-size: 14px;
   color: #77a9fd;
   border: 1rpx solid #77a9fd;
-  overflow: hidden;
   border-radius: 20rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
