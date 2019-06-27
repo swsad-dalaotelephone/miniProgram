@@ -19,16 +19,16 @@
 
 <view class="titleBox" />
 
-<image class="setting"/>
+<image class="setting" src="../../images/icons/setting.png"/>
 
 <view class="selfBox Box">
   <view class="selfieContainer">
-    <image class="selfie" />
+    <open-data type="userAvatarUrl" class="selfie"></open-data>
     <view class="level Box">Lv.1</view>
   </view>
   <view class="usernameBox">
-    <view class="username">Sherry</view>
-    <image class="changename"/>
+    <view class="username">{{nickname}}</view>
+    <image class="changename" src="../../images/icons/edit.png"/>
   </view>
   <view class="introduction">这个同学很懒~还没有自我介绍呢</view>
 </view>
@@ -37,17 +37,17 @@
 
 <view class="selectBox Box">
   <view class="selectTab" id="tutorial">
-    <image />
+    <image src="../../images/icons/guidance.png"/>
     <view> 指南 </view>
   </view>
 
   <view class="selectTab" id="aboutus">
-    <image />
+    <image src="../../images/icons/aboutUs.png"/>
     <view> 关于我们 </view>
   </view>
 
   <view class="selectTab" id="others">
-    <image />
+    <image src="../../images/icons/waiting.png"/>
     <view> 敬请期待 </view>
   </view>
 </view>

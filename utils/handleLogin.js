@@ -21,7 +21,7 @@ function login(callback) {
 }
 
 // 获取用户信息
-function getUserInfo(code, callback) { //TODO: 改为按钮登陆, 获取失败需清除cookie登陆态
+function getUserInfo(code, callback) {
 	wx.getUserInfo({
 		// 获取成功，全局存储用户信息，开发者服务器登录
 		success(res) {

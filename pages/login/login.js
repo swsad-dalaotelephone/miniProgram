@@ -42,7 +42,7 @@ Page({
 			//     console.log("插入小程序登录用户信息成功！");
 			//   }
 			// });
-			app.globalData.userInfo = e.detail.userInfo
+			// app.globalData.userInfo = e.detail.userInfo
 			//授权成功后，跳转进入小程序首页
 			wx.navigateBack({
 				url: '/pages/index/index'
@@ -118,11 +118,9 @@ Page({
 				"&phone=" + e.detail.value.phone +
 				"&password=" + e.detail.value.password, 'application/x-www-form-urlencoded')
 			.then(res => {
-				// wx.navigateBack({
-				// 	delta: 1
-				//   })
-				wx.navigateTo({
-					url: '/pages/auditlist/auditlist'
+				app.globalData.userInfo = JSON.parse(res.user)
+				wx.switchTab({
+					url: '/pages/task/task',
 				})
 				wx.showToast({
 					title: '登陆成功',

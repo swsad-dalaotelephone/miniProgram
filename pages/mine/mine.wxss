@@ -29,7 +29,7 @@
   right: 40rpx;
 
   /* temp */
-  background-color: white;    
+  /* background-color: white;     */
 }
 
 .selfBox{
@@ -49,14 +49,14 @@
 }
 
 .selfBox .selfieContainer .selfie{
+  margin: 0 auto;
+  background: lightgray;
+  display: block;
+  overflow: hidden;
   width: 166rpx;
   height: 166rpx;
-
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 1);
-
-  /* temp */
-  background-color: lightgray;
 }
 
 .selfBox .selfieContainer .level{
@@ -95,7 +95,7 @@
   width: 40rpx;
   height: 40rpx;
   /* temp */
-  background-color: #77A9FD;
+  /* background-color: #77A9FD; */
   margin-left:10rpx;
 
 }
