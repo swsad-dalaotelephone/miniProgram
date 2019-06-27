@@ -1,5 +1,7 @@
 // pages/audit/audit.js
 var app = getApp();
+var kTypeChoice = 'm';
+var kTypeText = 'f';
 const http = require('../../utils/http.js')
 
 Page({
@@ -8,6 +10,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+    kTypeChoice: kTypeChoice,
+    kTypeText: kTypeText,
 		submitInfo: {
 			acceptance_id: "",
 			accepter: "",
@@ -18,7 +22,7 @@ Page({
 			task_id: ""
 		},
     questions: [{
-      quest_type: 'choice',
+      quest_type: kTypeChoice,
       quest_title: '你认为中国将在多久之后夺得世界杯冠军？',
       id: 1,
       quest_option: [{
@@ -40,12 +44,12 @@ Page({
       ]
       },
       {
-        quest_type: 'text',
+        quest_type: kTypeText,
         quest_title: '说说你对中国足球的看法。',
         id: 2
       },
       {
-        quest_type: 'choice',
+        quest_type: kTypeChoice,
         quest_title: '你认为***会连任到什么时候？',
         id: 3,
         quest_option: [{
@@ -77,13 +81,13 @@ Page({
     ],
 
     answers: [{
-        type: 'm',
+        type: kTypeChoice,
         option: [3]
       }, {
-        type: 'f',
+        type: kTypeText,
         text: '天亮了'
       },{
-        type: 'm',
+        type: kTypeChoice,
         option: [5]
       }
     ],
@@ -104,7 +108,7 @@ Page({
       let questions = [];
       if (task.type == 'd') {
         questions = [{
-          quest_type: 'text',
+          quest_type: kTypeText,
           quest_title: '提交信息的邮箱是：',
           id: 1
         }]
@@ -114,7 +118,7 @@ Page({
         let new_id = 0;
         for (let i = 0; i < questions.length; i++) {
           questions[i].id = ++new_id;
-          if (questions[i].quest_type == 'text') continue;
+          if (questions[i].quest_type == kTypeText) continue;
           let options = [];
           for (let j = 0; j < questions[i].quest_option.length; j++) {
             options.push({
