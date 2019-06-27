@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    task_id: ''
+    task_id: '',
+    plotList: ["pieCanvas0","pieCanvas1"],
+    titleList: ['1', '2']
   },
   touchHandler: function (e) {
     console.log(pieChart.getCurrentDataIndex(e));
@@ -47,7 +49,7 @@ Page({
         }
         console.log('tempData:', tempData);
 
-        tempData.forEach(function(item){
+        tempData.forEach(function(item, index){
           console.log(item)
           /* TODO: show item.title */
 
@@ -58,7 +60,7 @@ Page({
           console.log(data)
           pieChart = new wxCharts({
             animation: true,
-            canvasId: 'pieCanvas',
+            canvasId: 'pieCanvas'+index,
             type: 'pie',
             series: data,
             width: windowWidth,

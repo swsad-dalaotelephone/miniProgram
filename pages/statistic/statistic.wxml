@@ -1,4 +1,7 @@
 <!--pages/statistic/statistic.wxml-->
 <view class="container">
-    <canvas canvas-id="pieCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+  <view wx:for="{{plotList}}" wx:key="*this">
+  <text>{{titleList[index]}}</text>
+    <canvas canvas-id="{{item}}" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+  </view>
 </view>
