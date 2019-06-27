@@ -76,9 +76,7 @@ Page({
     answers: [],
   },
   handleReturn: function () {
-    wx.navigateBack({
-      delta: 1
-    })
+    wx.navigateBack()
   },
   handleOptionChange: function(e) {
     var qindex = e.currentTarget.dataset.qindex;
