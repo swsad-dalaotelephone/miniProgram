@@ -41,12 +41,16 @@ Page({
         let question_count = 0;
         for (let i = 0; i < task.content.questions.length; i++) {
           if (task.content.questions[i].quest_type != kTypeChoice) continue;
-          tempData[question_count++].option_name = task.content.questions[i].quest_option;
+          tempData[question_count].title = task.content.questions[i].quest_title;
+          tempData[question_count].option_name = task.content.questions[i].quest_option;
+          ++question_count;
         }
         console.log('tempData:', tempData);
 
         tempData.forEach(function(item){
           console.log(item)
+          /* TODO: show item.title */
+
           let data = []
           for(let i=0;i < item.option_name.length; ++i){
             data.push({ name: item.option_name[i], data: item.option_count[i]})

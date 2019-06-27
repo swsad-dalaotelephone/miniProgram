@@ -64,12 +64,14 @@
 }
 
 .i-card-header-extra {
+  width: 45px;
   min-width: 35px;
   line-height:26px;
   text-align: center;
   font-size: 14px;
   color: #77a9fd;
   border: 1rpx solid #77a9fd;
+  overflow: hidden;
   border-radius: 20rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
