@@ -48,10 +48,10 @@ Page({
             tasks1.push(item)
             break;
           case 'd':
-            task2.push(item)
+            tasks2.push(item)
             break;
           case 'r':
-            task3.push(item)
+            tasks3.push(item)
             break;
           default:
             break;
