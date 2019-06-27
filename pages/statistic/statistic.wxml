@@ -1,7 +1,7 @@
 <!--pages/statistic/statistic.wxml-->
-<view class="container">
-  <view wx:for="{{plotList}}" wx:key="*this">
-  <text>{{titleList[index]}}</text>
-    <canvas canvas-id="{{item}}" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+<view>
+  <view wx:for="{{titleList}}" wx:key="*this" class="container">
+    <p>问题{{index+1}}：{{item}}</p>
+    <canvas canvas-id="{{plotList[index]}}" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
   </view>
 </view>

@@ -1,1 +1,4 @@
 /* pages/statistic/statistic.wxss */
+.container {
+  text-align: center;
+}
