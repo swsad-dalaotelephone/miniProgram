@@ -50,7 +50,7 @@ Page({
 	onLoad: function (options) {
     let task_id = "5fae4333-f3ee-4a41-884e-85a3b738bcaa";
     if (typeof options.id != "undefined") {
-      let task_id = options.id;
+      task_id = options.id;
     } 
     console.log('task_id: ', task_id);
 		this.setData({
