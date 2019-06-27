@@ -1,5 +1,7 @@
 // pages/statistic/statistic.js
 const http = require('../../utils/http.js')
+var wxCharts = require('../../utils/wxcharts.js');
+var pieChart = null;
 Page({
 
   /**
@@ -16,12 +18,59 @@ Page({
     console.log(options)
     let task_id = options.task_id
     http._get('/task/'+task_id+'/statistic').then(res => {
-      console.log(res)
+      console.log(JSON.parse(res))
     }).catch(e=>{
       console.log(e)
     })
     this.setData({
       task_id: task_id
+    })
+
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    pieChart = new wxCharts({
+      animation: true,
+      canvasId: 'pieCanvas',
+      type: 'pie',
+      series: [{
+        name: '成交量1',
+        data: 15,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }, {
+        name: '成交量4',
+        data: 63,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }, {
+        name: '成交量4',
+        data: 63,
+      }, {
+        name: '成交量2',
+        data: 35,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }, {
+        name: '成交量3',
+        data: 78,
+      }],
+      width: windowWidth,
+      height: 300,
+      dataLabel: true,
     })
   },
 
