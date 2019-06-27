@@ -64,13 +64,14 @@
 }
 
 .i-card-header-extra {
-  width: 35px;
+  width: 45px;
   line-height:26px;
   text-align: center;
   font-size: 14px;
   color: #77a9fd;
   border: 1rpx solid #77a9fd;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .i-card-body {
