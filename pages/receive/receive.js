@@ -20,7 +20,7 @@ Page({
     }
     http._post('/task/' + data.task_id + '/acceptance', data).then(res => {
       if (res.msg == 'success') {
-        console.log('success')
+        // console.log('success')
       } else {
         console.log(res.msg)
       }
