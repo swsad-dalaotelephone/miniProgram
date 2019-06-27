@@ -84,10 +84,12 @@ page{
 
 textarea {
   height: 250rpx;
-  width: 80%;
   border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  padding: 1px 1px;
+  border-radius: 20rpx;
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  width: auto;
+  /* font */
+  font-size: 32rpx;
 }
 
 
@@ -155,5 +157,6 @@ textarea {
   width: 60px;
   height: 60px;
 }
+
 
 

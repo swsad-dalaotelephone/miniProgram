@@ -5,6 +5,6 @@
   border: 1px solid #bdbdbd;
   border-radius: 15rpx;
   color: #333;
-  font-size: 36rpx;
+  font-size: 32rpx;
   padding: 10rpx 20rpx 10rpx 20rpx;
 }

@@ -8,7 +8,7 @@
   </view>
 
   <!-- bg container -->
-  <view class="page__bd page__bd_spacing pagebd" >
+  <view class="panel" >
       <view class="newTaskPanel">  
           <view class="main-content">
             

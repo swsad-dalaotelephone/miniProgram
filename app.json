@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/wechatlogin/wechatlogin",
     "pages/newrecruit/newrecruit",
+    "pages/wechatlogin/wechatlogin",
     
+  
     
     "pages/index/index",
     "pages/task/task",
