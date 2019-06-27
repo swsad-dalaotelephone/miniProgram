@@ -11,23 +11,29 @@
 }
 
 .head {
+  /* 标题居中 */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;     /* 垂直居中 */
-  height: 50px;
+  /* align-items: flex-end;     垂直居中 */
+  /* height: 50px; */
+  /* 字体 */
+  font-size: 40rpx;
   color: white;
-  background-color: #77a9fd
+  /* 背景 */
+  background-color: #77a9fd;
+  width: 750rpx;
+  height: 180rpx;
 }
 
 .head1 {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;     /* 垂直居中 */
+  align-items: flex-start;     垂直居中
   height: 50px;
   color: white;
-  background-color: #77a9fd
+  background-color: #77a9fd */
 }
 
 .head1 text {
@@ -36,7 +42,6 @@
 
 .taskList {
   position: relative;
-  top: -25px;
 }
 
 .icon {
@@ -44,10 +49,7 @@
   width: 28px;
 }
 
-.active {
-  text-decoration: underline;
-}
-
-.no-active {
-  color: #BED3FE;
+.tabContainer {
+    text-align: center;
+    margin-top: -80rpx;
 }
