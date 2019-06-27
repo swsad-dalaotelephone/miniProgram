@@ -144,7 +144,7 @@ page{
     border: 1px solid rgba(255, 255, 255, 0);
 }
 /* buttons format */
-.recommendButton, .alternativeButton, .DisabledButton {
+.recommendButton, .alternativeButton, .disabledButton {
     /* 文字 */
     color: white;
     font-size: 36rpx;
