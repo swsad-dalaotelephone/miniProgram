@@ -3,7 +3,6 @@
   <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
   <text class='name'>{{task.name}}</text>
   <image class="smallIcon"/>
-  <image />
 </view>
 
 <view class="panel">
