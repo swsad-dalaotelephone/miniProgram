@@ -7,22 +7,22 @@
 <form bindsubmit='formRegister'>
 
   <view class="inputNickname inputBox">
-    <image class="headImg" />
+    <image class="headImg" src="../../images/icons/loginUsername.png" />
     <input class="text" placeholder="Nickname" name="nickname"></input>
   </view>
 
   <view class="inputPhone inputBox">
-    <image class="headImg" />
+    <image class="headImg" src="../../images/icons/phone.png"/>
     <input class="text" placeholder="Phone number" name="phone"></input>
   </view>
 
   <view class="inputPass inputBox">
-    <image class="headImg" />
+    <image class="headImg" src="../../images/icons/loginPassword.png"/>
     <input class="text" password="true" placeholder="Password" name="password"></input>
   </view>
 
   <view class="inputConfirmPass inputBox">
-    <image class="headImg" />
+    <image class="headImg" src="../../images/icons/confirmPassword.png"/>
     <input class="text" password="true" placeholder="Confirm password" name="cpassword"></input>
   </view>
 
@@ -30,4 +30,4 @@
 
 </form>
 
-<view class="toLogin"><text id="toLogin">登陆/Sign in</text></view>
+<view class="toLogin"><text id="toLogin">登录/Sign in</text></view>

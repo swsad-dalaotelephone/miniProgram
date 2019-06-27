@@ -44,12 +44,12 @@
 <form bindsubmit='formLogin'>
 
   <view class="inputPhone inputBox">
-    <image class="headImg" />
+    <image class="headImg" src="../../images/icons/phone.png"/>
     <input class="text" placeholder="Enter phone number" name="phone"></input>
   </view>
 
   <view class="inputPass inputBox">
-    <image class="headImg" />
+    <image class="headImg" src="../../images/icons/loginPassword.png"/>
     <input class="text" password="true" placeholder="Enter password" name="password"></input>
   </view>
 
@@ -60,5 +60,5 @@
 <view class="toRegister"><text id="toRegister">注册/Sign up</text></view>
 
 <view class="toWechat">
-  <image id="toWechat" />
+  <image id="toWechat" src="../../images/icons/weChatLogo.png"/>
 </view>
