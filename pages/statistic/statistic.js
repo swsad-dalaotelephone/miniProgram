@@ -21,7 +21,14 @@ Page({
 			delta: 1,
 		})
 	},
-
+  handleTap1: function(e) {
+    let data={task_id:this.data.task_id}
+    http._get('/task/' + this.data.task_id +'/statistic/downloadLink', data).then(res=>{
+      console.log(res)
+    }).catch(e=>{
+      console.log(e)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
