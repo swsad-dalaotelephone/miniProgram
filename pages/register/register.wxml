@@ -30,4 +30,4 @@
 
 </form>
 
-<view class="toLogin"><text id="toLogin">登录/Sign in</text></view>
+<view class="toLogin" bindtap="toLogin"><text id="toLogin">登录/Sign in</text></view>

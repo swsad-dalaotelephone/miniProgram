@@ -143,5 +143,15 @@ Page({
 				}
 
 			})
+	},
+
+	toRegister: function(e){
+		wx.navigateTo({
+			url: '/pages/register/register',
+			success: (result) => {
+				
+			}
+		});
+		  
 	}
 })

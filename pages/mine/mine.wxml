@@ -27,8 +27,8 @@
     <view class="level Box">Lv.1</view>
   </view>
   <view class="usernameBox">
-    <view class="username">{{nickname}}</view>
-    <image class="changename" src="../../images/icons/edit.png"/>
+    <view class="username">{{userInfo.nick_name}}</view>
+    <image class="changename" bindtap="editProfile" src="../../images/icons/edit.png"/>
   </view>
   <view class="introduction">这个同学很懒~还没有自我介绍呢</view>
 </view>

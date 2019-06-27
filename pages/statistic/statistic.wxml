@@ -1,2 +1,7 @@
 <!--pages/statistic/statistic.wxml-->
 <text>pages/statistic/statistic.wxml</text>
+<!-- temp -->
+<view class="recommend_hot_box">
+  <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}">
+  </ec-canvas>
+</view>

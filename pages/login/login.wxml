@@ -57,7 +57,7 @@
 
 </form>
 
-<view class="toRegister"><text id="toRegister">注册/Sign up</text></view>
+<view class="toRegister" bindtap="toRegister"><text id="toRegister">注册/Sign up</text></view>
 
 <view class="toWechat">
   <image id="toWechat" src="../../images/icons/weChatLogo.png"/>

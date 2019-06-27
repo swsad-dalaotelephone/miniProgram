@@ -13,26 +13,29 @@ button {
     margin-left: 50rpx;
 }
 
-.selectTab {
-    height: 50rpx;
-    margin-top: -65rpx;
-}
 
-.selectTab .tab {
-    float: left;
-    width: 375rpx;
-    font-size: 32rpx;
-    text-align: center;
-}
+ .tab {
+    /* float: left; */
+
+
+ }
+
 
 .selected {
     text-decoration: none;
-    color: white;
+    /* color: white; */
+    background-color: #ecf5fc;
+    background-size:contain;
+    color: #77A9FD;
+    border-radius: 10rpx;
+    margin-left: 30rpx;
 }
 
 .unselected {
+    display: inline;
     text-decoration: underline;
     color: #BED3FE;
+    margin-right: 30rpx;
 }
 
 .invisible {
@@ -122,4 +125,9 @@ button {
 
 .finished {
     background-color: greenyellow;
+}
+
+.tabContainer {
+    text-align: center;
+    margin-top: -80rpx;
 }

@@ -72,17 +72,33 @@ Page({
 	// 用户点击注册
 	formRegister: function (e) {
 		http._post("/user",
-			'nickname=' + e.detail.value.nickname +
-			"&password=" + e.detail.value.password +
-			"&phone=" + e.detail.value.phone +
-			"&open_id=" + this.data.openId, 'application/x-www-form-urlencoded').then(res => {
+				'nickname=' + e.detail.value.nickname +
+				"&password=" + e.detail.value.password +
+				"&phone=" + e.detail.value.phone +
+				"&open_id=" + this.data.openId, 'application/x-www-form-urlencoded')
+			.then(res => {
 				wx.showToast({
 					title: '注册成功',
 					icon: 'none'
 				})
-			wx.navigateTo({
-				url: '/pages/login/login'
+				wx.navigateTo({
+					url: '/pages/login/login'
+				})
 			})
-		})
+			.catch(errRes => {
+				wx.showToast({
+					title: '注册失败! 请联系管理员',
+					icon: 'none'
+				})
+			})
+	},
+
+	toLogin: function (e) {
+		wx.navigateTo({
+			url: '/pages/login/login',
+			success: (result) => {
+
+			}
+		});
 	}
 })

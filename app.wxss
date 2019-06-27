@@ -38,7 +38,7 @@ page{
     /* 背景 */
     background-color: #77A9FD;
     width: 750rpx;
-    height: 200rpx;
+    height: 180rpx;
 
     /* 标题居中 */
     display: flex;
@@ -121,4 +121,46 @@ page{
     border-radius: 4px;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
+}
+/* buttons format */
+.recommendButton, .alternativeButton, .DisabledButton {
+    /* 文字 */
+    color: white;
+    font-size: 36rpx;
+    text-align: center;
+    font-family: Arial;
+}
+    
+.recommendButton {
+    background-color: #77A9FD;
+}
+
+.alternativeButton {
+    background-color: #BED3FE;
+}
+
+.disabledButton {
+    background-color: #ACACAC;
+}
+/* tab selection */
+/* both right and left */
+.leftTab, .rightTab {
+  font-size: 40rpx;
+  text-align: center;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border-radius: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: -10rpx;
+}
+.selectedTab {
+  background-color: #ecf5fc;
+  color: #77A9FD;
+}
+.unselectedTab {
+  text-decoration: underline;
+  color: #ecf5fc
 }

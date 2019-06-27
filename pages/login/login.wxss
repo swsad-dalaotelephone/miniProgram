@@ -17,9 +17,5 @@
 
 .toWechat image{
     width: 100rpx;
-    height: 100rpx;
-    
-    /* temp */
-    background: #77A9FD;
-    
+    height: 100rpx;    
 }

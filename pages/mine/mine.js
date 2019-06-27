@@ -17,13 +17,32 @@ Page({
 	},
 
 	onLoad: function (options) {
-		// TODO: 获取用户信息, 注册时默认注册为微信名
+
+	},
+
+	onShow: function(){
 		http._get("/user/profile")
 			.then(res => {
-				console.log(res)
+				let userInfo = JSON.parse(res.user)
+				console.log(userInfo)
+				this.setData({
+					userInfo: userInfo
+				})
 			})
 			.catch(res => {
 
 			})
+	},
+
+	editProfile: function(e){
+		wx.navigateTo({
+			url: '/pages/editprofile/editprofile',
+			success: (result) => {
+				
+			},
+			fail: () => {},
+			complete: () => {}
+		});
+		  
 	}
 })
