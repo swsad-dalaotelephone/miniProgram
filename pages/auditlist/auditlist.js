@@ -37,30 +37,29 @@ Page({
 				detail: '一段不走心的活动描述'
 			},
 		],
-    task_id: ''
+		task_id: ''
 	},
-  openStat: function() {
-    let task = this.data.taskInfo;
-    console.log('task', task);
-    if (task.type == 'q') {
-		wx.navigateTo({
-			url: '/pages/statistic/statistic?task='+JSON.stringify(task)
-		  })
-    }
+	openStat: function () {
+		let task = this.data.taskInfo;
+		console.log('task', task);
+		if (task.type == 'q') {
+			wx.navigateTo({
+				url: '/pages/statistic/statistic?task=' + JSON.stringify(task)
+			})
+		}
 
-  },
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-    let task_id = '';
-    if (typeof options.id != 'undefined') {
-      task_id = options.id;
-    } 
-    else {
-      // TODO: report error
-    }
-    console.log('task_id: ', task_id);
+		let task_id = '';
+		if (typeof options.id != 'undefined') {
+			task_id = options.id;
+		} else {
+			// TODO: report error
+		}
+		console.log('task_id: ', task_id);
 		this.setData({
 			task_id: task_id
 		})
@@ -105,7 +104,7 @@ Page({
 				this.setData({
 					auditList: acceptanceArray
 				});
-        console.log('receive acceptanceArray: ', acceptanceArray);
+				console.log('receive acceptanceArray: ', acceptanceArray);
 			})
 			.catch(res => {
 				wx.switchTab({
@@ -118,7 +117,7 @@ Page({
 					mask: false,
 				})
 			})
-      
+
 	},
 
 	renderTask(taskInfo) {
@@ -221,6 +220,37 @@ Page({
 		let transferJson = JSON.stringify(transferObj)
 		wx.navigateTo({
 			url: '/pages/audit/audit?info=' + transferJson,
+		})
+	},
+
+	// 终止任务
+	endTask: function (e) {
+		let task_id = this.data.task_id
+		http._put("/task/" + task_id + "/status")
+			.then(res => {
+				wx.showToast({
+					title: '任务已成功终止',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				})
+				wx.navigateBack({
+					delta: 1
+				})
+			})
+			.catch(res => {
+				wx.showToast({
+					title: '终止任务失败，请联系管理员',
+					icon: 'none',
+					duration: 1500,
+					mask: false,
+				})
+			})
+	},
+
+	handleReturn: function(e){
+		wx.navigateBack({
+			delta: 1,
 		})
 	}
 })

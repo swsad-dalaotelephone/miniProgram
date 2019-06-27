@@ -12,7 +12,7 @@
 
   <view class="page__bd page__bd_spacing">
     <view class="taskList" wx:for="{{isPublish?publishedTasks:acceptedTasks}}" wx:key="{{item}}">
-      <my-card bindtap="openReview" data-item="{{item}}" item="{{item}}" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg " show="{{isPublish?'2':'1'}}"></my-card>
+      <my-card bindtap="openReview" data-item="{{item}}" item="{{item}}" thumb="{{'/images/icons/task-'+item.type+'.jpg'}}" show="{{isPublish?'2':'1'}}"></my-card>
     </view>
 
     <i-load-more tip="哎呀，没有更多了~" loading="{{ false }}" />
