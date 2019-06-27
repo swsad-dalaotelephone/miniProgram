@@ -155,8 +155,6 @@ page{
   margin-left: 30rpx;
   margin-right: 30rpx;
   margin-bottom: -10rpx;
-  
-  
 }
 .selectedTab {
   background-color: #ecf5fc;

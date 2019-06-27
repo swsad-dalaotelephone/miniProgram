@@ -3,7 +3,7 @@
     <view>{{taskInfo.name}}</view>
 </view>
 
-<view class="selectTab">
+<view class="tabContainer">
     <text class="leftTab {{selectedTab==0?'selectedTab':'unselectedTab'}}" bindtap="switchTab">任务详情</text>
     <text class="rightTab {{selectedTab==0?'unselectedTab':'selectedTab'}}" bindtap="switchTab">审核列表</text>
 </view>
