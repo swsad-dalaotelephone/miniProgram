@@ -9,14 +9,14 @@
               <view class="quest-ans" wx:if="{{type == 'q' || type == 'r'}}">
                 <view class="question" wx:for="{{questions}}" wx:key="id" wx:for-index="question_index" wx:for-item="question">
                   <view class="questionTitle">{{question_index + 1}}. {{question.quest_title}}</view>
-                  <view class="optionsPanel" wx:if="{{question.quest_type == 'choice'}} ">
+                  <view class="optionsPanel" wx:if="{{question.quest_type == kTypeChoice}} ">
                       <view class="parent"> 
                         <i-radio class="child" wx:for="{{question.quest_option}}" wx:for-index="option_index" wx:key="{{item.index}}" value="{{item.content}}" checked="{{option_index==answers[question_index].option[0]}}" disabled="{{option_index!=answers[question_index].option[0]}}">
                         </i-radio>
                       </view>
                   </view>
 
-                  <view class="textPanel" wx:if="{{question.quest_type == 'text'}}">
+                  <view class="textPanel" wx:if="{{question.quest_type == kTypeText}}">
                      {{answers[question_index].text}}
                   </view>
                 </view>

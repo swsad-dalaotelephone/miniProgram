@@ -68,14 +68,14 @@
 
               <i-row i-class="attr-row">
                 <view class="questions">
-                  <view class="question" wx:for="{{task.content.participant_info}}" wx:key="id">
+                  <view class="question" wx:for="{{questions}}" wx:key="id">
                     <i-row i-class="questionTitle">
                         <i-col span="3" i-class="col-class">
                           <view class="questionIndex">{{index + 1}}.</view>
                         </i-col>
 
                         <i-col span="18" i-class="col-class">
-                          <input placeholder="请输入题目" class="questionTitleInput" data-index="{{index}}" value="{{task.content.participant_info[index].quest_title}}" bindinput="bindQuestionTitleInput"/>
+                          <input placeholder="请输入题目" class="questionTitleInput" data-index="{{index}}" value="{{questions[index].quest_title}}" bindinput="bindQuestionTitleInput"/>
                         </i-col>
 
                         <i-col span="3" i-class="col-class">
@@ -83,7 +83,7 @@
                         </i-col>
                     </i-row>
                     
-                    <view class="optionsPanel" wx:if="{{item.quest_type == 'choice'}} ">
+                    <view class="optionsPanel" wx:if="{{item.quest_type == kTypeChoice}} ">
                       <view class="option" wx:for="{{item.quest_option}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
                         <i-row>
                             <i-col span="3" i-class="col-class">
@@ -97,7 +97,7 @@
                               </view>
                             </i-col>
                             <i-col span="8"  i-class="col-class">
-                              <input placeholder="请输入选项" class="optionInput" data-qindex="{{index}}" data-idx="{{idx}}" bindinput="bindOptionInput" value="{{task.content.participant_info[index].quest_option[idx].content}}"/>
+                              <input placeholder="请输入选项" class="optionInput" data-qindex="{{index}}" data-idx="{{idx}}" bindinput="bindOptionInput" value="{{questions[index].quest_option[idx].content}}"/>
                             </i-col>
                             <i-col span="6" i-class="col-class">
                               <i-icon type="delete" bindtap='handleDeleteOption' data-index="{{index}}" size="20" color="#1e98ea" wx:if="{{idx==item.quest_option.length-1 && idx >= 2}}"></i-icon>
@@ -108,7 +108,7 @@
                       </view>
                     </view>
 
-                    <view class="TextPanel" wx:if="{{item.quest_type == 'text'}}">
+                    <view class="TextPanel" wx:if="{{item.quest_type == kTypeText}}">
                       <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
                     </view>  
                   </view>

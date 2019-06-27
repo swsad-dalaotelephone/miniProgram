@@ -10,10 +10,10 @@
     <view class="page__bd page__bd_spacing pagebd" >
         <view class="newTaskPanel">  
             <view class="main-content">
-              <view class="quest-ans" wx:if="{{type == 'q' || type == 'r'}}">
+              <view class="quest-ans">
                 <view class="question" wx:for="{{questions}}" wx:key="id" wx:for-index="question_index" wx:for-item="question">
                   <view class="questionTitle">{{question_index + 1}}. {{question.quest_title}}</view>
-                  <view class="optionsPanel" wx:if="{{question.quest_type == 'choice'}} ">
+                  <view class="optionsPanel" wx:if="{{question.quest_type == kTypeChoice}} ">
                     <i-radio-group data-qindex="{{question_index}}" current="{{question.quest_option[answers[question_index].option[0]].content}}"  bindchange="handleOptionChange">
                       <view class="parent"> 
                         <i-radio class="child" wx:for="{{question.quest_option}}" wx:key="{{item.index}}"wx:for="{{question.quest_option}}"  value="{{item.content}}">
@@ -22,16 +22,10 @@
                     </i-radio-group>
                   </view>
 
-                  <view class="textPanel" wx:if="{{question.quest_type == 'text'}}">
+                  <view class="textPanel" wx:if="{{question.quest_type == kTypeText}}">
                     <textarea placeholder="请输入答案" class="textInputArea" value="{{answers[question_index].text}}" data-qindex="{{question_index}}" bindinput="bindTextInput"/>
                   </view>  
                 </view>
-              </view>
-              <view class="mail-ans" wx:if="{{type == 'd'}}">
-                <view class="questionTitle">请填写发送信息的邮箱</view>
-                  <view class="textPanel">
-                    <textarea placeholder="请输入邮箱" class="textInputArea" value="{{answers[0].text}}" bindinput="bindMailInput"/>
-                  </view>                  
               </view>
             </view>  
 

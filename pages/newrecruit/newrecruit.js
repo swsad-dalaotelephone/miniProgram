@@ -1,5 +1,7 @@
 // pages/newrecruit/newrecruit.js
 var app = getApp()
+var kTypeChoice = 'm';
+var kTypeText = 'f';
 Page({
 
   /**
@@ -7,6 +9,8 @@ Page({
    */
 
   data: {
+    kTypeChoice: kTypeChoice,
+    kTypeText: kTypeText,
     task: {
       type: 'r',
       content: {
@@ -18,6 +22,7 @@ Page({
       }
     },
     task_type: '招募',
+    questions: []
   },
 
   bindStartTimeChange({detail}) {
@@ -56,12 +61,12 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定');
           var index = e.currentTarget.dataset.index;
-          var newQuestionList = that.data.task.content.participant_info;
-          console.log(newQuestionList);
+          var newQuestionList = that.data.questions;
+          
           newQuestionList.splice(index, 1);
-          console.log(newQuestionList);
+          
           that.setData({
-            'task.content.participant_info': newQuestionList
+            'questions': newQuestionList
           });
         } else if (res.cancel) {
           console.log('用户点击取消');
@@ -71,26 +76,26 @@ Page({
   },
 
   handleAddText: function () {
-    var newQuestionList = this.data.task.content.participant_info;
-    console.log(newQuestionList);
+    var newQuestionList = this.data.questions;
+    
     var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
-      quest_type: 'text',
+      quest_type: kTypeText,
       quest_title: '',
       id: new_id
     });
-    console.log(newQuestionList);
+    
     this.setData({
-      'task.content.participant_info': newQuestionList
+      'questions': newQuestionList
     });
   },
 
   handleAddChoice: function () {
-    var newQuestionList = this.data.task.content.participant_info;
-    console.log(newQuestionList);
+    var newQuestionList = this.data.questions;
+    
     var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
-      quest_type: 'choice',
+      quest_type: kTypeChoice,
       quest_title: '',
       quest_option: [{
         content: '',
@@ -103,71 +108,51 @@ Page({
       ],
       id: new_id
     });
-    console.log(newQuestionList);
+    
     this.setData({
-      'task.content.participant_info': newQuestionList
+      'questions': newQuestionList
     });
   },
 
   handleAddOption: function (e) {
     var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.task.content.participant_info;
-    console.log(newQuestionList);
+    var newQuestionList = this.data.questions;
     var cur_options = newQuestionList[index].quest_option.length;
-    console.log(cur_options);
     newQuestionList[index].quest_option.push({
       content: '',
       index: String.fromCharCode(cur_options + 65)
     });
-    console.log(newQuestionList);
-
     this.setData({
-      'task.content.participant_info': newQuestionList
+      'questions': newQuestionList
     });
   },
 
   handleDeleteOption: function (e) {
     var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.task.content.participant_info;
-    console.log(newQuestionList);
+    var newQuestionList = this.data.questions;
     var cur_options = newQuestionList[index].quest_option.length;
-    console.log(cur_options);
     newQuestionList[index].quest_option.splice(cur_options - 1, 1);
-    console.log(newQuestionList);
-
-
     this.setData({
-      'task.content.participant_info': newQuestionList
+      'questions': newQuestionList
     });
   },
 
   bindQuestionTitleInput: function (e) {
     var index = e.currentTarget.dataset.index;
-    console.log(index);
-    var newQuestionList = this.data.task.content.participant_info;
-    console.log(newQuestionList);
+    var newQuestionList = this.data.questions;
     newQuestionList[index].quest_title = e.detail.value;
-    console.log(newQuestionList);
-
     this.setData({
-      'task.content.participant_info': newQuestionList
+      'questions': newQuestionList
     });
   },
 
   bindOptionInput: function (e) {
     var qindex = e.currentTarget.dataset.qindex;
     var idx = e.currentTarget.dataset.idx;
-    console.log(qindex);
-    console.log(idx);
-    var newQuestionList = this.data.task.content.participant_info;
-    console.log(newQuestionList);
+    var newQuestionList = this.data.questions;
     newQuestionList[qindex].quest_option[idx].content = e.detail.value;
-    console.log(newQuestionList);
-
     this.setData({
-      'task.content.participant_info': newQuestionList
+      'questions': newQuestionList
     });
   },
 
@@ -246,12 +231,29 @@ Page({
       return;      
     }
 
-    var questions = task.content.participant_info;
+    var questions = this.data.questions;
 
-    for (var i = 0; i < questions.length; i++) {
-      if (questions[i].quest_type == 'choice') {
+    if (questions.length == 0) {
+      wx.showToast({
+        title: '题目数量不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
+
+    for (let i = 0; i < questions.length; i++) {
+      if (questions[i].quest_title.length == 0) {
+        wx.showToast({
+          title: '题目' + (i + 1) + '不能为空',
+          icon: 'none',
+          duration: 2000
+        });
+        return;
+      }
+      if (questions[i].quest_type == kTypeChoice) {
         var options = questions[i].quest_option;
-        for (var j = 0; j < options.length; j++) {
+        for (let j = 0; j < options.length; j++) {
           if (options[j].content.length == 0) {
             wx.showToast({
               title: '题目' + (i + 1) + '选项' + options[j].index + '不能为空',
@@ -260,26 +262,36 @@ Page({
             });
             return;
           }
+
+          for (let k = 0; k < j; k++) {
+            if (options[k].content == options[j].content) {
+              wx.showToast({
+                title: '错误：题目' + (i + 1) + '选项' + options[k].index + '和选项' + options[j].index + '相同',
+                icon: 'none',
+                duration: 2000
+              });
+              return;
+            }
+          }
         }
       }
     }
-
-    for (var i = 0; i < questions.length; i++) {
-      delete questions[i].id;
-      if (questions[i].quest_type == 'choice') {
-        var options = [];
-
-        for (var j = 0; j < questions[i].quest_option.length; j++) {
+    task.content.participant_info = [];
+    for (let i = 0; i < questions.length; i++) {
+      let question = {
+        quest_type: questions[i].quest_type,
+        quest_title: questions[i].quest_title
+      };
+      question.quest_option = [];
+      if (questions[i].quest_type == kTypeChoice) {
+        var options = question.quest_option;
+        for (let j = 0; j < questions[i].quest_option.length; j++) {
           options.push(questions[i].quest_option[j].content);
         }
-        questions[i].quest_option = options;
       }
-      else {
-        questions[i].quest_option = [];
-      }
+      task.content.participant_info.push(question);
     }
-
-
+    console.log("task: ", task);
     wx.navigateTo({
       url: '/pages/scope/scope?task=' + JSON.stringify(task),
     })

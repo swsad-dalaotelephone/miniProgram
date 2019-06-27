@@ -1,5 +1,4 @@
 // pages/statistic/statistic.js
-import * as echarts from '../../ec-canvas/echarts';
 const http = require('../../utils/http.js')
 var wxCharts = require('../../utils/wxcharts.js');
 var pieChart = null;
@@ -9,21 +8,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    task_id: '',
-    ec: {
-      onInit: initChart
-    }
+    task_id: ''
   },
-
+  touchHandler: function (e) {
+    console.log(pieChart.getCurrentDataIndex(e));
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let data = []
     console.log(options)
     let task_id = options.task_id
-    http._get('/task/'+task_id+'/statistic').then(res => {
-      console.log(JSON.parse(res))
-    }).catch(e=>{
+    http._get('/task/' + task_id + '/statistic').then(res => {
+      let tempData = JSON.parse(res).statistics
+      console.log(tempData)
+      tempData.forEach(function(item){
+        console.log(item)
+        // data.push({name:})
+      })
+
+    }).catch(e => {
       console.log(e)
     })
     this.setData({
@@ -41,37 +46,38 @@ Page({
       animation: true,
       canvasId: 'pieCanvas',
       type: 'pie',
-      series: [{
-        name: '成交量1',
-        data: 15,
-      }, {
-        name: '成交量2',
-        data: 35,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }, {
-        name: '成交量4',
-        data: 63,
-      }, {
-        name: '成交量2',
-        data: 35,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }, {
-        name: '成交量4',
-        data: 63,
-      }, {
-        name: '成交量2',
-        data: 35,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }],
+      // series: [{
+      //   name: '成交量1',
+      //   data: 15,
+      // }, {
+      //   name: '成交量2',
+      //   data: 35,
+      // }, {
+      //   name: '成交量3',
+      //   data: 78,
+      // }, {
+      //   name: '成交量4',
+      //   data: 63,
+      // }, {
+      //   name: '成交量2',
+      //   data: 35,
+      // }, {
+      //   name: '成交量3',
+      //   data: 78,
+      // }, {
+      //   name: '成交量4',
+      //   data: 63,
+      // }, {
+      //   name: '成交量2',
+      //   data: 35,
+      // }, {
+      //   name: '成交量3',
+      //   data: 78,
+      // }, {
+      //   name: '成交量3',
+      //   data: 78,
+      // }],
+      series: data,
       width: windowWidth,
       height: 300,
       dataLabel: true,
@@ -127,51 +133,3 @@ Page({
 
   }
 })
-// 初始化图表
-function initChart(canvas, width, height) {
-  const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height
-  });
-  canvas.setChart(chart);
-
-  var option = {
-    tooltip: {
-      trigger: 'axis'
-    },
-    legend: {
-      data: ['客户']
-    },
-    grid: {
-      left: '1%',
-      right: '30rpx',
-      bottom: '1%',
-      containLabel: true
-    },
-    xAxis: {
-      type: 'category',
-      boundaryGap: false,
-      data: list,
-      name: '月份',
-      nameGap: 2,
-      axisLabel: {
-        interval: 0
-      }
-    },
-    yAxis: {
-      type: 'value',
-      name: '数量'
-    },
-    series: [
-      {
-        name: '客户',
-        type: 'line',
-        stack: '总量',
-        data: list1
-      }
-    ]
-  };
-
-  chart.setOption(option);
-  return chart;
-}

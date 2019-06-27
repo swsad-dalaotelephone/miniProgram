@@ -1,5 +1,7 @@
 // pages/audit/audit.js
 var app = getApp();
+var kTypeChoice = 'm';
+var kTypeText = 'f';
 const http = require('../../utils/http.js')
 
 Page({
@@ -8,6 +10,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+    kTypeChoice: kTypeChoice,
+    kTypeText: kTypeText,
 		submitInfo: {
 			acceptance_id: "",
 			accepter: "",
@@ -17,6 +21,7 @@ Page({
 			status: 0,
 			task_id: ""
 		},
+<<<<<<< HEAD
 		questions: [{
 				quest_type: 'choice',
 				quest_title: '你认为中国将在多久之后夺得世界杯冠军？',
@@ -107,6 +112,81 @@ Page({
 			answers: answers
 		})
 	},
+=======
+    questions: [{
+      quest_type: kTypeChoice,
+      quest_title: '你认为中国将在多久之后夺得世界杯冠军？',
+      id: 1,
+      quest_option: [{
+        content: '20年内',
+        index: 'A'
+      },
+      {
+        content: '50年内',
+        index: 'B'
+      },
+      {
+        content: '100年内',
+        index: 'C'
+      },
+      {
+        content: '200年内',
+        index: 'D'
+      },
+      ]
+      },
+      {
+        quest_type: kTypeText,
+        quest_title: '说说你对中国足球的看法。',
+        id: 2
+      },
+      {
+        quest_type: kTypeChoice,
+        quest_title: '你认为***会连任到什么时候？',
+        id: 3,
+        quest_option: [{
+          content: '2022',
+          index: 'A'
+        },
+        {
+          content: '2027',
+          index: 'B'
+        },
+        {
+          content: '2032',
+          index: 'C'
+        },
+        {
+          content: '2037',
+          index: 'D'
+        },
+        {
+          content: '2042',
+          index: 'E'
+        },
+        {
+          content: '2047',
+          index: 'F'
+        }
+        ]
+      },
+    ],
+
+    answers: [{
+        type: kTypeChoice,
+        option: [3]
+      }, {
+        type: kTypeText,
+        text: '天亮了'
+      },{
+        type: kTypeChoice,
+        option: [5]
+      }
+    ],
+    type:'q',
+		feedbackInput: ''
+	},
+>>>>>>> 7e318f929ea2a92003879245a06e9ce95bf9880b
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
@@ -117,6 +197,7 @@ Page({
 				submitInfo: transferInfo.submitInfo,
 			})
 
+<<<<<<< HEAD
 			let task = transferInfo.taskInfo;
 			let questions = [];
 			if (task.type == 'd') {
@@ -147,6 +228,39 @@ Page({
 				answers: transferInfo.submitInfo.answer.answer
 			})
 		}
+=======
+      let task = transferInfo.taskInfo;
+      let questions = [];
+      if (task.type == 'd') {
+        questions = [{
+          quest_type: kTypeText,
+          quest_title: '提交信息的邮箱是：',
+          id: 1
+        }]
+      }
+      else {
+        questions = task.type == 'q' ? task.content.questions : task.content.participant_info;
+        let new_id = 0;
+        for (let i = 0; i < questions.length; i++) {
+          questions[i].id = ++new_id;
+          if (questions[i].quest_type == kTypeText) continue;
+          let options = [];
+          for (let j = 0; j < questions[i].quest_option.length; j++) {
+            options.push({
+              content: questions[i].quest_option[j],
+              index: String.fromCharCode(j + 65)
+            })
+          }
+          questions[i].quest_option = options;
+        }
+      }
+      console.log('answer: ', transferInfo.submitInfo.answer.answer);
+      this.setData({
+        questions: questions,
+        answers: transferInfo.submitInfo.answer.answer
+      })
+    }
+>>>>>>> 7e318f929ea2a92003879245a06e9ce95bf9880b
 	},
 
 	/**
