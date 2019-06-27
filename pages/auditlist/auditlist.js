@@ -246,5 +246,11 @@ Page({
 					mask: false,
 				})
 			})
+	},
+
+	handleReturn: function(e){
+		wx.navigateBack({
+			delta: 1,
+		})
 	}
 })
