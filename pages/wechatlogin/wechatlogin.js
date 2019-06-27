@@ -15,18 +15,18 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		// wx.getUserInfo({
-		// 	success: res=>{
-		// 		if(wx.getStorageSync("baobaozhuan_cookie")){
-		// 			wx.switchTab({
-		// 				url: '/pages/index/index'
-		// 			});
-		// 		}
-		// 	},
-		// 	fail: res=>{
-		// 		console.log("获取成功",res)
-		// 	}
-		// })
+		wx.getUserInfo({
+			success: res=>{
+				if(wx.getStorageSync("baobaozhuan_cookie")){
+					wx.switchTab({
+						url: '/pages/index/index'
+					});
+				}
+			},
+			fail: res=>{
+				console.log("获取成功",res)
+			}
+		})
 	},
 
 	/**
