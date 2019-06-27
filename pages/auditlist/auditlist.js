@@ -37,7 +37,13 @@ Page({
 				detail: '一段不走心的活动描述'
 			},
 		],
-		task_id: ''
+		task_id: '',
+		task_status_class: [
+			"unfinished", "waitConfirm", "unqualified", "finished"
+		],
+		task_status_text: [
+			"未完成", "待审核", "不合格", "已通过"
+		]
 	},
 	openStat: function () {
 		let task = this.data.taskInfo;
@@ -248,7 +254,7 @@ Page({
 			})
 	},
 
-	handleReturn: function(e){
+	handleReturn: function (e) {
 		wx.navigateBack({
 			delta: 1,
 		})

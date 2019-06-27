@@ -112,16 +112,20 @@ button {
     font-size: 30rpx;
 }
 
+.unfinished {
+    background-color: #CFAFFF;
+}
+
 .waitConfirm {
-    background-color: orange;
+    background-color: #FDC2AB;
 }
 
 .unqualified {
-    background-color: gray;
+    background-color: #FDA09E;
 }
 
 .finished {
-    background-color: greenyellow;
+    background-color: #93EEB6;
 }
 
 .panelPlus {
