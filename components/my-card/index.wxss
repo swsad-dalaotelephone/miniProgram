@@ -63,12 +63,12 @@
   vertical-align: middle;
   font-size: 18px;
   color: #77a9fd;
-  flex: 4 1 auto;
+  flex: 1 1 auto;
 }
 .i-card-header-extra {
   flex: 0 0 auto;
-  line-height:26px;
-  height:26px;
+  line-height: 26px;
+  height: 26px;
   text-align: center;
   font-size: 14px;
   color: #77a9fd;
