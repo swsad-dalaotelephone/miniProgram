@@ -9,14 +9,14 @@
               <view class="quest-ans" wx:if="{{type == 'q' || type == 'r'}}">
                 <view class="question" wx:for="{{questions}}" wx:key="id" wx:for-index="question_index" wx:for-item="question">
                   <view class="questionTitle">{{question_index + 1}}. {{question.quest_title}}</view>
-                  <view class="optionsPanel" wx:if="{{question.quest_type == 'choice'}} ">
+                  <view class="optionsPanel" wx:if="{{question.quest_type == kTypeChoice}} ">
                       <view class="parent"> 
                         <i-radio class="child" wx:for="{{question.quest_option}}" wx:for-index="option_index" wx:key="{{item.index}}" value="{{item.content}}" checked="{{option_index==answers[question_index].option[0]}}" disabled="{{option_index!=answers[question_index].option[0]}}">
                         </i-radio>
                       </view>
                   </view>
 
-                  <view class="textPanel" wx:if="{{question.quest_type == 'text'}}">
+                  <view class="textPanel" wx:if="{{question.quest_type == kTypeText}}">
                      {{answers[question_index].text}}
                   </view>
                 </view>
@@ -29,12 +29,12 @@
               </view>
             </view>              
         <view class="questionTitle">我的反馈信息： {{question.quest_title}}</view>
-        <textarea placeholder="请输入反馈" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.status==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
+        <textarea placeholder="" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.status==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
         <view class="buttonLine {{submitInfo.status==1?'':'hidden'}} "> 
             <button class="alternativeButton" bindtap="tapNo">审核不通过</button>
             <button class="recommendButton" bindtap="tapYes">审核通过</button>
         </view>
-        <view class="buttonLine {{submitInfo.status==1?'':'visible'}}"> 
+        <view class="buttonLine {{submitInfo.status==1?'hidden':''}}"> 
             <button class="disabledButton" bindtap="tapNo">已经审核过了</button>
         </view>
     </view>
