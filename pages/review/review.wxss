@@ -24,17 +24,6 @@
   justify-content: center;
 }
 
-.bottom button {
-  width: 150px;
-  height: 45px;
-  margin: 20px;
-  color: white;
-  background-color: rgb(119, 169, 253);
-  box-shadow: rgb(190, 211, 254) 0px 0px 10px 0px;
-  border-radius: 10px;
-  font-size: 18px;
-}
-
 #gray {
   background-color: rgb(190, 211, 254);
 }

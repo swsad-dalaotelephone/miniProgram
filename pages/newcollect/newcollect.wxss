@@ -47,15 +47,6 @@ page{
   align-content: flex-start;
 }
 
-.bottom button {
-  border-radius: 10px;
-  margin: 10px 8%;
-  color: white;
-  background-color: #77a9fd;
-  box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
-  border: 1px solid rgba(255, 255, 255, 0);
-  flex: 0 0 40%;
-}
 
 .page1 {
   display: flex;

@@ -1,11 +1,11 @@
-<view class="container">
+<!-- <view class="container"> -->
     <view class="titleBox">
-        <view></view>
-        <text style="margin-top: -50rpx;">审核 <text style="color:black;display:inline">{{submitInfo.accepter.length > 0 ? submitInfo.accepter : '匿名用户'}}</text> 的提交</text>
+        <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+        <text>审核 <text style="color:black;display:inline">{{submitInfo.accepter.length > 0 ? submitInfo.accepter : '匿名用户'}}</text> 的提交</text>
         <view></view>
     </view>
 
-    <view class="Box" style="margin-top: -80rpx">
+    <view class="panel">
         <view class="info"> </view>
           <view class="answer-area">
               <view class="quest-ans" wx:if="{{type == 'q' || type == 'r'}}">
@@ -18,20 +18,20 @@
                       </view>
                   </view>
 
-                  <view class="textPanel" wx:if="{{question.quest_type == kTypeText}}">
+                  <view class="publishSingeLineInput" wx:if="{{question.quest_type == kTypeText}}">
                      {{answers[question_index].text}}
                   </view>
                 </view>
               </view>
               <view class="mail-ans" wx:if="{{type == 'd'}}">
                 <view class="questionTitle">发送信息的邮箱:</view>
-                  <view class="textPanel">
+                  <view class="publishSingeLineInput">
                     {{answers[0].text}}
                   </view>                  
               </view>
             </view>              
         <view class="questionTitle">我的反馈信息： {{question.quest_title}}</view>
-        <textarea placeholder="" class="feedbackInput" bindinput="inputFeedback" disabled="{{submitInfo.status==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
+        <textarea placeholder="" class="publishMultiLineInput" bindinput="inputFeedback" disabled="{{submitInfo.status==1?false:true}}" value="{{submitInfo.feedback}}"> </textarea>
         <view class="buttonLine {{submitInfo.status==1?'':'hidden'}} "> 
             <button class="alternativeButton" bindtap="tapNo">审核不通过</button>
             <button class="recommendButton" bindtap="tapYes">审核通过</button>
@@ -40,4 +40,4 @@
             <button class="disabledButton" bindtap="tapNo">已经审核过了</button>
         </view>
     </view>
-</view>
+<!-- </view> -->
