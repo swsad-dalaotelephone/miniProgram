@@ -6,7 +6,7 @@ const http = require('../../utils/http.js')
 
 Page({
   data: {
-    background: ['../../images/advertisement1.png', '../../images/advertisement2.png'],
+    background: ['https://s2.ax1x.com/2019/06/27/ZulXGR.png', 'https://s2.ax1x.com/2019/06/27/ZulOi9.png'],
     indicatorDots: true,
     vertical: false,
     autoplay: false,

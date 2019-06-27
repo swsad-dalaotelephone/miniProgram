@@ -15,7 +15,10 @@ App({
   globalData: {
     userInfo: null,
     currentTask: '问卷',
-    host: 'https://api.baobaozhuan.cn'
+    host: 'https://api.baobaozhuan.cn',
+    icons: {
+      edit: "https://imgchr.com/i/ZuE7h8"
+    }
   },
 
 })
