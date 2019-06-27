@@ -1,5 +1,7 @@
 // pages/newrecruit/newrecruit.js
 var app = getApp()
+var kTypeChoice = 'm';
+var kTypeText = 'f';
 Page({
 
   /**
@@ -7,6 +9,8 @@ Page({
    */
 
   data: {
+    kTypeChoice: kTypeChoice,
+    kTypeText: kTypeText,
     task: {
       type: 'r',
       content: {
@@ -75,7 +79,7 @@ Page({
     console.log(newQuestionList);
     var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
-      quest_type: 'text',
+      quest_type: kTypeText,
       quest_title: '',
       id: new_id
     });
@@ -90,7 +94,7 @@ Page({
     console.log(newQuestionList);
     var new_id = newQuestionList.length == 0 ? 1 : newQuestionList[newQuestionList.length - 1].id + 1;
     newQuestionList.push({
-      quest_type: 'choice',
+      quest_type: kTypeChoice,
       quest_title: '',
       quest_option: [{
         content: '',
@@ -249,7 +253,7 @@ Page({
     var questions = task.content.participant_info;
 
     for (var i = 0; i < questions.length; i++) {
-      if (questions[i].quest_type == 'choice') {
+      if (questions[i].quest_type == kTypeChoice) {
         var options = questions[i].quest_option;
         for (var j = 0; j < options.length; j++) {
           if (options[j].content.length == 0) {
@@ -266,7 +270,7 @@ Page({
 
     for (var i = 0; i < questions.length; i++) {
       delete questions[i].id;
-      if (questions[i].quest_type == 'choice') {
+      if (questions[i].quest_type == kTypeChoice) {
         var options = [];
 
         for (var j = 0; j < questions[i].quest_option.length; j++) {

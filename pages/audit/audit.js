@@ -90,24 +90,6 @@ Page({
     type:'q',
 		feedbackInput: ''
 	},
-  handleOptionChange: function (e) {
-    var qindex = e.currentTarget.dataset.qindex;
-    var answers = this.data.answers;
-
-    let option_index = 0;
-    let options = this.data.questions[qindex].quest_option;
-    for (; option_index < options.length; option_index++) {
-      if (options[option_index].content == e.detail.value) break;
-    }
-
-    answers[qindex] = {
-      type: 'm',
-      option: [option_index]
-    };
-    this.setData({
-      answers: answers
-    })
-  },
 	/**
 	 * 生命周期函数--监听页面加载
 	 */

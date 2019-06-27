@@ -83,7 +83,7 @@
                         </i-col>
                     </i-row>
                     
-                    <view class="optionsPanel" wx:if="{{item.quest_type == 'choice'}} ">
+                    <view class="optionsPanel" wx:if="{{item.quest_type == kTypeChoice}} ">
                       <view class="option" wx:for="{{item.quest_option}}" wx:key="index" wx:for-index="idx" wx:for-item="option"> 
                         <i-row>
                             <i-col span="3" i-class="col-class">
@@ -108,7 +108,7 @@
                       </view>
                     </view>
 
-                    <view class="TextPanel" wx:if="{{item.quest_type == 'text'}}">
+                    <view class="TextPanel" wx:if="{{item.quest_type == kTypeText}}">
                       <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
                     </view>  
                   </view>

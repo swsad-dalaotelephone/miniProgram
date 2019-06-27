@@ -99,7 +99,8 @@ Page({
 				let acceptanceArray = JSON.parse(res.submitted)
 				this.setData({
 					auditList: acceptanceArray
-				})
+				});
+        console.log('receive acceptanceArray: ', acceptanceArray);
 			})
 			.catch(res => {
 				wx.switchTab({
@@ -112,6 +113,7 @@ Page({
 					mask: false,
 				})
 			})
+      
 	},
 
 	renderTask(taskInfo) {

@@ -1,5 +1,7 @@
 // pages/fulfiltask/fulfiltask.js
 var app = getApp()
+var kTypeChoice = 'm';
+var kTypeText = 'f';
 const http = require('../../utils/http.js')
 Page({
 
@@ -8,10 +10,12 @@ Page({
    */
 
   data: {
+    kTypeChoice: kTypeChoice,
+    kTypeText: kTypeText,
     page_title: '问卷',
     type: 'q',
     questions: [{
-      quest_type: 'choice',
+      quest_type: kTypeChoice,
       quest_title: '你认为中国将在多久之后夺得世界杯冠军？',
       id: 1,
       quest_option: [{
@@ -33,12 +37,12 @@ Page({
       ]
     },
     {
-      quest_type: 'text',
+      quest_type: kTypeText,
       quest_title: '说说你对中国足球的看法。',
       id: 2
     },
     {
-      quest_type: 'choice',
+      quest_type: kTypeChoice,
       quest_title: '你认为***会连任到什么时候？',
       id: 3,
       quest_option: [{
@@ -87,7 +91,7 @@ Page({
     }
 
     answers[qindex] = {
-      type: 'm',
+      type: kTypeChoice,
       option: [option_index]
     };
     this.setData({
@@ -99,18 +103,12 @@ Page({
     var qindex = e.currentTarget.dataset.qindex;
     var answers = this.data.answers;
     answers[qindex] = {
-      type: 'f',
+      type: kTypeText,
       text: e.detail.value
     }
     this.setData({
       answers: answers
     })
-  },
-  bindMailInput: function (e) {
-    answers[0] = {
-      type: 'f',
-      text: e.detail.value
-    }
   },
   handleSubmit: function(e) {
     let answers = this.data.answers;
@@ -126,7 +124,7 @@ Page({
         return;
       }
     }
-
+    console.log('submit answer: ', answers);
     http._put('/task/' + this.data.task_id + '/acceptance/answer', 'answer=' + JSON.stringify({answer:answers}),'application/x-www-form-urlencoded').then(res => {
       console.log(res);
       wx.showToast({
@@ -160,24 +158,33 @@ Page({
     if (typeof options.task != 'undefined') {
       let task = JSON.parse(options.task);
       let page_title = task.name;
-      let questions = task.type == 'q' ? task.content.questions : task.content.participant_info;
-      let new_id = 0;
-      for (let i = 0; i < questions.length; i++) {
-        questions[i].id = ++new_id;
-        if (questions[i].quest_type == 'text') continue;
-        let options = [];       
-        for (let j = 0; j < questions[i].quest_option.length; j++) {
-          options.push({
-            content: questions[i].quest_option[j],
-            index: String.fromCharCode(j + 65)
-          })
+      let questions = [];    
+      if (task.type == 'd') {
+        questions = [{
+          quest_type : kTypeText,
+          quest_title: '请填写发送信息的邮箱:'
+        }];
+      }
+      else {
+        questions = task.type == 'q' ? task.content.questions : task.content.participant_info;
+        let new_id = 0;
+        for (let i = 0; i < questions.length; i++) {
+          questions[i].id = ++new_id;
+          if (questions[i].quest_type == kTypeText) continue;
+          let options = [];
+          for (let j = 0; j < questions[i].quest_option.length; j++) {
+            options.push({
+              content: questions[i].quest_option[j],
+              index: String.fromCharCode(j + 65)
+            })
+          }
+          questions[i].quest_option = options;
         }
-        questions[i].quest_option = options;
       }
 
       this.setData({
-        type: task.type,
         task_id: task.id,
+        type: task.type,
         page_title: page_title,
         questions: questions
       });
