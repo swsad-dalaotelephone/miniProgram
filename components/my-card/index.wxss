@@ -67,6 +67,7 @@
   width: 45px;
   min-width: 35px;
   line-height:26px;
+  height: 26px;
   text-align: center;
   font-size: 14px;
   color: #77a9fd;
