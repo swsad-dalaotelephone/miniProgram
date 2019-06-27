@@ -97,7 +97,7 @@ Page({
             detail: item.content.recruit_des
           }, {
             title: '活动时间',
-            detail: item.content.start_time + item.content.end_time
+            detail: item.content.start_time + " - " + item.content.end_time
           }, {
             title: '活动地点',
             detail: item.content.location
