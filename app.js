@@ -8,9 +8,9 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     
-    utils.login((userInfo)=>{
-      this.globalData.userInfo=userInfo
-    })
+    // utils.login((userInfo)=>{
+    //   this.globalData.userInfo=userInfo
+    // })
   },
   globalData: {
     userInfo: null,

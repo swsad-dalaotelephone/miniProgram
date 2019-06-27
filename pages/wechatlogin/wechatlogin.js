@@ -49,6 +49,8 @@ Page({
 			} else {
 				wx.login({
 					success(res) {
+						console.log("获取的code:",res.code)
+						console.log("ccccccccccccccc")
 						http._get("/user/weApp?code=" + res.code).then((res) => {
 							console.log("succeed", res);
 							if (res['open_id']) {
