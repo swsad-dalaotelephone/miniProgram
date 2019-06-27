@@ -17,25 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('???')
-    let data = []
-    console.log(options)
-    let task_id = options.task_id
-    http._get('/task/' + task_id + '/statistic').then(res => {
-      let tempData = JSON.parse(res).statistics
-      console.log('static data:', tempData)
-      tempData.forEach(function(item){
-        console.log(item)
-        // data.push({name:})
-      })
-
-    }).catch(e => {
-      console.log(e)
-    })
-    this.setData({
-      task_id: task_id
-    })
-
     // plot 
     var windowWidth = 320;
     try {
@@ -44,48 +25,36 @@ Page({
     } catch (e) {
       console.error('getSystemInfoSync failed!');
     }
-    console.log(windowWidth)
-    pieChart = new wxCharts({
-      animation: true,
-      canvasId: 'pieCanvas',
-      type: 'pie',
-      series: [{
-        name: '成交量1',
-        data: 15,
-      }, {
-        name: '成交量2',
-        data: 35,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }, {
-        name: '成交量4',
-        data: 63,
-      }, {
-        name: '成交量2',
-        data: 35,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }, {
-        name: '成交量4',
-        data: 63,
-      }, {
-        name: '成交量2',
-        data: 35,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }, {
-        name: '成交量3',
-        data: 78,
-      }],
-      // series: data,
-      width: windowWidth,
-      height: 300,
-      dataLabel: true,
-    })
 
+    console.log(options)
+    let task_id = options.task_id
+    http._get('/task/' + task_id + '/statistic').then(res => {
+      let tempData = JSON.parse(res).statistics
+      // console.log('static data:', tempData)
+      tempData.forEach(function(item){
+        console.log(item)
+        let data = []
+        for(let i=0;i<10;++i){
+          data.push({ name: item.option_name[i], data: item.option_count[i]})
+        }
+        console.log(data)
+        pieChart = new wxCharts({
+          animation: true,
+          canvasId: 'pieCanvas',
+          type: 'pie',
+          series: data,
+          width: windowWidth,
+          height: 300,
+          dataLabel: true,
+        })
+      })
+
+    }).catch(e => {
+      console.log(e)
+    })
+    this.setData({
+      task_id: task_id
+    })
   },
 
   /**
