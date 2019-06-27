@@ -62,7 +62,7 @@ Page({
         let acceptance = JSON.parse(res.acceptance)
         item.status = acceptance.status
         item.feedback = acceptance.feedback
-        if (typeof acceptance.answer.answer != 'undefined') {
+        if (acceptance.answer && acceptance.answer.answer) {
           this.setData({
             answers: acceptance.answer.answer
           })
