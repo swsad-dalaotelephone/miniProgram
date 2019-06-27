@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    task_id: ''
+    task_id: '',
+    plotList: ["pieCanvas0","pieCanvas1"],
+    titleList: ['1', '2']
   },
   touchHandler: function (e) {
     console.log(pieChart.getCurrentDataIndex(e));
@@ -39,14 +41,22 @@ Page({
         let tempData = JSON.parse(res).statistics
         
         let question_count = 0;
+        let title_list = [];
         for (let i = 0; i < task.content.questions.length; i++) {
           if (task.content.questions[i].quest_type != kTypeChoice) continue;
-          tempData[question_count++].option_name = task.content.questions[i].quest_option;
+          title_list.push(task.content.questions[i].quest_title);
+          tempData[question_count].option_name = task.content.questions[i].quest_option;
+          ++question_count;
         }
+        this.setData({
+          titleList: title_list
+        });
         console.log('tempData:', tempData);
 
-        tempData.forEach(function(item){
+        tempData.forEach(function(item, index){
           console.log(item)
+          
+
           let data = []
           for(let i=0;i < item.option_name.length; ++i){
             data.push({ name: item.option_name[i], data: item.option_count[i]})
@@ -54,7 +64,7 @@ Page({
           console.log(data)
           pieChart = new wxCharts({
             animation: true,
-            canvasId: 'pieCanvas',
+            canvasId: 'pieCanvas'+index,
             type: 'pie',
             series: data,
             width: windowWidth,
