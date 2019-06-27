@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/auditlist/auditlist",
+    "pages/statistic/statistic",
     "pages/wechatlogin/wechatlogin",
     
     "pages/index/index",
@@ -19,12 +19,9 @@
     "pages/fulfiltask/fulfiltask",
     "pages/taskcomplete/taskcomplete",
     "pages/review/review",
+    "pages/auditlist/auditlist",
+    "pages/audit/audit" 
     
-    
-    
-    
-    "pages/audit/audit",
-    "pages/statistic/statistic"
   ],
   "window": {
     "backgroundTextStyle": "light",

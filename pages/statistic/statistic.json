@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "数据统计",
   "usingComponents": {
     "ec-canvas": "../../ec-canvas/ec-canvas"
   }

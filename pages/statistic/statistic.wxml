@@ -1,5 +1,10 @@
 <!--pages/statistic/statistic.wxml-->
-<view>
+<view class='titleBox'>
+  <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+  <text>统计结果</text>
+  <image class="smallIcon" />
+</view>
+<view class="panel">
   <view wx:for="{{titleList}}" wx:key="*this" class="container">
     <p>问题{{index+1}}：{{item}}</p>
     <canvas canvas-id="{{plotList[index]}}" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>

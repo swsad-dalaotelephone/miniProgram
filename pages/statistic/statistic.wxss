@@ -1,4 +1,6 @@
 /* pages/statistic/statistic.wxss */
-.container {
-  text-align: center;
+.container p{
+  text-align: left;
+  color: #77A9FD;
+  font-size: 36rpx;
 }
