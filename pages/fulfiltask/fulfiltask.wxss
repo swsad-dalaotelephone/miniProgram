@@ -56,15 +56,6 @@ page{
   background-color: #77a9fd
 }
 
-
-.textInputArea {
-  border: 1px solid #8e9094;
-  height: 100px;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
 .questionTitle {
   color: rgb(119, 169, 253);
 }
