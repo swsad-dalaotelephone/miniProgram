@@ -3,8 +3,6 @@
 .buttonLine{
     position: relative;
     margin-top: 40rpx;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 
@@ -48,4 +46,8 @@
   text-align: start;
   padding: 5rpx;
   color: rgb(88, 96, 105);
+}
+
+textarea {
+  width: 100%;
 }

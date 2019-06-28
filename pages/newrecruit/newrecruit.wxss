@@ -141,3 +141,9 @@ page{
 
 
 
+
+.smallIcon {
+  min-height: 50rpx;
+  min-width: 50rpx;
+  margin-top: -3rpx;
+}

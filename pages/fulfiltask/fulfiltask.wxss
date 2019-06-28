@@ -39,15 +39,6 @@ page{
   flex: 1 0 auto;
 }
 
-.bottom {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  /* border: 1px solid red;  */
-  flex-flow: row;
-  align-content: flex-start;
-}
-
 
 
 .page1 {

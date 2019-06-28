@@ -8,10 +8,12 @@ page{
 
 .panel {
   background-color: white;
-  margin: 30rpx;
+  margin: -50rpx 35rpx 20rpx 35rpx;
   padding: 40rpx;
-  margin-top: -50rpx;
+  position: relative;
   border-radius: 20rpx;
+  box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
+  z-index: 2;
 }
 .page__hd {
     padding: 40px;
@@ -22,6 +24,8 @@ page{
 .page__bd_spacing {
     padding-left: 15px;
     padding-right: 15px;
+    position: relative;
+    z-index: 1;
 }
 
 .page__ft{
@@ -66,10 +70,10 @@ page{
 }
 
 .Box{
-    margin-left: 40rpx;
-    width: 670rpx;
+    /* margin-left: 40rpx; */
+    /* width: 670rpx; */
     background-color: white;
-    border-radius: 5px;
+    border-radius: 20rpx;
     box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
     border: 1px solid rgba(255, 255, 255, 0);
 }
@@ -95,7 +99,7 @@ page{
     margin-top: 40rpx;
 
     /* 文字 */
-    color: #ACACAC;
+    color: black;
     font-size: 20px;
     text-align: left;
     font-family: Arial;
@@ -155,7 +159,6 @@ page{
     margin-left: 40rpx auto;
     margin-right: 40rpx auto;
     border-radius: 20rpx;
-
 }
     
 .recommendButton {
@@ -222,7 +225,7 @@ page{
   /* 颜色 */
   background-color: white;
   /* 文字 */
-  color: #ACACAC;
+  color: black;
   font-size: 32rpx;
   text-align: left;
   font-family: Arial; 
@@ -240,6 +243,13 @@ page{
   margin-bottom: 10rpx;
   padding: 20rpx 20rpx 20rpx 20rpx;
 }
+
+.buttonContainer {
+  display: flex;
+  direction: row;
+  align-content: center;
+}
+
 textarea {
   width: auto;
 }

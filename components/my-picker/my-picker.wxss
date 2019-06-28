@@ -8,7 +8,7 @@
   /* 颜色 */
   background-color: white;
   /* 文字 */
-  color: #ACACAC;
+  color: black;
   font-size: 32rpx;
   text-align: left;
   font-family: Arial; 

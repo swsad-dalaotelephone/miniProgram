@@ -41,15 +41,7 @@ page{
 }
 
 
-.head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;     /* 垂直居中 */
-  height: 90px;
-  color: white;
-  background-color: #77a9fd
-}
+
 
 .finishPanel {
   height: 200px;

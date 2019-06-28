@@ -28,7 +28,7 @@
               </view>
             </view>  
 
-            <view class='bottom'>
+            <view class='buttonContainer'>
               <button class="recommendButton" bindtap="handleSubmit">提交</button>
             </view>
         </view>

@@ -73,34 +73,6 @@ page{
   flex-direction: column
 }
 
-.head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;     /* 垂直居中 */
-  height: 90px;
-  color: white;
-  background-color: #77a9fd
-}
-
-
-/* .attrname {
-  text-align: center;
-  color: rgb(119, 169, 253);
-} */
-
-/* .picker{
-  width: 80%;
-} */
-
-/* .single-line-input {
-  width: 78%;
-  border: 1px solid #bdbdbd;
-  border-radius: 7px;
-  height: 100%;
-  padding: 1px 1px;
-} */
-
 .number-wrap {
   display: flex;
   flex-direction: row;

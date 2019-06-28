@@ -45,7 +45,7 @@
     line-height: 80rpx;
     vertical-align: center;
     padding-left: 10rpx;
-    color: #8e9094;
+    color: black;
     
 }
 

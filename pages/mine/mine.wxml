@@ -20,8 +20,8 @@
 <view class="titleBox" />
 
 <image class="setting" src="../../images/icons/setting.png"/>
-
-<view class="selfBox Box">
+<view class='page__bd_spacing'>
+  <view class="selfBox Box">
   <view class="selfieContainer">
     <open-data type="userAvatarUrl" class="selfie"></open-data>
     <view class="level Box">Lv.1</view>
@@ -51,4 +51,6 @@
     <view> 敬请期待 </view>
   </view>
 </view>
+</view>
+
 

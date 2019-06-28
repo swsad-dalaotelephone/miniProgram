@@ -4,7 +4,7 @@
   min-height: 50rpx;
   border: 1px solid #bdbdbd;
   border-radius: 15rpx;
-  color: #333;
+  color: #black;
   font-size: 32rpx;
   padding: 10rpx 20rpx 10rpx 20rpx;
 }

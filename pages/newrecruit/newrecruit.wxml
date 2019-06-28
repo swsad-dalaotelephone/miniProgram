@@ -17,7 +17,7 @@
                   <view class="attrname"> 描述：</view>
                 </i-col>
                 <i-col span="16" i-class="col-class">
-                  <view class="textarea-input">
+                  <view class="publishMultiLineInput">
                     <textarea class="" placeholder="活动描述" value="{{task.content.recruit_des}}" bindinput="bindDescriptionInput"/>
                   </view>                
                 </i-col>
@@ -86,7 +86,7 @@
                       <i-row>
                           <i-col span="3" i-class="col-class">
                             <view class="addOptionButton">
-                              <i-icon type="add" bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"> </i-icon>  
+                              <image class='smallIcon' src='../../images/icons/add.png' bindtap='handleAddOption' data-index="{{index}}"size="20" color="#1e98ea" wx:if="{{idx == 0}}"></image>
                             </view>
                           </i-col>
                           <i-col span="2" i-class="col-class">
@@ -107,7 +107,6 @@
                   </view>
 
                   <view class="TextPanel" wx:if="{{item.quest_type == kTypeText}}">
-                    <textarea placeholder="(填空题多行输入)" disabled='true' class="textInputArea"/>
                   </view>  
                 </view>
 
@@ -123,7 +122,7 @@
               </view>
             </i-row>
           </view>
-          <view class=''>
+          <view class='buttonContainer'>
             <button class="recommendButton" bindtap="handleNextStep">下一步</button>
           </view>
       </view>

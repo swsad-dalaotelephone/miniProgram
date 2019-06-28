@@ -8,8 +8,7 @@
   </view>
 
   <view class="panel" >
-      <view class="newTaskPanel">  
-        <view class="main-content">
+    
           
           <view class="description">
             <textarea class="publishMultiLineInput" placeholder="问卷描述" value="{{task.content.quest_des}}" bindinput="bindDescriptionInput"/>
@@ -69,12 +68,10 @@
               <image class="image-button" src="../../images/addChoice.png"></image>
             </view>  
           </view>
-        </view>
 
-        <view >
+        <view class="buttonContainer">
           <button class='recommendButton' bindtap="handleNextStep">下一步</button>
         </view>     
-      </view>
   </view>
 </view>
 

@@ -46,5 +46,8 @@
             <!-- TODO -->
         </view>
     </view>
+    <view class='buttonContainer'>
     <button class='recommendButton' form-type='submit'>保存</button>
+    </view>
+    
 </form>

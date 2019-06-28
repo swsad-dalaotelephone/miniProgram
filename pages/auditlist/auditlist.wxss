@@ -1,40 +1,5 @@
-button {
-    width: 250rpx;
-    height: 80rpx;
-    background-color: #77A9FD;
-    color: rgba(255, 255, 255, 1);
-    font-size: 40rpx;
-    text-align: center;
-    font-family: Arial;
-    border-radius: 4px;
-    box-shadow: 0px 0px 10px 0px rgba(190, 211, 254, 1);
-    border: 1px solid rgba(255, 255, 255, 0);
-    float: left;
-}
-
-
- .tab {
-    /* float: left; */
-
-
- }
-
-
-.selected {
-    text-decoration: none;
-    /* color: white; */
-    background-color: #ecf5fc;
-    background-size:contain;
-    color: #77A9FD;
-    border-radius: 10rpx;
-    margin-left: 30rpx;
-}
-
-.unselected {
-    display: inline;
-    text-decoration: underline;
-    color: #BED3FE;
-    margin-right: 30rpx;
+.panelPlus {
+  margin-top: 20rpx;
 }
 
 .invisible {
@@ -53,11 +18,7 @@ button {
   flex-direction: row;
   justify-content: space-between;
 }
-.detailBox .buttonLine {
-    height: 100rpx;
-    margin-top: 20rpx;
-    
-}
+
 .btnEnd, .btnViewStat {
   flex: 1 0 auto;
 }
@@ -76,7 +37,7 @@ button {
 
 
 .auditList {
-    margin-top: 40rpx;
+    margin-top: 20rpx;
 }
 
 .auditList .auditItem {
@@ -85,18 +46,9 @@ button {
     overflow: hidden;
 }
 
-.auditList .auditItem image {
-    width: 100rpx;
-    height: 100rpx;
-    float: left;
-    background-color: greenyellow;
-    margin-left: 20rpx;
-    margin-top: 15rpx;
-}
-
 .auditList .auditItem .text {
     float: left;
-    font-size: 35rpx;
+    font-size: 36rpx;
     margin-left: 20rpx;
     margin-top: 30rpx;
 }
@@ -126,8 +78,4 @@ button {
 
 .finished {
     background-color: #93EEB6;
-}
-
-.panelPlus {
-  margin-top:30rpx;
 }

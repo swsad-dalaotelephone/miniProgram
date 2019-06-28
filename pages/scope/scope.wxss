@@ -77,24 +77,10 @@ page{
   flex-direction: column
 }
 
-.head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;     /* 垂直居中 */
-  height: 90px;
-  color: white;
-  background-color: #77a9fd
-}
 
 .icon {
   height: 28px;
   width: 28px;
-}
-
-.attrname {
-  text-align: center;
-  color: rgb(119, 169, 253);
 }
 
 .picker {
