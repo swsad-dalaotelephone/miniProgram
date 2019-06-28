@@ -203,7 +203,7 @@ Page({
 			console.log("测试url", url)
 			let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=false&feedback=' + this.data.feedbackInput;
       console.log('result: ', result);
-			http._put(url, result, 'application/x-www-form-urlencoded')
+			http._post(url, result, 'application/x-www-form-urlencoded')
 				.then(res => {
 					wx.showToast({
 						title: '审核成功',
@@ -237,7 +237,7 @@ Page({
 		let url = '/task/' + this.data.submitInfo.task_id + '/acceptance/result'
 		let result = 'accepter_id=' + this.data.submitInfo.accepter_id + '&result=true&feedback=' + this.data.feedbackInput
 		console.log(result)
-		http._put(url, result, 'application/x-www-form-urlencoded')
+		http._post(url, result, 'application/x-www-form-urlencoded')
 			.then(res => {
 				wx.showToast({
 					title: '审核成功',

@@ -123,7 +123,7 @@ Page({
       }
     }
     console.log('submit answer: ', answers);
-    http._put('/task/' + this.data.task_id + '/acceptance/answer', 'answer=' + JSON.stringify({answer:answers}),'application/x-www-form-urlencoded').then(res => {
+    http._post('/task/' + this.data.task_id + '/acceptance/answer', 'answer=' + JSON.stringify({answer:answers}),'application/x-www-form-urlencoded').then(res => {
       console.log(res);
       wx.showToast({
         title: '提交成功',
