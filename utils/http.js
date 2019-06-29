@@ -1,5 +1,5 @@
-// const baseUrl = 'https://api.baobaozhuan.cn';
-const baseUrl = 'https://182.254.170.203';
+const baseUrl = 'https://api.baobaozhuan.cn';
+// const baseUrl = 'https://182.254.170.203';
 
 const http = ({
 	url = '',
