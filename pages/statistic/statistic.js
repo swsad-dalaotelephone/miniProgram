@@ -10,8 +10,8 @@ Page({
    */
   data: {
     task_id: '',
-    plotList: ["pieCanvas0","pieCanvas1"],
-    titleList: ['1', '2']
+    plotList: [],
+    titleList: []
   },
   touchHandler: function (e) {
     console.log(pieChart.getCurrentDataIndex(e));
