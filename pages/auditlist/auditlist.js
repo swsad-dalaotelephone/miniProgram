@@ -232,7 +232,7 @@ Page({
 	// 终止任务
 	endTask: function (e) {
 		let task_id = this.data.task_id
-		http._put("/task/" + task_id + "/status")
+		http._post("/task/" + task_id + "/status")
 			.then(res => {
 				wx.showToast({
 					title: '任务已成功终止',
