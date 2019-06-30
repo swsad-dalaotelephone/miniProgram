@@ -124,8 +124,8 @@ page{
     float: left;
     font-size: 40rpx;
     margin-left:30rpx;
-    margin-top:18rpx;    
-}
+    height: 100%;
+  }
 
 .confirmButton{
     /* 框，边距 */

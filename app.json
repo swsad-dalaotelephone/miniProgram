@@ -1,12 +1,11 @@
 {
   "pages": [
+    "pages/login/login",
     
     "pages/wechatlogin/wechatlogin",
     "pages/register/register",
     "pages/index/index",
     "pages/task/task",
-    "pages/login/login",
-   
     "pages/newrecruit/newrecruit",
     "pages/newquestionnaire/newquestionnaire",
     "pages/receive/receive",
