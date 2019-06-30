@@ -61,14 +61,13 @@ Page({
           tempData[question_count].option_name = task.content.questions[i].quest_option;
           ++question_count;
         }
-        this.setData({
-          titleList: title_list
-        });
+        
         console.log('tempData:', tempData);
 
+        let tempPlotList = [];
         tempData.forEach(function(item, index){
           console.log(item)
-          
+          tempPlotList.push('pieCanvas' + index)
 
           let data = []
           for(let i=0;i < item.option_name.length; ++i){
@@ -85,7 +84,10 @@ Page({
             dataLabel: true,
           })
         })
-
+        this.setData({
+          titleList: title_list,
+          plotList: tempPlotList
+        });
       }).catch(e => {
         console.log(e)
       })

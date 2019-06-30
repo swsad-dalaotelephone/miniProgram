@@ -1,15 +1,20 @@
 <!--pages/statistic/statistic.wxml-->
 <view class='titleBox'>
-  <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn'/>
+  <image class="smallIcon" src='../../images/icons/back.png' bindtap='handleReturn' />
   <text>统计结果</text>
   <image class="smallIcon" />
 </view>
-<view class="panel">
-  <view wx:for="{{titleList}}" wx:key="*this" class="container">
-    <p>问题{{index+1}}：{{item}}</p>
-    <canvas canvas-id="{{plotList[index]}}" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
-  </view>
+<view class="panel" wx:if="{{titleList.length == 0}}">
+  没有提交记录
 </view>
-<view>
-  <button class='recommendButton' bindtap='handleTap1'>下载分析结果</button>
+<view wx:else>
+  <view class="panel">
+    <view wx:for="{{titleList}}" wx:key="*this" class="container">
+      <p>问题{{index+1}}：{{item}}</p>
+      <canvas canvas-id="{{plotList[index]}}" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+    </view>
+  </view>
+  <view>
+    <button class='recommendButton' bindtap='handleTap1'>下载分析结果</button>
+  </view>
 </view>

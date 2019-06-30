@@ -120,7 +120,7 @@ Page({
 			.then(res => {
 				app.globalData.userInfo = JSON.parse(res.user)
 				wx.switchTab({
-					url: '/pages/task/task',
+					url: '/pages/index/index',
 				})
 				wx.showToast({
 					title: '登陆成功',
